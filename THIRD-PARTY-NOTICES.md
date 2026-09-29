@@ -5,6 +5,7 @@ Portway uses the following independently maintained packages. The distributed ap
 | Component | Version | License / source |
 |---|---|---|
 | .NET / ASP.NET Core | 10 | MIT, https://github.com/dotnet/runtime and https://github.com/dotnet/aspnetcore |
+| System.Security.Cryptography.ProtectedData | 10.0.0 | MIT, https://github.com/dotnet/runtime |
 | Photino.NET | 4.0.16 | Apache-2.0, https://github.com/tryphotino/photino.NET |
 | Photino.Native | 4.0.22 | Apache-2.0, https://github.com/tryphotino/photino.Native |
 | SSH.NET | 2026.0.0 | MIT, https://github.com/sshnet/SSH.NET |

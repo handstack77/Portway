@@ -507,7 +507,8 @@ input:not(:where(.monaco-editor *))[type="checkbox"] {
 }
 .filelist table {
   width: 100%;
-  border-collapse: collapse;
+  border-collapse: separate;
+  border-spacing: 0;
   table-layout: fixed;
   font-size: 14px;
 }
@@ -525,6 +526,7 @@ input:not(:where(.monaco-editor *))[type="checkbox"] {
   top: 0;
   z-index: 1;
   background: var(--canvas);
+  box-shadow: 0 -2px 0 var(--canvas);
 }
 .filelist th {
   font-weight: 500;

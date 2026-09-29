@@ -1,0 +1,43 @@
+{
+  "source": [
+    "src/Portway.Desktop/ProfileStore.cs",
+    "src/Portway.Desktop/VaultAutoUnlock.cs",
+    "src/Portway.Desktop/wwwroot/app.js",
+    "tests/Portway.Tests/CoreTests.cs"
+  ],
+  "scope": "Vault 자동 잠금 해제 및 저장 해제",
+  "limits": [
+    "macOS Keychain and Linux Secret Service runtime untested",
+    "Native OS windows and real remote server authentication untested"
+  ],
+  "date": "2026-09-30T08:32:14.4391033+09:00",
+  "host": "Microsoft Windows 10.0.26200",
+  "checks": [
+    {
+      "passed": 49,
+      "failed": 0,
+      "command": "dotnet test tests/Portway.Tests/Portway.Tests.csproj -c Release --filter CoreTests|AdvancedTests|SiteArchiveTests|DesktopApiTests --no-restore",
+      "skipped": 0
+    },
+    {
+      "passed": 31,
+      "failed": 0,
+      "command": "npm test --prefix assets/frontend",
+      "skipped": 0
+    },
+    {
+      "command": "npm run format:check --prefix assets/frontend",
+      "result": "passed"
+    },
+    {
+      "command": "dotnet build src/Portway.Desktop/Portway.Desktop.csproj -c Debug --artifacts-path artifacts/qa/<isolated>",
+      "result": "passed; warnings=0; errors=0"
+    },
+    {
+      "result": "vault restored after restart; direct site connection request; uncheck removed secret and auto registration",
+      "remoteServer": "unreachable test address",
+      "command": "Windows headless host with Chromium and isolated profile",
+      "mockApi": false
+    }
+  ]
+}

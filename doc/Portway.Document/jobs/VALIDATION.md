@@ -1,5 +1,9 @@
 # Portway 최신 검증 결과
 
+2026-09-30 표기 변경: 코드·화면·문서의 해당 한국어 용어를 `Vault`로 교체했습니다. Windows Release 소스에서 `dotnet test Portway.slnx -c Release --no-restore`는 96개 통과·25개 조건부 건너뜀, `npm test --prefix assets/frontend`는 31개 통과, 프런트엔드 포맷 검사와 문서 빌드가 통과했습니다. 격리된 headless 호스트와 Chromium에서 설정 및 사이트 팝업의 새 표기를 라이트/다크 테마와 980×680 화면에서 확인했습니다. 설치 패키지와 macOS·Linux 네이티브 UI는 이 표기 변경에서 재검증하지 않았습니다.
+
+현재 개발 소스의 Vault 자동 잠금 해제와 Windows 격리 프로필 재시작 검사는 [Vault 자동 잠금 해제 보고서](VALIDATION-vault-auto-unlock-20260930.md)에 기록했습니다. macOS·Linux OS 비밀 저장소와 실제 원격 서버 연결은 해당 변경에서 검증하지 않았습니다.
+
 문서·검증 기록을 `doc/Portway.Document` 아래로 옮긴 결과는 [문서 저장 경로 검증](VALIDATION-document-storage.md)에 있습니다. 기존 58개 파일의 이동·해시 보존, 링크와 프로젝트 등록, 새 경로의 검증 JSON 생성 및 기존 기록 보호를 확인했습니다.
 
 버전별 ZIP과 변경분 업데이트의 최신 검사는 [패키징 검증 보고서](VALIDATION-versioned-packaging.md)에 있습니다. 게시·업데이트 계약 19개와 실제 패키지 검사 3개가 통과했습니다. 아래 수치는 이전 작업의 검증 기록입니다.

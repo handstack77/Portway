@@ -28,7 +28,7 @@ Photino와 ASP.NET Core로 만든 Windows · macOS · Linux 파일 전송 앱입
 - 영속 전송 큐, 앱 재시작 후 재개, 1–8개 동시 전송, 우선순위·예약·자동 재시도, 속도 제한
 - 단방향/양방향 동기화, 변경 부분 선택·충돌 방향 지정, 마스크, 체크섬 재검사, 지속 동기화
 - 16 MiB Monaco 내부 편집기(구문 강조·찾기/바꾸기·언어 선택·자동 줄바꿈), UTF-8/16/32·cp949, 외부 편집기 자동 업로드·충돌 보호, 대화형 SSH 터미널
-- SSH 지문 고정, OpenSSH/PPK·Agent·MFA, HTTP/SOCKS 프록시, 점프 서버, TLS 인증서 핀, 암호화 금고
+- SSH 지문 고정, OpenSSH/PPK·Agent·MFA, HTTP/SOCKS 프록시, 점프 서버, TLS 인증서 핀, 암호화 Vault
 - WinSCP INI 가져오기, WinSCP 6.5.7과 교차 검증한 SFTP 파일/이름 암호화
 - 원격 복사·검색·해시·속성, 재귀 권한·소유자, 링크, 복원 가능한 로컬/원격 휴지통
 - [CLI 및 .NET 자동화 API](doc/Portway.Document/docs/AUTOMATION.md), 사용자 SSH 명령
@@ -56,7 +56,7 @@ sudo apt-get install libgtk-3-0 libwebkit2gtk-4.1-0 libnotify4 libfuse2t64
 
 Linux AppImage는 실행 권한을 지정한 뒤 실행합니다. FUSE가 없는 환경에서는 `--appimage-extract-and-run`을 사용할 수 있습니다. UI에는 그래픽 세션이 필요합니다.
 
-첫 연결에서 서버 정보를 입력하고 SSH 지문을 서버 관리자가 제공한 값과 비교하세요. 암호를 저장하려면 사이드바의 **설정 및 업데이트 → 암호화 금고**에서 12자 이상의 마스터 암호를 설정합니다. 마스터 암호를 잃으면 저장한 암호를 복구할 수 없습니다.
+첫 연결에서 서버 정보를 입력하고 SSH 지문을 서버 관리자가 제공한 값과 비교하세요. 암호를 저장하려면 사이드바의 **설정 및 업데이트 → 암호화 Vault**에서 12자 이상의 마스터 암호를 설정합니다. 마스터 암호를 잃으면 저장한 암호를 복구할 수 없습니다.
 
 `F2` 이름 변경, `F4` 편집, `F5` 전송, `F7` 새 폴더, `Delete` 휴지통 이동, `Ctrl+A` 전체 선택, 방향키/Enter로 탐색합니다. 파일 메뉴의 영구 삭제는 휴지통을 거치지 않습니다.
 

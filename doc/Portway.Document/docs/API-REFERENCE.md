@@ -17,7 +17,7 @@
 | 401 | 없거나 잘못된 Bearer 토큰 |
 | 403 | 허용되지 않은 Host 또는 Origin |
 | 404 | 없는 파일·종료된 연결·없는 작업 등 |
-| 409 | 편집 충돌, 금고 잠금 등 InvalidOperationException 작업 상태 오류 |
+| 409 | 편집 충돌, Vault 잠금 등 InvalidOperationException 작업 상태 오류 |
 
 일반 작업 오류는 `{ "title": "요청을 완료하지 못했습니다", "detail": "오류 설명", "status": 409 }` 형태입니다. 인증·Host·Origin 거부에는 같은 JSON 본문을 가정하지 않습니다. HTTP 파이프라인·요청 바인딩 오류는 프레임워크 응답이 될 수 있습니다.
 
@@ -35,7 +35,7 @@ JSON 필드는 camelCase입니다. 정확한 필드·기본값은 [Models.cs](..
 | SyncRequest | `sessionId`, `localPath`, `remotePath`, `direction`, `deleteExtraneous`, `options`, `comparison` |
 | SyncApplyRequest | 선택적 `selected`, `resolutions`; 변경 선택·충돌 방향 |
 | ImportRequest | `content`; Portway JSON 또는 지원되는 WinSCP INI 문자열 |
-| PasswordRequest | `password`; 금고 잠금 해제 |
+| PasswordRequest | `password`; Vault 잠금 해제 |
 | PermissionRequest | `path`, `octal`, `recursive`, `owner`, `group` |
 | TerminalRequest / TerminalInput | `sessionId`, `columns`, `rows` / `data`, 선택적 크기 |
 | AuthenticationReply | `answers`; 추가 인증 질문 응답 또는 취소 |
@@ -103,6 +103,8 @@ JSON 필드는 camelCase입니다. 정확한 필드·기본값은 [Models.cs](..
 | GET | `/preferences` |
 | POST | `/commands/run` |
 | PUT | `/preferences` |
+
+`GET /vault`와 Vault 잠금·잠금 해제 응답은 `configured`, `unlocked`, `automaticUnlock`을 반환합니다. 마지막 값은 현재 프로필의 OS 사용자 보호 저장소에 Vault 키가 등록된 상태를 나타냅니다.
 
 ### Synchronization
 

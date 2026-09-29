@@ -19,7 +19,7 @@ public static class SiteArchive
         Encoder = JavaScriptEncoder.Create(UnicodeRanges.All),
         MaxDepth = 16
     };
-    // 금고 상태와 관계없이 비밀을 제거하며, 암호화 사용 여부는 보존해 평문 전송을 방지합니다.
+    // Vault 상태와 관계없이 비밀을 제거하며, 암호화 사용 여부는 보존해 평문 전송을 방지합니다.
     public static Site Metadata(Site site)
     {
         if (site.Proxy == null)

@@ -21,7 +21,7 @@
 | 분석하려는 기능 | UI → API → 작업 처리 | 먼저 읽을 테스트 |
 | --- | --- | --- |
 | 첫 실행·빈 화면·F12 | `app.js: boot` → `Program.cs`, `DesktopHosting.cs` | `DesktopApiTests`; 실제 Windows Debug 시작·재시작 |
-| 사이트·금고·가져오기 | `siteDialog`, `importDialog` → `DesktopApi.Profiles.cs` → `ProfileStore`, `SiteExportService`, Core `SiteArchive`, `SiteSecrets` | `SiteArchiveTests`, `CoreTests` |
+| 사이트·Vault·가져오기 | `siteDialog`, `importDialog` → `DesktopApi.Profiles.cs` → `ProfileStore`, `SiteExportService`, Core `SiteArchive`, `SiteSecrets` | `SiteArchiveTests`, `CoreTests` |
 | 서버 연결·지문·추가 인증 | `connect`, `advanced.js` → `DesktopApi.Connections.cs` → `Connections`, `AuthenticationBroker` → Core `RemoteFactory`, `Protocols` | `AdvancedTests`, `AdvancedProtocolTests`, `ProtocolTests` |
 | 목록·선택·단축키·드래그 | `load`, `renderPane`, `explorer.js`, `selection.js` → `DesktopApi.Files.cs` → `LocalFiles`, `Connections.Use` | `assets/frontend/tests/explorer.test.mjs`, `selection.test.mjs`; 실제 브라우저 흐름 |
 | 업로드·다운로드·이어하기 | `transfer` → `DesktopApi.Transfers.cs` → `TransferQueue`, `QueueJournal` → Core `TransferOperations` | `TransferRecoveryTests`, `ProtocolTests` |
@@ -46,7 +46,7 @@
 
 | 데이터 | 담당 코드 | 확인할 조건 |
 | --- | --- | --- |
-| 사이트·금고·설정 | `ProfileStore`, Core `SiteSecrets` | 잠금·비밀 제거·기존 설정 읽기·가져오기 새 ID |
+| 사이트·Vault·설정 | `ProfileStore`, Core `SiteSecrets` | 잠금·비밀 제거·기존 설정 읽기·가져오기 새 ID |
 | 전송 체크포인트 | `QueueJournal`, `TransferQueue` | 중단 후 일시정지 복원·원본 변경·서버/키 일치·부분 파일 |
 | 외부 드롭 staging | `DropStore` | 완성된 배치만 commit·재시도 중 보존·사용 중 파일 정리 금지 |
 | 지속 동기화·외부 편집 | `LiveSyncService`, `ExternalEditorService` | 종료·재시작 상태·충돌·복구용 파일 |

@@ -50,6 +50,85 @@ public class CoreTests : IDisposable
     }
 
     [Fact]
+    public void SavedPasswordAutomaticallyUnlocksAfterRestartUntilStorageIsUnchecked()
+    {
+        if (!OperatingSystem.IsWindows())
+            return;
+        var config = new ConfigurationBuilder().AddInMemoryCollection(new Dictionary<string, string?> { ["Portway:DataPath"] = root }).Build();
+        var site = new Site { Host = "localhost", Username = "user", Password = "SENSITIVE-restart", SavePassword = true };
+        using (var store = new ProfileStore(config))
+        {
+            store.Unlock("a-long-test-master-password");
+            store.Save(site);
+            Assert.True(File.Exists(Path.Combine(root, "vault-auto.json")));
+            Assert.DoesNotContain(site.Password!, File.ReadAllText(Path.Combine(root, "vault-auto.json")));
+        }
+
+        using (var reopened = new ProfileStore(config))
+        {
+            Assert.True(reopened.IsUnlocked);
+            var saved = Assert.Single(reopened.List());
+            Assert.Equal(site.Password, reopened.Hydrate(saved).Password);
+            reopened.Save(saved);
+            Assert.Equal(site.Password, reopened.Hydrate(Assert.Single(reopened.List())).Password);
+            reopened.Save(Assert.Single(reopened.List()) with { SavePassword = false });
+            Assert.False(Assert.Single(reopened.List()).HasPassword);
+            Assert.False(File.Exists(Path.Combine(root, "vault-auto.json")));
+        }
+
+        using var afterUncheck = new ProfileStore(config);
+        Assert.False(afterUncheck.IsUnlocked);
+    }
+
+    [Fact]
+    public void ExplicitVaultLockDisablesAutomaticUnlockUntilNextMasterUnlock()
+    {
+        if (!OperatingSystem.IsWindows())
+            return;
+        var config = new ConfigurationBuilder().AddInMemoryCollection(new Dictionary<string, string?> { ["Portway:DataPath"] = root }).Build();
+        var site = new Site { Host = "localhost", Username = "user", Password = "SENSITIVE-lock", SavePassword = true };
+        using (var store = new ProfileStore(config))
+        {
+            store.Unlock("a-long-test-master-password");
+            store.Save(site);
+            store.Lock();
+            Assert.False(store.IsUnlocked);
+            Assert.False(File.Exists(Path.Combine(root, "vault-auto.json")));
+        }
+        using (var reopened = new ProfileStore(config))
+        {
+            Assert.False(reopened.IsUnlocked);
+            reopened.Unlock("a-long-test-master-password");
+        }
+        using var afterUnlock = new ProfileStore(config);
+        Assert.True(afterUnlock.IsUnlocked);
+        Assert.Equal(site.Password, afterUnlock.Hydrate(Assert.Single(afterUnlock.List())).Password);
+    }
+
+    [Fact]
+    public void CorruptedAutomaticUnlockDataNeverBypassesTheMasterPassword()
+    {
+        if (!OperatingSystem.IsWindows())
+            return;
+        var config = new ConfigurationBuilder().AddInMemoryCollection(new Dictionary<string, string?> { ["Portway:DataPath"] = root }).Build();
+        using (var store = new ProfileStore(config))
+        {
+            store.Unlock("a-long-test-master-password");
+            store.Save(new Site { Host = "localhost", Username = "user", Password = "SENSITIVE-corrupt", SavePassword = true });
+        }
+        File.WriteAllText(Path.Combine(root, "vault-auto.json"), "{\"platform\":\"windows\",\"id\":\"" + Guid.NewGuid().ToString("N") + "\",\"protectedKey\":\"invalid\"}");
+        using (var reopened = new ProfileStore(config))
+        {
+            Assert.False(reopened.IsUnlocked);
+            Assert.Throws<InvalidOperationException>(() => reopened.Hydrate(Assert.Single(reopened.List())));
+            reopened.Unlock("a-long-test-master-password");
+            Assert.True(reopened.IsUnlocked);
+        }
+        using var restored = new ProfileStore(config);
+        Assert.True(restored.IsUnlocked);
+    }
+
+    [Fact]
     public void EditorRejectsConcurrentModification()
     {
         var path = Path.Combine(root, "document.txt");

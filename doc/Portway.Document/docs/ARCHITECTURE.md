@@ -7,7 +7,7 @@
 | 프로젝트 | 책임 | 직접 참조하는 프로젝트 |
 | --- | --- | --- |
 | Portway.Core | 프로토콜, 경로·파일 정책, 전송·동기화, 암호화, 프로세스 내부 자동화 | 없음 |
-| Portway.Desktop | Photino 창, 인증된 loopback API, 프로필·금고, 영속 큐와 작업 서비스, 웹 UI | Core |
+| Portway.Desktop | Photino 창, 인증된 loopback API, 프로필·Vault, 영속 큐와 작업 서비스, 웹 UI | Core |
 | Portway.Cli | 명령줄 입력과 종료 코드, ScriptEngine 실행 | Core |
 | Portway.Server | 릴리스 ZIP 검증·게시·다운로드와 배포 대시보드 | 없음 |
 | Portway.Tests | Core·Desktop·Server의 단위·API·조건부 통합 검사 | Core, Desktop, Server |
@@ -22,7 +22,7 @@ flowchart LR
     Automation --> Core
     Core --> Local[내 컴퓨터 파일]
     Core --> Remote[SFTP / SCP / FTP / FTPS / WebDAV / S3]
-    Services --> Profile[프로필 · 금고 · 큐 저널]
+    Services --> Profile[프로필 · Vault · 큐 저널]
     Services -->|업데이트 확인 · 다운로드| Server[Portway.Server]
     VPK[대상 OS의 vpk 패키징] -->|인증된 ZIP 게시| Server
 ```
@@ -50,7 +50,7 @@ Server는 업데이트 패키지를 제공합니다. 원격 파일 전송은 Des
 
 | 기능 | API 등록 파일 | 작업 소유자 |
 | --- | --- | --- |
-| 사이트·금고·설정·저장된 명령 | `DesktopApi.Profiles.cs` | ProfileStore, SiteExportService, Connections |
+| 사이트·Vault·설정·저장된 명령 | `DesktopApi.Profiles.cs` | ProfileStore, SiteExportService, Connections |
 | 지문·인증·세션 | `DesktopApi.Connections.cs` | AuthenticationBroker, Connections, Core 프로토콜 |
 | 파일 탐색·읽기·쓰기·파일 작업 | `DesktopApi.Files.cs` | LocalFiles, Connections, RemoteTextFiles, Core 파일 정책 |
 | 전송·외부 드롭 | `DesktopApi.Transfers.cs` | TransferQueue, DropStore |
@@ -66,7 +66,7 @@ Server는 업데이트 패키지를 제공합니다. 원격 파일 전송은 Des
 
 Factory는 일반 구현을 `GuardedRemote`로 감싸 목록 이름과 경로를 검사합니다. 파일 암호화·점프 서버를 설정한 연결에는 각각 `EncryptedFileSystem`, `TunneledFileSystem`을 구성합니다. 기능은 `Capabilities`를 확인해 실행해야 하며 특정 프로토콜이 지원하지 않는 명령·권한·링크 작업을 임의로 우회하지 않습니다.
 
-[Connections](../../../src/Portway.Desktop/Connections.cs)는 UI 연결을 관리합니다. `Connect`는 금고에서 필요한 비밀을 복원하고 연결·초기 목록 조회를 완료한 뒤 ID를 등록합니다. `Use`는 연결별 semaphore로 작업을 직렬화하며 `Disconnect`는 진행 작업과 연결 자원 정리를 조정합니다. 전송 큐와 동기화는 별도 파일 시스템 연결을 만들어 UI 탐색과 작업 수명을 분리합니다.
+[Connections](../../../src/Portway.Desktop/Connections.cs)는 UI 연결을 관리합니다. `Connect`는 Vault에서 필요한 비밀을 복원하고 연결·초기 목록 조회를 완료한 뒤 ID를 등록합니다. `Use`는 연결별 semaphore로 작업을 직렬화하며 `Disconnect`는 진행 작업과 연결 자원 정리를 조정합니다. 전송 큐와 동기화는 별도 파일 시스템 연결을 만들어 UI 탐색과 작업 수명을 분리합니다.
 
 ## 전송과 재시작 복구
 

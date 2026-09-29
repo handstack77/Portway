@@ -5,7 +5,7 @@ namespace Portway.Desktop;
 
 public static partial class DesktopApi
 {
-    // 역할: 프로필·사이트·금고·설정과 저장된 사용자 명령. 기존 /api 그룹에 경로를 등록합니다.
+    // 역할: 프로필·사이트·Vault·설정과 저장된 사용자 명령. 기존 /api 그룹에 경로를 등록합니다.
     static void MapProfiles(RouteGroupBuilder api)
     {
         api.MapGet("/info", () => new

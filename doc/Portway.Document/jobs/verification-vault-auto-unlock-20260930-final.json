@@ -1,0 +1,38 @@
+{
+  "limits": [
+    "macOS Keychain and Linux Secret Service runtime untested",
+    "Native app window and real remote server authentication untested"
+  ],
+  "host": "Microsoft Windows 10.0.26200",
+  "browser": {
+    "remoteServer": "unreachable test address",
+    "mockApi": false,
+    "profile": "isolated Windows QA profile",
+    "sourceBuild": "artifacts/qa/vault-build-a2c8161e81494b9f8651ed9832962d73",
+    "result": "saved secret restored after restart; direct connection POST; unchecking cleared secret marker"
+  },
+  "checks": [
+    {
+      "command": "dotnet test Portway.slnx -c Release --no-restore",
+      "failed": 0,
+      "skipped": 25,
+      "passed": 96
+    },
+    {
+      "result": "passed with workspace load warning",
+      "command": "dotnet format whitespace Portway.slnx --no-restore --verify-no-changes --include src/Portway.Desktop/ProfileStore.cs src/Portway.Desktop/VaultAutoUnlock.cs tests/Portway.Tests/CoreTests.cs"
+    },
+    {
+      "result": "passed",
+      "command": "git diff --check"
+    }
+  ],
+  "source": [
+    "src/Portway.Desktop/ProfileStore.cs",
+    "src/Portway.Desktop/VaultAutoUnlock.cs",
+    "src/Portway.Desktop/wwwroot/app.js",
+    "tests/Portway.Tests/CoreTests.cs"
+  ],
+  "date": "2026-09-30T08:34:31.2444516+09:00",
+  "scope": "Vault 자동 잠금 해제 최종 재검증"
+}

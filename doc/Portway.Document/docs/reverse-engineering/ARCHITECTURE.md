@@ -25,7 +25,7 @@ Server가 Desktop의 파일 전송을 중계하지 않습니다. Desktop 실행 
 | 영역 | 책임과 의존 관계 |
 | --- | --- |
 | Core | `IRemoteFileSystem`, Site·Entry·Capabilities, 프로토콜, 경로 보호·암호화, 전송·동기화와 자동화. 프로젝트 참조 없음, UI 의존 없음 |
-| Desktop | Core 참조. Photino 창·Kestrel loopback API·프로필·금고·영속 큐·작업 서비스·ES 모듈 UI |
+| Desktop | Core 참조. Photino 창·Kestrel loopback API·프로필·Vault·영속 큐·작업 서비스·ES 모듈 UI |
 | CLI | Core 참조. 명령줄·스크립트 입력, 취소와 종료 코드. Photino·Desktop API 의존 없음 |
 | Server | 릴리스 게시·피드·파일 저장소·다운로드 대시보드. Core·Desktop 프로젝트 참조 없음 |
 | Frontend 자산 | 고정 npm 버전으로 Tabler·Icons·Master CSS·Noto Sans KR·Monaco·xterm 등을 로컬 자산으로 생성. 런타임 CDN 불필요 |
@@ -82,7 +82,7 @@ flowchart TD
 | --- | --- | --- |
 | UI → Desktop HTTP | IPv4 loopback listen, Host `127.0.0.1`, 실행 Bearer의 고정 시간 비교, 존재하는 Origin의 동일 출처 검사, API no-store, CSP·보안 헤더 | 네트워크 공개 API가 아님. 인증 URL·QA 토큰을 문서나 로그에 공유하지 않음 |
 | Core → 파일 서버 | SSH 지문, TLS 검증과 정확한 핀, 사이트·인증 설정 검증 | 지문 조회가 서버 신뢰 확인을 자동 대체하지 않음. 서버·인증 조합별 실제 검증 필요 |
-| 메모리 → 저장·내보내기 | ProfileStore의 PBKDF2/AES-GCM 금고, `SiteSecrets.Public/Map`, 잠금·종료 시 키 초기화 | 금고와 파일 암호화는 별개. 공개 모델 제거와 실제 필요한 비밀 검증을 구분 |
+| 메모리 → 저장·내보내기 | ProfileStore의 PBKDF2/AES-GCM Vault, `SiteSecrets.Public/Map`, 잠금·종료 시 키 초기화 | Vault와 파일 암호화는 별개. 공개 모델 제거와 실제 필요한 비밀 검증을 구분 |
 | 외부 경로 → 파일 작업 | `RemotePaths/GuardedRemote`, 로컬 전송의 동일·포함 경로·링크 검사, DropStore 전용 staging 검증 | 사용자 삭제·덮어쓰기 확인과 충돌 정책 필요. 외부 파일 시스템 전체에 대한 샌드박스는 아님 |
 | 게시자 → Server → 업데이트 | 별도 게시 Bearer, ZIP 이탈·중복·링크·크기·피드 검사, 패키지 해시와 불변성, 피드 마지막 교체 | 피드에 SHA256이 있으면 추가 검사. 해시만으로 게시자 신원을 인증하지 않음. HTTPS·운영 권한·OS 서명과 별도 |
 

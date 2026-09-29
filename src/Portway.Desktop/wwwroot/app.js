@@ -436,7 +436,7 @@ function siteDialog(original = {}) {
       )
       .join(
         "",
-      )}</select></label>${field("host", "호스트 / S3 엔드포인트", site.host)}${field("port", "포트 (0 = 기본값)", site.port || 0, "number")}${field("username", "사용자 이름 / Access key", site.username)}${field("password", site.hasPassword ? "비밀번호 (저장됨 · 빈칸이면 유지)" : "비밀번호 / Secret key", "", "password")}${field("remotePath", "원격 시작 경로", site.remotePath)}${field("localPath", "로컬 시작 경로", site.localPath || state.local.path)}<div class="span2"><label>SSH 호스트 키 · SHA256</label><div class="inline-field"><input name="fingerprint" value="${esc(site.fingerprint || "")}" placeholder="SFTP / SCP 연결에 필요"><button type="button" id="scan-key">지문 확인</button></div><p class="hint">서버 관리자가 제공한 지문과 비교한 후 신뢰하세요. 변경된 키는 자동으로 수락하지 않습니다.</p></div></div><details ${site.protocol === "s3" ? "open" : ""}><summary>SSH 키 · S3 고급 설정</summary><div class="grid2">${field("privateKeyPath", "SSH 개인 키 파일 경로", site.privateKeyPath)}${field("passphrase", "개인 키 암호", "", "password")}${field("bucket", "S3 버킷", site.bucket)}${field("region", "S3 리전", site.region)}</div></details><label class="check"><input type="checkbox" name="save" checked>이 사이트를 저장</label><label class="check"><input type="checkbox" name="savePassword" ${site.savePassword ? "checked" : ""}>비밀번호를 암호화 금고에 저장</label>`,
+      )}</select></label>${field("host", "호스트 / S3 엔드포인트", site.host)}${field("port", "포트 (0 = 기본값)", site.port || 0, "number")}${field("username", "사용자 이름 / Access key", site.username)}${field("password", site.hasPassword ? "비밀번호 (저장됨 · 빈칸이면 유지)" : "비밀번호 / Secret key", "", "password")}${field("remotePath", "원격 시작 경로", site.remotePath)}${field("localPath", "로컬 시작 경로", site.localPath || state.local.path)}<div class="span2"><label>SSH 호스트 키 · SHA256</label><div class="inline-field"><input name="fingerprint" value="${esc(site.fingerprint || "")}" placeholder="SFTP / SCP 연결에 필요"><button type="button" id="scan-key">지문 확인</button></div><p class="hint">서버 관리자가 제공한 지문과 비교한 후 신뢰하세요. 변경된 키는 자동으로 수락하지 않습니다.</p></div></div><details ${site.protocol === "s3" ? "open" : ""}><summary>SSH 키 · S3 고급 설정</summary><div class="grid2">${field("privateKeyPath", "SSH 개인 키 파일 경로", site.privateKeyPath)}${field("passphrase", "개인 키 암호", "", "password")}${field("bucket", "S3 버킷", site.bucket)}${field("region", "S3 리전", site.region)}</div></details><label class="check"><input type="checkbox" name="save" checked>이 사이트를 저장</label><label class="check"><input type="checkbox" name="savePassword" ${site.savePassword ? "checked" : ""}>비밀번호를 암호화 Vault에 저장</label>`,
     `${original.id ? '<button type="button" id="delete-site" class="danger left">사이트 삭제</button>' : ""}<button type="submit" name="mode" value="save">저장만</button><button type="submit" name="mode" value="connect" class="primary">${icon("play")}연결</button>`,
   );
   const form = $("form", d),
@@ -531,7 +531,7 @@ function siteDialog(original = {}) {
       const s = read();
       if (s.savePassword && !state.vault.unlocked)
         throw Error(
-          "설정 → 암호화 금고에서 먼저 마스터 비밀번호를 설정하거나 잠금 해제하세요.",
+          "설정 → 암호화 Vault에서 먼저 마스터 비밀번호를 설정하거나 잠금 해제하세요.",
         );
       if (s.protocol === "ftp" || s.protocol === "webdav") {
         if (
@@ -546,7 +546,17 @@ function siteDialog(original = {}) {
       if (mode === "save" || $("[name=save]", d).checked) {
         await api("/sites", "POST", s);
         state.sites = await api("/sites");
+        state.vault = await api("/vault");
         renderSites();
+        if (
+          s.savePassword &&
+          state.sites.some((saved) => saved.id === s.id && saved.hasPassword) &&
+          !state.vault.automaticUnlock
+        )
+          toast(
+            "운영체제 비밀 저장소를 사용할 수 없어 다음 실행에서는 Vault 잠금 해제가 필요합니다.",
+            true,
+          );
       }
       if (mode === "connect") await connect(s);
       d.close();
@@ -917,7 +927,7 @@ function showPlan(plan) {
   });
 }
 async function settings() {
-  // 금고 작업은 같은 대화상자를 새로 만듭니다. 다음 대화상자의 주기 조회 정리와
+  // Vault 작업은 같은 대화상자를 새로 만듭니다. 다음 대화상자의 주기 조회 정리와
   // 버튼 처리 함수를 연결하기 전에 대기 중인 닫기 이벤트를 처리합니다.
   const previous = $("#dialog");
   if (previous.open) {
@@ -930,7 +940,7 @@ async function settings() {
   state.prefs = await api("/preferences");
   const d = modal(
     "설정",
-    `<section class="settings-section"><h3>${icon(state.vault.unlocked ? "unlock" : "lock")} 암호화 금고 · ${state.vault.unlocked ? "잠금 해제됨" : state.vault.configured ? "잠김" : "설정 필요"}</h3><p class="hint">저장된 비밀번호는 마스터 비밀번호로 암호화됩니다. 비밀번호를 잊으면 복구할 수 없습니다. 기존 연결은 금고를 잠근 뒤에도 유지됩니다.</p>${field("master", "마스터 비밀번호 (최초 설정 시 12자 이상)", "", "password")}<div class="buttons"><button type="button" id="vault-unlock">${state.vault.configured ? "잠금 해제" : "금고 생성"}</button><button type="button" id="vault-lock">금고 잠금</button></div></section><section class="settings-section"><h3>앱 업데이트</h3>${field("updateUrl", "배포 서버 피드 URL", state.prefs.updateUrl || "")}<p class="hint">예: https://updates.example.com/releases/win-x64-stable/<br>설치된 패키지와 동일한 운영체제·아키텍처·채널을 사용하세요.</p><p class="hint">앱을 시작하면 백그라운드에서 새 버전을 확인하고 다운로드합니다. 다운로드가 끝나도 작업 중에는 재시작하지 않으며, 앱을 종료한 뒤 다음 실행 시 자동 적용합니다. 피드 URL을 처음 저장한 경우 다음 실행부터 자동 확인합니다.</p><div class="buttons"><button type="button" id="update-check">업데이트 확인</button><button type="button" id="update-download" disabled>다운로드</button><button type="button" id="update-apply" disabled>적용 후 재시작</button></div><p class="hint" id="update-result" role="status" aria-live="polite"></p></section><section class="settings-section"><h3>작업 설정</h3>${field("maxConcurrent", "동시 전송 수 (1–8)", state.prefs.maxConcurrent || 2, "number")}${field("editorExecutable", "외부 편집기 실행 파일", state.prefs.editorExecutable || "")}${field("editorArguments", "편집기 인수 (JSON 배열)", JSON.stringify(state.prefs.editorArguments || ["{file}"]))}${field("customCommands", "SSH 사용자 명령 (JSON 배열)", JSON.stringify(state.prefs.commands || []))}<p class="hint">예: [{&quot;name&quot;:&quot;SHA256&quot;,&quot;template&quot;:&quot;sha256sum -- {files}&quot;,&quot;remote&quot;:true}]<br>{file}, {files}, {directory}는 안전하게 인용된 경로로 치환합니다.</p><h3>표시</h3><label>테마<select class="form-select" name="theme"><option value="light">라이트</option><option value="dark">다크</option></select></label><label class="check"><input type="checkbox" name="hidden" ${state.showHidden ? "checked" : ""}>숨김 파일 표시</label></section><p class="hint">Portway ${esc(state.info.version)} · ${esc(state.info.os)}<br>Photino · SSH.NET · FluentFTP · AWS SDK · Velopack</p>`,
+    `<section class="settings-section"><h3>${icon(state.vault.unlocked ? "unlock" : "lock")} 암호화 Vault · ${state.vault.unlocked ? "잠금 해제됨" : state.vault.configured ? "잠김" : "설정 필요"}</h3><p class="hint">저장된 비밀번호는 마스터 비밀번호로 암호화됩니다. 저장된 비밀번호가 있는 동안 운영체제 비밀 저장소를 사용할 수 있으면 다음 실행 때 Vault가 자동으로 열립니다. 비밀번호를 잊으면 복구할 수 없습니다. Vault를 직접 잠그면 자동 잠금 해제도 중지되며, 기존 연결은 유지됩니다.</p>${field("master", "마스터 비밀번호 (최초 설정 시 12자 이상)", "", "password")}<div class="buttons"><button type="button" id="vault-unlock">${state.vault.configured ? "잠금 해제" : "Vault 생성"}</button><button type="button" id="vault-lock">Vault 잠금</button></div></section><section class="settings-section"><h3>앱 업데이트</h3>${field("updateUrl", "배포 서버 피드 URL", state.prefs.updateUrl || "")}<p class="hint">예: https://updates.example.com/releases/win-x64-stable/<br>설치된 패키지와 동일한 운영체제·아키텍처·채널을 사용하세요.</p><p class="hint">앱을 시작하면 백그라운드에서 새 버전을 확인하고 다운로드합니다. 다운로드가 끝나도 작업 중에는 재시작하지 않으며 앱을 종료한 뒤 다음 실행 시 자동 적용합니다. 피드 URL을 처음 저장한 경우 다음 실행부터 자동 확인합니다.</p><div class="buttons"><button type="button" id="update-check">업데이트 확인</button><button type="button" id="update-download" disabled>다운로드</button><button type="button" id="update-apply" disabled>적용 후 재시작</button></div><p class="hint" id="update-result" role="status" aria-live="polite"></p></section><section class="settings-section"><h3>작업 설정</h3>${field("maxConcurrent", "동시 전송 수 (1–8)", state.prefs.maxConcurrent || 2, "number")}${field("editorExecutable", "외부 편집기 실행 파일", state.prefs.editorExecutable || "")}${field("editorArguments", "편집기 인수 (JSON 배열)", JSON.stringify(state.prefs.editorArguments || ["{file}"]))}${field("customCommands", "SSH 사용자 명령 (JSON 배열)", JSON.stringify(state.prefs.commands || []))}<p class="hint">예: [{&quot;name&quot;:&quot;SHA256&quot;,&quot;template&quot;:&quot;sha256sum -- {files}&quot;,&quot;remote&quot;:true}]<br>{file}, {files}, {directory}는 안전하게 인용된 경로로 치환합니다.</p><h3>표시</h3><label>테마<select class="form-select" name="theme"><option value="light">라이트</option><option value="dark">다크</option></select></label><label class="check"><input type="checkbox" name="hidden" ${state.showHidden ? "checked" : ""}>숨김 파일 표시</label></section><p class="hint">Portway ${esc(state.info.version)} · ${esc(state.info.os)}<br>Photino · SSH.NET · FluentFTP · AWS SDK · Velopack</p>`,
     `<button type="button" data-close>닫기</button><button class="primary" type="submit">설정 저장</button>`,
   );
   d.querySelector("[name=theme]").value = window.portwayTheme.preference;
@@ -947,7 +957,7 @@ async function settings() {
       password: $("[name=master]").value,
     });
     $("[name=master]").value = "";
-    toast("암호화 금고를 잠금 해제했습니다.");
+    toast("암호화 Vault를 잠금 해제했습니다.");
     await settings();
   });
   $("#vault-lock").onclick = safe(async () => {

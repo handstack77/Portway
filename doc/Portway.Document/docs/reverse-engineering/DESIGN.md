@@ -8,7 +8,7 @@
 | 화면·상태 | 사용 흐름 | 설계상 처리 |
 | --- | --- | --- |
 | 작업 공간 | 사이드바 → 연결 탭 → 두 파일 패널 → 전송 큐·상태바 | 로컬 탭은 양쪽 로컬 폴더. 서버 탭은 왼쪽 로컬·오른쪽 원격. `local/remote`는 패널 위치이며 파일 API 선택은 `isLocal(side)`로 판단 |
-| 사이트·연결 | 새 사이트 입력 또는 저장 사이트 선택 → 필요 시 금고 해제·지문·추가 인증 → 연결 | `Connections.Connect`가 인증과 초기 목록을 완료한 뒤 ID를 등록. 연결 탭별 오른쪽 경로·선택·필터를 유지 |
+| 사이트·연결 | 새 사이트 입력 또는 저장 사이트 선택 → 필요 시 Vault 해제·지문·추가 인증 → 연결 | `Connections.Connect`가 인증과 초기 목록을 완료한 뒤 ID를 등록. 연결 탭별 오른쪽 경로·선택·필터를 유지 |
 | 목록·선택 | 경로 이동·정렬·필터 → 체크박스·범위·박스 선택 → 작업 | 경로 기반 선택. `load`가 패널 참조·요청 ID·현재 세션을 확인해 오래된 응답 제외. 단축키는 실제 목록 포커스 검사 |
 | 팝업·오류 | 연결·전송·편집·설정 창에서 제출 → 오류 시 수정·재시도 | `modal()`이 새 dialog를 생성. 지연된 이전 close가 새 창을 정리하지 않음. 모달의 최상위 레이어에 토스트 표시 |
 | 테마·표시 | 라이트/다크 선택, 연결 시간·파일 날짜 확인 | 최초 또는 과거 `system` 설정은 OS 밝기를 1회 해석해 고정. 파일 날짜는 현지 시간, 접속 시간은 연결별 시작점 유지 |
@@ -24,7 +24,7 @@
 
 | 데이터 | 내용·관계 | 저장과 수명 |
 | --- | --- | --- |
-| Site·금고·Preferences | 서버 메타데이터, 암호화 비밀, 테마·전송 기본값·업데이트 URL | `ProfileStore.DataPath` 아래 `sites.json/vault.json/preferences.json`. 잠금 해제 키는 메모리이며 잠금·종료 시 지움 |
+| Site·Vault·Preferences | 서버 메타데이터, 암호화 비밀, 테마·전송 기본값·업데이트 URL | `ProfileStore.DataPath` 아래 `sites.json/vault.json/preferences.json`. 잠금 해제 키는 메모리이며 잠금·종료 시 지움 |
 | UI 연결·패널 | 연결 ID·capability·원격 파일 시스템, 화면 경로·선택·필터 | `Connections`와 UI 메모리. 저장 사이트 ID와 실행 연결 ID는 별개. 탭 닫기와 앱 종료에 따라 정리 |
 | TransferRequest·Job·Checkpoint | 원본·대상·옵션·상태·완료 파일·원본 스냅샷 | `queue/<작업ID>.json`. 공개 Site만 저장. 종료 작업은 큐 정리 시 저널 제거, 비종료 작업은 재시작 시 일시정지 |
 | 드롭 스냅샷 | 상대 경로 manifest와 staging 파일, 업로드 큐의 원본 | `drops/<배치ID>/manifest.json`과 `files/`. 완성 후 sealed·큐 접수. 큐가 참조하는 동안 재시도·재시작을 위해 보존 |
@@ -54,7 +54,7 @@ Desktop API는 앱의 `http://127.0.0.1:<port>`에서 현재 실행의 Bearer로
 
 Desktop의 일반 작업 예외는 400, 없는 파일·연결은 404, 상태 충돌은 409와 `title/detail/status`로 처리합니다. 인증 실패는 401, Host·Origin 거부는 403이며 같은 오류 본문을 가정하지 않습니다. 프레임워크 바인딩 오류도 별도입니다. Server 게시의 키 미설정 503·인증 실패 401·Content-Type 415·속도 제한 429는 [ServerApi](../../../../src/Portway.Server/ServerApi.cs)와 [Program](../../../../src/Portway.Server/Program.cs)에서 확인합니다.
 
-CLI 입력은 `--script file.txt`, `/script=file.txt`, `/command` 또는 `--command`의 명령 배열입니다. `ScriptEngine.Run`은 오류를 JSON으로 출력하며 성공 0·실패 1을 반환하고 CLI 취소는 130입니다. `batch continue`도 오류가 있으면 최종 1입니다. .NET `Session`은 `Open/ListDirectory/PutFiles/GetFiles/CompareDirectories/SynchronizeDirectories/Close` 등을 제공하며 Progress 이벤트·예외·CancellationToken으로 제어합니다. Desktop의 영속 큐나 금고를 자동 경유하지 않습니다. 근거는 [CLI Program](../../../../src/Portway.Cli/Program.cs), [ScriptEngine](../../../../src/Portway.Core/Automation/ScriptEngine.cs), [Session](../../../../src/Portway.Core/Automation/Session.cs)입니다.
+CLI 입력은 `--script file.txt`, `/script=file.txt`, `/command` 또는 `--command`의 명령 배열입니다. `ScriptEngine.Run`은 오류를 JSON으로 출력하며 성공 0·실패 1을 반환하고 CLI 취소는 130입니다. `batch continue`도 오류가 있으면 최종 1입니다. .NET `Session`은 `Open/ListDirectory/PutFiles/GetFiles/CompareDirectories/SynchronizeDirectories/Close` 등을 제공하며 Progress 이벤트·예외·CancellationToken으로 제어합니다. Desktop의 영속 큐나 Vault를 자동 경유하지 않습니다. 근거는 [CLI Program](../../../../src/Portway.Cli/Program.cs), [ScriptEngine](../../../../src/Portway.Core/Automation/ScriptEngine.cs), [Session](../../../../src/Portway.Core/Automation/Session.cs)입니다.
 
 <a id="transfer"></a>
 ## 전송과 외부 드롭 — REQ-004·005·007
@@ -125,14 +125,14 @@ sequenceDiagram
     Q->>J: Load
     J-->>Q: 비밀 제거 요청과 체크포인트
     Q-->>User: 비종료 작업은 paused로 표시
-    User->>P: 원격이면 필요 시 금고 해제와 연결
+    User->>P: 원격이면 필요 시 Vault 해제와 연결
     User->>Q: retry 요청
     Q->>P: 원격 대상과 지문 또는 저장 비밀 확인
     Q->>E: 원본 스냅샷과 부분 파일 검사 후 실행
     E-->>Q: 결과와 새 체크포인트
 ```
 
-로컬 작업은 금고·서버 연결 없이 복구합니다. 원격 복구의 연결 선택 시 대상·SSH 지문을 비교하고, 암호화 키 등 필요한 비밀은 실제 생성·연결 시 검증합니다. 원본이 바뀌면 새 전송이 필요합니다. 손상 JSON은 `QueueJournal.Load`가 별도 이름으로 격리합니다. 강제 종료·정전 전체 조합에 대한 보장으로 해석하지 않습니다.
+로컬 작업은 Vault·서버 연결 없이 복구합니다. 원격 복구의 연결 선택 시 대상·SSH 지문을 비교하고, 암호화 키 등 필요한 비밀은 실제 생성·연결 시 검증합니다. 원본이 바뀌면 새 전송이 필요합니다. 손상 JSON은 `QueueJournal.Load`가 별도 이름으로 격리합니다. 강제 종료·정전 전체 조합에 대한 보장으로 해석하지 않습니다.
 
 <a id="editing"></a>
 ## 편집과 고급 도구 — REQ-008·011

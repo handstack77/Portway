@@ -5,12 +5,13 @@ using Portway.Core;
 
 namespace Portway.Desktop;
 
-/// <summary>사이트·설정과 암호화 금고를 전용 프로필 폴더에서 관리합니다.</summary>
+/// <summary>사이트·설정과 암호화 Vault를 전용 프로필 폴더에서 관리합니다.</summary>
 public sealed class ProfileStore : IDisposable
 {
     readonly object gate = new();
     readonly string root;
     byte[]? key;
+    bool automaticUnlock;
     static readonly JsonSerializerOptions Json = new(JsonSerializerDefaults.Web)
     {
         WriteIndented = true
@@ -22,6 +23,25 @@ public sealed class ProfileStore : IDisposable
         Directory.CreateDirectory(root);
         if (!OperatingSystem.IsWindows())
             File.SetUnixFileMode(root, UnixFileMode.UserRead | UnixFileMode.UserWrite | UnixFileMode.UserExecute);
+        var restored = VaultAutoUnlock.Restore(root);
+        if (restored != null)
+        {
+            try
+            {
+                var vault = Read<Vault?>("vault.json", null);
+                if (vault != null && Read<List<Site>>("sites.json", []).Any(s => s.SavePassword && SiteSecrets.HasAny(s)) && Decrypt(restored, vault.Check) == "portway-vault-v1")
+                {
+                    key = restored;
+                    automaticUnlock = true;
+                }
+                else
+                    CryptographicOperations.ZeroMemory(restored);
+            }
+            catch (Exception ex) when (ex is IOException or UnauthorizedAccessException or JsonException or FormatException or CryptographicException or ArgumentException)
+            {
+                CryptographicOperations.ZeroMemory(restored);
+            }
+        }
     }
 
     T Read<T>(string name, T fallback) => File.Exists(Path.Combine(root, name)) ? JsonSerializer.Deserialize<T>(File.ReadAllText(Path.Combine(root, name)), Json)! : fallback;
@@ -49,6 +69,8 @@ public sealed class ProfileStore : IDisposable
     static string Decrypt(byte[] secret, string value)
     {
         var data = Convert.FromBase64String(value);
+        if (data.Length < 28)
+            throw new CryptographicException("Vault 암호문이 올바르지 않습니다.");
         var bytes = new byte[data.Length - 28];
         using var aes = new AesGcm(secret, 16);
         aes.Decrypt(data.AsSpan(0, 12), data.AsSpan(28), data.AsSpan(12, 16), bytes);
@@ -68,7 +90,8 @@ public sealed class ProfileStore : IDisposable
             return new
             {
                 configured = File.Exists(Path.Combine(root, "vault.json")),
-                unlocked = key != null
+                unlocked = key != null,
+                automaticUnlock
             };
     }
 
@@ -87,8 +110,10 @@ public sealed class ProfileStore : IDisposable
                     Write("vault.json", new Vault(Convert.ToBase64String(salt), Encrypt(derived, "portway-vault-v1")));
                 else if (Decrypt(derived, vault.Check) != "portway-vault-v1")
                     throw new CryptographicException();
-                Lock();
+                var hasSavedPassword = Read<List<Site>>("sites.json", []).Any(s => s.SavePassword && SiteSecrets.HasAny(s));
+                ClearKey();
                 key = derived;
+                automaticUnlock = hasSavedPassword && VaultAutoUnlock.Store(root, key);
             }
             catch
             {
@@ -102,10 +127,17 @@ public sealed class ProfileStore : IDisposable
     {
         lock (gate)
         {
-            if (key != null)
-                CryptographicOperations.ZeroMemory(key);
-            key = null;
+            ClearKey();
+            VaultAutoUnlock.Remove(root);
+            automaticUnlock = false;
         }
+    }
+
+    void ClearKey()
+    {
+        if (key != null)
+            CryptographicOperations.ZeroMemory(key);
+        key = null;
     }
 
     public Site[] List()
@@ -132,7 +164,7 @@ public sealed class ProfileStore : IDisposable
             var saved = Read<List<Site>>("sites.json", []).Find(s => s.Id == site.Id && s.Host == site.Host && s.Username == site.Username && s.Port == site.Port && s.Protocol == site.Protocol);
             if (saved == null)
                 return site;
-            return SiteSecrets.Merge(site, saved, value => key == null ? throw new InvalidOperationException("저장된 비밀번호를 사용하려면 금고를 잠금 해제하세요.") : Decrypt(key, value));
+            return SiteSecrets.Merge(site, saved, value => key == null ? throw new InvalidOperationException("저장된 비밀번호를 사용하려면 Vault를 잠금 해제하세요.") : Decrypt(key, value));
         }
     }
 
@@ -142,7 +174,7 @@ public sealed class ProfileStore : IDisposable
         {
             var sites = Read<List<Site>>("sites.json", []);
             if (site.SavePassword && key == null)
-                throw new InvalidOperationException("비밀번호 저장 전에 금고를 잠금 해제하세요.");
+                throw new InvalidOperationException("비밀번호 저장 전에 Vault를 잠금 해제하세요.");
             var hydrated = site.SavePassword ? Hydrate(site) : site;
             hydrated.Validate();
             hydrated = hydrated with
@@ -150,8 +182,19 @@ public sealed class ProfileStore : IDisposable
                 EncryptFiles = hydrated.EncryptFiles || hydrated.EncryptionKey != null
             };
             sites.RemoveAll(s => s.Id == site.Id);
-            sites.Add(SiteSecrets.Map(hydrated, value => site.SavePassword ? Encrypt(key!, value) : null));
+            var stored = SiteSecrets.Map(hydrated, value => site.SavePassword ? Encrypt(key!, value) : null);
+            sites.Add(stored with { HasPassword = SiteSecrets.HasAny(stored) });
             Write("sites.json", sites);
+            if (sites.Any(s => s.SavePassword && SiteSecrets.HasAny(s)))
+            {
+                if (key != null)
+                    automaticUnlock = VaultAutoUnlock.Store(root, key);
+            }
+            else
+            {
+                VaultAutoUnlock.Remove(root);
+                automaticUnlock = false;
+            }
         }
     }
 
@@ -162,6 +205,11 @@ public sealed class ProfileStore : IDisposable
             var sites = Read<List<Site>>("sites.json", []);
             sites.RemoveAll(s => s.Id == id);
             Write("sites.json", sites);
+            if (!sites.Any(s => s.SavePassword && SiteSecrets.HasAny(s)))
+            {
+                VaultAutoUnlock.Remove(root);
+                automaticUnlock = false;
+            }
         }
     }
 
@@ -169,7 +217,7 @@ public sealed class ProfileStore : IDisposable
     {
         lock (gate)
         {
-            // 전체를 검증한 뒤 한 번에 저장하고 새 ID를 부여해 기존 사이트와 금고 비밀을 보존합니다.
+            // 전체를 검증한 뒤 한 번에 저장하고 새 ID를 부여해 기존 사이트와 Vault 비밀을 보존합니다.
             var incoming = source.Select(s => SiteArchive.Metadata(s) with { Id = Guid.NewGuid().ToString("N") }).ToArray();
             foreach (var site in incoming)
                 site.Validate(requireSecrets: false);
@@ -206,5 +254,9 @@ public sealed class ProfileStore : IDisposable
             Write(name, value);
     }
 
-    public void Dispose() => Lock();
+    public void Dispose()
+    {
+        lock (gate)
+            ClearKey();
+    }
 }

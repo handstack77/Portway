@@ -64,7 +64,7 @@ public sealed record Site
             throw new ArgumentException("인증 방식이 올바르지 않습니다.");
         Proxy.Validate();
         if (requireSecrets && EncryptFiles && EncryptionKey == null)
-            throw new ArgumentException("파일 암호화 키가 필요합니다. 금고를 잠금 해제하거나 키를 입력하세요.");
+            throw new ArgumentException("파일 암호화 키가 필요합니다. Vault를 잠금 해제하거나 키를 입력하세요.");
         if (EncryptionKey != null)
         {
             if (Protocol != "sftp")

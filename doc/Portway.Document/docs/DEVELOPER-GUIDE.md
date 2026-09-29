@@ -43,7 +43,7 @@ OS별 네이티브 UI 의존성은 다음과 같습니다.
 | --- | --- |
 | Windows | WebView2 Runtime |
 | macOS | 시스템 WebKit, 대상 CPU에 맞는 SDK/런타임. 배포용 서명·공증에는 Apple 인증서와 공증 자격 증명이 별도로 필요합니다 |
-| Linux | GTK 3, WebKitGTK 4.1, libnotify, 그래픽 세션. AppImage 실행에는 FUSE 또는 추출 실행이 필요합니다 |
+| Linux | GTK 3, WebKitGTK 4.1, libnotify, 그래픽 세션. Vault 자동 잠금 해제에는 Secret Service 제공자와 `secret-tool`이 필요합니다. AppImage 실행에는 FUSE 또는 추출 실행이 필요합니다 |
 
 Ubuntu 24.04 기반 검증 이미지의 패키지와 Xvfb 구성은 [Dockerfile.linux](../../../tests/infrastructure/Dockerfile.linux)를 참고합니다. 이 이미지의 root/container 전용 WebKit 샌드박스 설정을 일반 데스크톱 실행 설정으로 복사하지 않습니다. 전체 OS 최소 버전·배포판 호환성은 아직 인증하지 않았습니다.
 
@@ -88,7 +88,7 @@ Visual Studio 2026에서 `Portway.Desktop`을 시작 프로젝트로 지정하�
 
 `Program.cs`는 `#if DEBUG`로 Photino의 `SetDevToolsEnabled(true)`를 적용합니다. Release 빌드는 개발자 도구를 비활성화합니다. 앱 창의 단축키 처리는 F12를 가로채지 않고 WebView2가 처리하도록 유지합니다.
 
-네이티브 브라우저 프로필은 `ProfileStore.DataPath/webview`입니다. `Program.cs`는 해당 폴더를 생성한 뒤 Photino의 `SetTemporaryFilesPath`로 지정합니다. Photino 기본 `%LOCALAPPDATA%/Photino`를 다른 앱과 공유하면 서로 다른 브라우저 초기화 옵션 때문에 검은 화면이 발생할 수 있습니다. [WebView2의 사용자 데이터 폴더 관리](https://learn.microsoft.com/en-us/microsoft-edge/webview2/concepts/user-data-folder)와 [공유 프로세스 초기화 조건](https://learn.microsoft.com/en-us/microsoft-edge/webview2/concepts/process-model)을 참고하세요. 기존 공용 폴더와 사이트·금고·전송 큐는 삭제하지 않습니다. `Portway__DataPath`로 격리한 검증은 WebView 프로필도 함께 격리됩니다.
+네이티브 브라우저 프로필은 `ProfileStore.DataPath/webview`입니다. `Program.cs`는 해당 폴더를 생성한 뒤 Photino의 `SetTemporaryFilesPath`로 지정합니다. Photino 기본 `%LOCALAPPDATA%/Photino`를 다른 앱과 공유하면 서로 다른 브라우저 초기화 옵션 때문에 검은 화면이 발생할 수 있습니다. [WebView2의 사용자 데이터 폴더 관리](https://learn.microsoft.com/en-us/microsoft-edge/webview2/concepts/user-data-folder)와 [공유 프로세스 초기화 조건](https://learn.microsoft.com/en-us/microsoft-edge/webview2/concepts/process-model)을 참고하세요. 기존 공용 폴더와 사이트·Vault·전송 큐는 삭제하지 않습니다. `Portway__DataPath`로 격리한 검증은 WebView 프로필도 함께 격리됩니다.
 
 Debug 검은 화면을 조사할 때 로컬 HTTP 응답만으로 정상 시작이라고 판단하지 마세요. 실제 Photino 창의 웹 콘텐츠 표시와 동일 프로필의 재시작, WebView에 포커스를 둔 F12를 확인합니다. 브라우저 프로필 변경 후에는 Visual Studio Debug 빌드를 다시 실행해야 적용됩니다.
 
@@ -184,7 +184,7 @@ Desktop의 [Program.cs](../../../src/Portway.Desktop/Program.cs)는 Velopack 초
 
 로컬 작업 공간은 왼쪽과 오른쪽 모두 로컬 파일을 탐색합니다. `app.js`의 `isLocal(side)`로 API·경로 구분을 판단하고, 오른쪽 로컬 상태는 `state.localRight`, 서버별 상태는 연결의 `pane`에 따로 보관합니다. `remote`라는 패널 ID만으로 서버 파일이라고 판단하지 마세요. 탭을 전환하거나 닫을 때 로컬 경로·필터·선택을 복원하고, 요청 번호와 세션 ID로 이전 목록 응답을 무시합니다. 오른쪽 로컬 파일의 편집·삭제·휴지통·체크섬도 `/local` 및 로컬 휴지통 경로를 사용합니다.
 
-`POST /api/transfers`의 `direction: "local"`은 절대 원본 경로들과 절대 대상 폴더를 받으며 `sessionId`는 빈 문자열입니다. `TransferQueue`가 `LocalTransferFileSystem.Validate`로 전체 최상위 경로를 검증한 뒤 작업을 저장하고, 로컬 파일 시스템 어댑터와 기존 다운로드 엔진으로 복사합니다. worker에서도 경로를 다시 검사합니다. 스트리밍·부분 파일·충돌 처리·필터·체크섬·수정 시각·이동·저널·일시정지/이어하기를 재사용하며 원격 연결이나 금고 잠금 해제가 필요하지 않습니다. 로컬 전송은 바이너리 모드로 고정하고 업로드 권한 옵션을 제거해 내용과 줄바꿈을 보존합니다. 원격 전용 동기화·외부 업로드 도구는 로컬 탭에서 비활성화합니다.
+`POST /api/transfers`의 `direction: "local"`은 절대 원본 경로들과 절대 대상 폴더를 받으며 `sessionId`는 빈 문자열입니다. `TransferQueue`가 `LocalTransferFileSystem.Validate`로 전체 최상위 경로를 검증한 뒤 작업을 저장하고, 로컬 파일 시스템 어댑터와 기존 다운로드 엔진으로 복사합니다. worker에서도 경로를 다시 검사합니다. 스트리밍·부분 파일·충돌 처리·필터·체크섬·수정 시각·이동·저널·일시정지/이어하기를 재사용하며 원격 연결이나 Vault 잠금 해제가 필요하지 않습니다. 로컬 전송은 바이너리 모드로 고정하고 업로드 권한 옵션을 제거해 내용과 줄바꿈을 보존합니다. 원격 전용 동기화·외부 업로드 도구는 로컬 탭에서 비활성화합니다.
 
 관련 회귀 검증은 `LocalTransferTests`와 실제 양방향 복사·F5/F6·내부 드래그·오른쪽 파일 관리·Monaco 저장·탭 전환입니다. `LocalLinkFact`는 Windows의 심볼릭 링크 생성 권한이 없는 기본 실행에서 명시적으로 건너뜁니다. 권한이 있는 Windows 환경에서 `PORTWAY_SYMLINK_TESTS=1`로 활성화하며, Linux/macOS에서는 기본 실행합니다. Windows junction과 실제 심볼릭 링크의 검증 여부를 구분하세요.
 
@@ -281,7 +281,8 @@ API 조립은 [DesktopApi.cs](../../../src/Portway.Desktop/DesktopApi.cs), 정�
 | 프로필 항목 | 내용과 주의점 |
 | --- | --- |
 | `sites.json` | 사이트 메타데이터와 암호화된 비밀. 호스트·사용자·경로 같은 메타데이터 전체를 암호화하는 것은 아닙니다 |
-| `vault.json` | 금고 salt와 암호 검증 정보. 저장한 사이트의 비밀을 복원할 때 함께 필요합니다 |
+| `vault.json` | Vault salt와 암호 검증 정보. 저장한 사이트의 비밀을 복원할 때 함께 필요합니다 |
+| `vault-auto.json` | OS 사용자 보호 저장소에 묶인 Vault 키 복원 정보. 다른 컴퓨터에서는 마스터 비밀번호로 다시 잠금 해제해야 합니다 |
 | `preferences.json` | 테마, 북마크, 프리셋, 업데이트 URL, 편집기·명령 설정 |
 | `queue/` | 전송 작업 체크포인트. 재시작 후 일시정지로 복원합니다 |
 | `watches.json` | 지속 동기화 등록 정보. 재시작 후 일시정지합니다 |
@@ -289,7 +290,7 @@ API 조립은 [DesktopApi.cs](../../../src/Portway.Desktop/DesktopApi.cs), 정�
 | `drops/` | 외부 파일 준비 사본. 작업의 재시도 가능 여부에 맞춰 수명을 관리합니다 |
 | `editor/` | 외부 편집 임시·복구 사본. 편집 종료 후에도 사본을 유지합니다 |
 
-금고는 PBKDF2-SHA256 600,000회로 파생한 키와 AES-GCM을 사용합니다. 최초 마스터 비밀번호는 12자 이상이며 분실 복구 기능은 없습니다. 저장 중간 파일을 거쳐 교체하는 기존 저장 흐름과 Unix 접근 권한을 유지합니다.
+Vault는 PBKDF2-SHA256 600,000회로 파생한 키와 AES-GCM을 사용합니다. 최초 마스터 비밀번호는 12자 이상이며 분실 복구 기능은 없습니다. 비밀을 저장한 사이트가 있으면 Windows DPAPI, macOS 키체인 또는 Linux Secret Service에 Vault 키를 등록해 다음 시작에 복원합니다. OS 저장소를 사용할 수 없으면 Vault는 수동 잠금 해제 상태로 남습니다. 명시적 Vault 잠금과 마지막 비밀 저장 해제는 자동 복원 정보를 지웁니다. 저장 중간 파일을 거쳐 교체하는 기존 저장 흐름과 Unix 접근 권한을 유지합니다.
 
 백업·복원은 앱을 종료하고 프로필 전체를 단위로 수행합니다. 개인 키 파일, 일반 전송 원본, 외부 서버 데이터는 별도입니다. 절대 경로가 포함된 설정은 다른 OS나 컴퓨터로 복원한 뒤 확인해야 합니다.
 
@@ -299,7 +300,7 @@ API 조립은 [DesktopApi.cs](../../../src/Portway.Desktop/DesktopApi.cs), 정�
 
 Core의 `SiteArchive`는 `format: "portway-sites"`, `version: 1`, `sites` 배열을 가진 JSON을 사용합니다. 비밀 제거는 `SiteSecrets`를 재사용하며 중첩 프록시·점프 서버의 비밀과 저장 비밀번호 상태도 제거합니다. 파일 암호화 사용 여부는 유지합니다. `POST /api/sites/import`는 Portway JSON 또는 기존 WinSCP INI를 자동 판별하며 INI의 S3는 건너뜁니다. 크기는 UTF-8 기준 2 MiB, 사이트 수는 1,000개 이하입니다.
 
-`ProfileStore.ImportSites`는 모든 항목을 먼저 검증하고 새 ID를 부여한 뒤 한 번에 저장합니다. 기존 사이트와 암호화된 금고 비밀은 교체하지 않습니다. 가져오기의 `Site.Validate(requireSecrets: false)`는 키 없는 암호화 사이트 메타데이터 저장에만 사용합니다. 저장·연결·전송에서는 기본 검증으로 실제 암호화 키를 요구하며 암호화를 자동 해제하지 않습니다. 회귀 검증은 `SiteArchiveTests`와 기존 프로필·암호화 테스트, 브라우저 JSON 왕복, Windows 네이티브 저장/취소 흐름으로 수행합니다.
+`ProfileStore.ImportSites`는 모든 항목을 먼저 검증하고 새 ID를 부여한 뒤 한 번에 저장합니다. 기존 사이트와 암호화된 Vault 비밀은 교체하지 않습니다. 가져오기의 `Site.Validate(requireSecrets: false)`는 키 없는 암호화 사이트 메타데이터 저장에만 사용합니다. 저장·연결·전송에서는 기본 검증으로 실제 암호화 키를 요구하며 암호화를 자동 해제하지 않습니다. 회귀 검증은 `SiteArchiveTests`와 기존 프로필·암호화 테스트, 브라우저 JSON 왕복, Windows 네이티브 저장/취소 흐름으로 수행합니다.
 
 ### 외부 드롭 수명 주기
 
@@ -521,7 +522,7 @@ https://downloads.example.com/releases/win-x64-stable/
 | 401/403 | 현재 실행 토큰, `127.0.0.1` Host, Origin, 다른 QA 프로세스에 접속했는지 |
 | 통합 테스트가 skipped | 환경 변수 활성화 조건, Docker fixture 준비 여부, 선택 테스트별 플랫폼 조건 |
 | fixture 포트 충돌 | 다른 Compose 프로젝트와 서비스가 점유했는지 확인. 자신이 시작한 fixture만 종료 |
-| 큐 재시도·감시 복구 거부 | 원래 endpoint/사용자/지문과 연결 일치 여부, 금고 잠금, 실제 원본·staging 존재 여부 |
+| 큐 재시도·감시 복구 거부 | 원래 endpoint/사용자/지문과 연결 일치 여부, Vault 잠금, 실제 원본·staging 존재 여부 |
 | 같은 버전 빌드/게시 거부 | 기존 산출물 존재 또는 같은 nupkg 내용 변경. 새 버전 사용 |
 | 업데이트 없음 | 설치 실행 여부, 현재보다 높은 버전, RID/track 디렉터리, 게시 피드의 실제 내용 |
 | Linux GUI 시작 실패 | 그래픽 세션, GTK/WebKitGTK/libnotify 의존성, AppImage FUSE 조건 |
