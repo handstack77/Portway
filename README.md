@@ -6,6 +6,7 @@ Photino와 ASP.NET Core로 만든 Windows · macOS · Linux 파일 전송 앱입
 
 ## 가이드
 
+- [현재 구현 복원 문서](doc/Portway.Document/docs/reverse-engineering/README.md): 기획·관리 검토를 위한 기획서·분석서·설계서·아키텍처와 요구사항 추적표.
 - [솔루션 구조](doc/Portway.Document/docs/ARCHITECTURE.md) · [소스 탐색 가이드](doc/Portway.Document/docs/SOURCE-MAP.md): 프로젝트 경계, 주요 실행 흐름, 기능별 소스·테스트 진입점.
 - [API 목록](doc/Portway.Document/docs/API-REFERENCE.md) · [리팩토링 및 검증 보고서](doc/Portway.Document/jobs/REFACTORING.md): 기능별 HTTP 경로, 코드 정리 범위와 검증 근거.
 - [사용자 가이드](doc/Portway.Document/docs/USER-GUIDE.md): 설치, 서버 연결, 외부 파일·폴더 드롭, 전송·동기화·편집, 복구, 테마, 업데이트.

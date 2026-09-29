@@ -28,3 +28,5 @@ npm run build --prefix doc/Portway.Document
 Visual Studio에서는 `Portway.slnx`의 `doc` 솔루션 폴더 아래에서 프로젝트를 찾을 수 있습니다. Node.js 개발 워크로드가 설치되어 있으면 시작 프로젝트로 지정해 `src/index.js`를 디버깅할 수 있습니다. CLI의 솔루션 빌드에서도 npm 구문 검사를 실행합니다.
 
 가이드는 [개발자 가이드](docs/DEVELOPER-GUIDE.md), [사용자 가이드](docs/USER-GUIDE.md), [배포 운영](docs/DEPLOYMENT.md), [소스 탐색 가이드](docs/SOURCE-MAP.md)에서 시작합니다. 검증 기록 작성 방법은 [jobs 보관 규칙](jobs/README.md)을 참고하세요. 빌드·테스트 원본 로그, TRX와 임시 프로필은 저장소의 기존 산출물 경로에 보관하고 보고서에서 연결합니다.
+
+기획·관리 검토용 [현재 구현 복원 문서](docs/reverse-engineering/README.md)는 기획서·분석서·설계서·아키텍처와 요구사항 추적표를 제공합니다. 현재 소스에서 확인한 동작과 제품 의도에 대한 추론, 기존 실행 기록과 이번 문서 검증을 구분합니다.
