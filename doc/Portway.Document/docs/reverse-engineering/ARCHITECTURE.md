@@ -93,11 +93,11 @@ flowchart TD
 
 프런트엔드 빌드가 로컬 자산을 생성하고 .NET 게시 결과에 복사합니다. `scripts/build.ps1`은 Desktop과 CLI를 self-contained로 게시한 뒤 `package.ps1`을 호출합니다. 게시 폴더는 `dist/publish/<RID>/<version>`, 패키지는 `dist/releases/<RID>-<track>/<version>`, 업로드 ZIP은 해당 버전의 결과만 담습니다. 기존 출력 경로를 새 버전으로 덮어쓰지 않습니다.
 
-Full은 신규 설치·복구의 기준이고 Delta는 이전 Full을 바탕으로 생성합니다. CI는 같은 채널의 이전 Full을 URL에서 확보할 수 있고 최초 빈 채널만 명시적으로 허용합니다. Server는 기존 Full/Delta 피드를 병합하고 새 Delta의 `BaseVersion`과 버전 불변성을 검사합니다. 다운로드·복원·손상 시 Full 전환은 Velopack 관리자를 사용합니다. 자동 업데이트의 다음 시작 적용과 실제 설치 검증은 별개입니다.
+Full은 신규 설치·복구의 기준이고 Delta는 이전 Full을 바탕으로 생성합니다. 새 작업 공간에서는 같은 채널의 이전 Full을 URL에서 확보할 수 있고 최초 빈 채널만 명시적으로 허용합니다. Server는 기존 Full/Delta 피드를 병합하고 새 Delta의 `BaseVersion`과 버전 불변성을 검사합니다. 다운로드·복원·손상 시 Full 전환은 Velopack 관리자를 사용합니다. 자동 업데이트의 다음 시작 적용과 실제 설치 검증은 별개입니다.
 
-운영 예시는 Caddy의 HTTPS 앞에 단일 Server 컨테이너와 릴리스 볼륨을 둡니다. Windows는 WebView2, macOS는 시스템 WebKit, Linux는 GTK/WebKitGTK·그래픽 환경이 필요합니다. OS별 CI·서명 설정은 구성 근거이며 실제 대상 장비의 설치·시작 성공 증거가 아닙니다.
+운영 예시는 Caddy의 HTTPS 앞에 단일 Server 컨테이너와 릴리스 볼륨을 둡니다. Windows는 WebView2, macOS는 시스템 WebKit, Linux는 GTK/WebKitGTK·그래픽 환경이 필요합니다. OS별 패키징·서명 설정은 구성 근거이며 실제 대상 장비의 설치·시작 성공 증거가 아닙니다.
 
-근거: [build.ps1](../../../../scripts/build.ps1), [package.ps1](../../../../scripts/package.ps1), [ReleaseStore.Feeds](../../../../src/Portway.Server/ReleaseStore.Feeds.cs), [release.yml](../../../../.github/workflows/release.yml), [compose.production.yaml](../../../../compose.production.yaml), [개발자 가이드](../DEVELOPER-GUIDE.md), [배포 운영](../DEPLOYMENT.md). 현재 설치·OS 검증 범위는 [분석서](ANALYSIS.md#verification)를 따릅니다.
+근거: [build.ps1](../../../../scripts/build.ps1), [package.ps1](../../../../scripts/package.ps1), [ReleaseStore.Feeds](../../../../src/Portway.Server/ReleaseStore.Feeds.cs), [compose.production.yaml](../../../../compose.production.yaml), [개발자 가이드](../DEVELOPER-GUIDE.md), [배포 운영](../DEPLOYMENT.md). 현재 설치·OS 검증 범위는 [분석서](ANALYSIS.md#verification)를 따릅니다.
 
 <a id="decisions"></a>
 ## 관찰한 설계 선택과 제약

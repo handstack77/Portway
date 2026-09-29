@@ -13,7 +13,7 @@ $repo = Split-Path $PSScriptRoot -Parent
 Set-Location -LiteralPath $repo
 $platform = if ($IsWindows) { 'win' } elseif ($IsMacOS) { 'osx' } else { 'linux' }
 if (!$Runtime) { $Runtime = "$platform-$([System.Runtime.InteropServices.RuntimeInformation]::OSArchitecture.ToString().ToLowerInvariant())" }
-if (!$Runtime.StartsWith("$platform-")) { throw '대상 운영체제에서 vpk 패키지를 생성하세요. 다른 플랫폼은 릴리스 CI 매트릭스를 사용하세요.' }
+if (!$Runtime.StartsWith("$platform-")) { throw 'vpk 패키지는 대상 운영체제에서 생성하세요.' }
 if ($Version -notmatch '^\d+\.\d+\.\d+([-.][0-9A-Za-z.-]+)?$') { throw '버전은 0.1.0 또는 0.3.9-beta.1 같은 SemVer 형식이어야 합니다.' }
 function Invoke-Checked { param([string]$Command, [string[]]$Arguments) & $Command @Arguments; if ($LASTEXITCODE -ne 0) { throw "$Command 실행에 실패했습니다. 종료 코드: $LASTEXITCODE" } }
 $npmCommand = if ($IsWindows) { 'npm.cmd' } else { 'npm' }

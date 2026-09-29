@@ -31,19 +31,11 @@ docker compose -f compose.production.yaml up -d --build
 
 배포 키는 패키지를 게시할 수 있는 관리자 자격 증명입니다. 클라이언트 신뢰는 HTTPS, 서버 접근 통제, OS 코드 서명에 의존합니다. 별도의 오프라인 릴리스 서명 검증 시스템은 구현되어 있지 않습니다.
 
-## GitHub Actions
+## 수동 릴리스
 
-`Package release`를 수동 실행해 버전, stable/beta, 게시 여부를 선택합니다. 게시를 켜려면 다음을 설정합니다:
+각 대상 OS에서 `scripts/build.ps1 -Version <버전> -Runtime <RID> -Track <stable|beta>`를 실행합니다. 새 작업 공간에서 변경분을 만들려면 같은 채널의 최신 Full 피드 URL을 `-PreviousReleaseUrl`에 지정합니다. 최초 채널에 피드가 없을 때만 `-AllowEmptyChannel`을 사용합니다. 압축 방식은 `-DeltaMode BestSpeed` 또는 `-DeltaMode BestSize`로 선택합니다.
 
-| 구분 | 이름 | 용도 |
-|---|---|---|
-| Repository variable | `PORTWAY_DISTRIBUTION_URL` | HTTPS 배포 서버 루트 |
-| Repository secret | `PORTWAY_PUBLISH_KEY` | 서버와 동일한 키 |
-| Repository secret | `PORTWAY_SIGN_PARAMS` | Windows signtool 옵션; 인증서 준비는 별도 |
-
-`PORTWAY_DISTRIBUTION_URL`이 설정되어 있으면 CI는 해당 RID/채널의 최신 Full을 내려받아 변경분을 생성합니다. 최초 채널을 만들 때만 `first_release`를 켜서 없는 피드를 허용하세요. `delta_mode`는 `BestSpeed` 또는 `BestSize`를 선택합니다. 서버 URL이 없는 CI는 최초 전체 패키지만 만들 수 있습니다.
-
-워크플로 파일은 준비되어 있지만 이 작업에서 실제 원격 CI 실행이나 공개 게시를 수행하지 않았습니다. OS/아키텍처별 runner 이용 가능 여부는 저장소 요금제에 따라 확인하세요.
+생성된 `dist/Portway-<버전>-<RID>-<track>.zip`의 무결성과 채널을 확인한 뒤 `scripts/publish.ps1 -Server <HTTPS 서버 URL> -Channel <RID>-<track> -Archive <ZIP 경로>`로 게시합니다. 게시 키는 `PORTWAY_PUBLISH_KEY` 환경 변수로 전달합니다. GitHub Actions 자동 빌드·테스트·게시는 설정되어 있지 않습니다.
 
 ## macOS 서명/공증
 
@@ -56,15 +48,7 @@ PORTWAY_MAC_NOTARY_PROFILE       notarytool 프로필 이름
 PORTWAY_MAC_KEYCHAIN             선택: 키체인 파일 절대 경로
 ```
 
-CI 자동 설치는 `scripts/macos-signing.sh`를 사용합니다. Repository variable `PORTWAY_MAC_SIGNING_ENABLED=true`와 아래 Secrets를 설정합니다:
-
-- 위의 APP_IDENTITY, INSTALLER_IDENTITY, NOTARY_PROFILE
-- `PORTWAY_MAC_APP_P12`, `PORTWAY_MAC_INSTALLER_P12`: 각각 P12 파일의 base64 내용
-- `PORTWAY_MAC_P12_PASSWORD`: 두 인증서의 내보내기 암호
-- `PORTWAY_MAC_KEYCHAIN_PASSWORD`: 임시 키체인용 임의 암호
-- `PORTWAY_APPLE_ID`, `PORTWAY_APPLE_TEAM_ID`, `PORTWAY_APPLE_APP_PASSWORD`: 공증 계정 및 앱 전용 암호
-
-각 job은 일회용 키체인을 만들고 작업 마지막에 제거합니다. 공증 설정이 없으면 macOS의 공개 게시 job은 실패합니다. 게시하지 않는 개발 패키지는 서명 없이 만들 수 있습니다. 실제 Apple 인증서는 이 저장소에 포함하지 않습니다.
+공개 배포용 macOS 패키지는 대상 Mac에서 서명·공증을 완료하고 설치를 검증합니다. 게시하지 않는 개발 패키지는 서명 없이 만들 수 있습니다. 실제 Apple 인증서는 이 저장소에 포함하지 않습니다.
 
 ## 업데이트 확인
 

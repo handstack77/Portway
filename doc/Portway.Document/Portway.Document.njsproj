@@ -27,6 +27,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="docs\images\" />
+    <Folder Include="docs\reverse-engineering\" />
     <Folder Include="src\" />
     <Folder Include="docs\" />
     <Folder Include="jobs\" />

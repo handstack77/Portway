@@ -390,7 +390,7 @@ Chromium/CDP에 실제 파일 경로를 넣은 검사와 Explorer/Finder→Photi
 
 [build.ps1](../../../scripts/build.ps1)은 대상 OS에서 실행합니다. RID는 `win-x64`, `win-arm64`, `osx-x64`, `osx-arm64`, `linux-x64`, `linux-arm64`이며 track은 `stable` 또는 `beta`입니다. 다른 OS용 `dotnet publish` 성공만으로 네이티브 패키징·실행 검증이 끝난 것은 아닙니다.
 
-아래 **0.3.10은 다음 버전의 예시**입니다. 기존 결과가 없는 새 SemVer로 바꾸고 릴리스 시 `Directory.Build.props`, 빌드 스크립트·CI·QA 기본값도 맞춥니다. 현재 소스와 Windows 배포 패키지의 버전은 0.3.9입니다.
+아래 **0.3.10은 다음 버전의 예시**입니다. 기존 결과가 없는 새 SemVer로 바꾸고 릴리스 시 `Directory.Build.props`, 빌드 스크립트·QA 기본값도 맞춥니다. 현재 소스와 Windows 배포 패키지의 버전은 0.3.9입니다.
 
 ```powershell
 ./scripts/build.ps1 -Version 0.3.10 -Runtime win-x64 -Track stable
@@ -411,7 +411,7 @@ Windows는 Setup.exe와 Portable.zip, Linux는 AppImage, macOS는 Velopack 네�
 
 기존 `dist/publish/<RID>/<version>`, 버전별 릴리스 폴더나 동일 게시 ZIP이 있으면 스크립트는 중단합니다. ZIP과 피드에는 해당 버전의 Full/Delta 패키지와 이번 설치 파일만 들어갑니다. 이전 Full 패키지는 임시 작업 폴더에서 변경분을 만들 때만 사용하고 새 ZIP에 넣지 않습니다. 로컬에서는 같은 채널 폴더와 버전별 하위 폴더의 최신 Full을 자동으로 선택하며, 기존 누적 폴더도 읽을 수 있습니다.
 
-이전 패키지가 다른 위치에 있으면 `-PreviousReleaseDirectory <폴더>`를 사용합니다. CI처럼 새 작업 공간이라면 같은 채널의 서버 URL을 지정합니다.
+이전 패키지가 다른 위치에 있으면 `-PreviousReleaseDirectory <폴더>`를 사용합니다. 새 작업 공간이라면 같은 채널의 서버 URL을 지정합니다.
 
 ```powershell
 ./scripts/build.ps1 -Version 0.3.10 -Runtime win-x64 -Track stable `
@@ -424,7 +424,7 @@ Windows는 Setup.exe와 Portable.zip, Linux는 AppImage, macOS는 Velopack 네�
 
 실제 변경분 검사에는 `PORTWAY_PACKAGE_TEST`에 새 ZIP, `PORTWAY_PACKAGE_BASE`에 기준 Full nupkg, `PORTWAY_PACKAGE_UPDATER`에 검증 전용 Windows `Update.exe`를 지정한 뒤 `PackageTests`를 실행합니다. 기준 패키지 옆에는 같은 채널의 피드 JSON이 있어야 합니다. 검사는 격리된 서버 저장소·패키지 폴더와 TestVelopackLocator로 정상 Delta만 다운로드하는 경로, 파일별 SHA-256 복원 일치, 손상 시 Full 전환을 확인하며 앱 설치·재시작 적용을 대신하지 않습니다. 설치 검증에는 기존 설치 업데이트 스크립트와 대상 OS를 사용합니다.
 
-Windows 서명은 `PORTWAY_SIGN_PARAMS`, macOS는 `PORTWAY_MAC_APP_IDENTITY`, `PORTWAY_MAC_INSTALLER_IDENTITY`, `PORTWAY_MAC_NOTARY_PROFILE`, 선택적 `PORTWAY_MAC_KEYCHAIN`을 전달합니다. 인증서·계정 준비와 CI 설정은 [DEPLOYMENT.md](DEPLOYMENT.md)에 있습니다. 현재 생성된 Windows 0.3.9는 서명되지 않았으며 macOS 서명·공증을 실제 실행한 것으로 표시하면 안 됩니다.
+Windows 서명은 `PORTWAY_SIGN_PARAMS`, macOS는 `PORTWAY_MAC_APP_IDENTITY`, `PORTWAY_MAC_INSTALLER_IDENTITY`, `PORTWAY_MAC_NOTARY_PROFILE`, 선택적 `PORTWAY_MAC_KEYCHAIN`을 전달합니다. 인증서·계정 준비는 [DEPLOYMENT.md](DEPLOYMENT.md)에 있습니다. 현재 생성된 Windows 0.3.9는 서명되지 않았으며 macOS 서명·공증을 실제 실행한 것으로 표시하면 안 됩니다.
 
 <a id="distribution"></a>
 ## 10. 배포 서버 개발·게시·업데이트
@@ -494,11 +494,11 @@ https://downloads.example.com/releases/win-x64-stable/
 패키지 해시와 피드 검사가 OS 코드 서명을 대신하지는 않습니다. 서버 관리 키는 게시자에게만 제공하며 다운로드와 사용자 업데이트에는 필요하지 않습니다.
 
 <a id="release"></a>
-## 11. CI와 운영 릴리스
+## 11. 운영 릴리스
 
-[release.yml](../../../.github/workflows/release.yml)의 `Package release` 수동 실행에서 버전·track·게시 여부를 지정합니다. Windows/macOS/Linux x64·arm64 매트릭스가 정의되어 있습니다. 실제 runner 사용 가능 여부, 인증서 접근과 도메인 설정은 운영 저장소에서 준비해야 합니다.
+[build.ps1](../../../scripts/build.ps1)을 각 대상 OS에서 실행하고 생성된 ZIP을 [publish.ps1](../../../scripts/publish.ps1)로 게시합니다. GitHub Actions 자동 빌드·테스트·게시 워크플로는 사용하지 않습니다.
 
-공개 게시에는 repository variable `PORTWAY_DISTRIBUTION_URL`과 secret `PORTWAY_PUBLISH_KEY`가 필요합니다. Windows 서명 옵션과 macOS P12·공증 secret의 전체 목록은 [DEPLOYMENT.md](DEPLOYMENT.md)를 따릅니다. macOS 공개 게시에서 서명 설정이 없으면 작업은 실패하도록 구성되어 있습니다.
+공개 게시에는 배포 서버 URL과 게시 키가 필요합니다. Windows 서명 옵션과 macOS 서명·공증 준비는 [DEPLOYMENT.md](DEPLOYMENT.md)를 따릅니다.
 
 릴리스할 때 다음 결과를 남깁니다.
 

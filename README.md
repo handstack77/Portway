@@ -70,7 +70,7 @@ Linux AppImage는 실행 권한을 지정한 뒤 실행합니다. FUSE가 없는
 
 ## 패키징
 
-**대상 OS에서** 다음 스크립트를 실행합니다. Windows에서 macOS 설치 프로그램을 만드는 방식은 지원하지 않습니다. `.github/workflows/release.yml`이 Windows/macOS/Linux의 x64/arm64 6개 조합을 구성합니다.
+**대상 OS에서** 다음 스크립트를 실행합니다. Windows에서 macOS 설치 프로그램을 만드는 방식은 지원하지 않습니다. GitHub Actions 워크플로는 사용하지 않으므로 대상 OS별 빌드와 검증을 직접 실행합니다.
 
 ```powershell
 ./scripts/build.ps1 -Version 0.3.10 -Runtime win-x64 -Track stable

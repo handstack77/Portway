@@ -41,7 +41,7 @@
 | 파일 탐색·선택·팝업 | `wwwroot/app.js`, `explorer.js`, `selection.js`, `workflows.js`, `advanced.js` |
 | 편집기·날짜·테마 | `wwwroot/editor.js`, `editor-state.js`, `display-time.js`, `theme.js`, `design-tokens.css`, `app.css` |
 | 화면·파일 행 마크업·공통 UI | `wwwroot/workspace-view.js`, `file-list-view.js`, `ui.js`; 원격 편집은 `RemoteTextFiles.cs` |
-| 패키징·배포 | `scripts/build.ps1`, `scripts/publish.ps1`, `src/Portway.Server`, `.github/workflows/release.yml` |
+| 패키징·배포 | `scripts/build.ps1`, `scripts/package.ps1`, `scripts/publish.ps1`, `src/Portway.Server` |
 
 표의 Desktop 파일은 `src/Portway.Desktop` 기준이며 Core 파일은 `src/Portway.Core` 기준입니다. UI 파일은 Desktop의 `wwwroot` 기준입니다.
 
@@ -150,9 +150,9 @@ docker compose -p portway-tests -f tests/infrastructure/compose.yaml down
 ## 릴리스
 
 - 일반 개발·버그 수정은 소스와 로컬 검증까지 수행합니다. 릴리스가 요청되면 새 버전·패키지·배포 절차를 진행하며, 개발 코드의 검증을 기존 설치 패키지의 검증으로 표시하지 않습니다.
-- 버전은 `Directory.Build.props`와 빌드 스크립트·CI 기본값을 맞춥니다. 이미 존재하는 `dist/publish/<RID>/<version>`과 게시 ZIP을 덮어쓰지 말고 새 버전을 사용합니다.
+- 버전은 `Directory.Build.props`와 빌드 스크립트 기본값을 맞춥니다. 이미 존재하는 `dist/publish/<RID>/<version>`과 게시 ZIP을 덮어쓰지 말고 새 버전을 사용합니다.
 - 프런트엔드 빌드 후 `scripts/build.ps1 -Version <새 버전> -Runtime <RID>`로 대상 OS에서 vpk를 생성합니다. CLI도 패키지에 포함됩니다.
-- 패키징은 `scripts/package.ps1`에서 버전별 `dist/releases/<채널>/<버전>/`을 생성하고 ZIP에는 해당 버전만 넣습니다. 최신 Full은 변경분 기준으로만 사용합니다. CI·새 작업 공간에서는 `-PreviousReleaseUrl`로 같은 채널의 최신 Full을 받고 최초 채널일 때만 `-AllowEmptyChannel`을 사용합니다. 서버는 Full/Delta 피드를 합치며 새 Delta의 `BaseVersion`이 서버 최신 Full과 일치하는지 검사합니다. 변경 시 `ReleaseTests`, 실제 ZIP `PackageTests`와 정상 변경분·손상 시 전체 다운로드 전환을 검증합니다.
+- 패키징은 `scripts/package.ps1`에서 버전별 `dist/releases/<채널>/<버전>/`을 생성하고 ZIP에는 해당 버전만 넣습니다. 최신 Full은 변경분 기준으로만 사용합니다. 새 작업 공간에서는 `-PreviousReleaseUrl`로 같은 채널의 최신 Full을 받고 최초 채널일 때만 `-AllowEmptyChannel`을 사용합니다. 서버는 Full/Delta 피드를 합치며 새 Delta의 `BaseVersion`이 서버 최신 Full과 일치하는지 검사합니다. 변경 시 `ReleaseTests`, 실제 ZIP `PackageTests`와 정상 변경분·손상 시 전체 다운로드 전환을 검증합니다.
 - Windows 교차 게시가 macOS 네이티브 실행·서명·공증 검증을 대신하지 않습니다. 사용하지 못한 실제 OS나 원격 환경은 검증 한계에 명시합니다.
 - 배포 서버 업로드가 필요하면 실제 생성된 ZIP의 무결성과 채널을 확인합니다. 서명 여부, 설치/업데이트 테스트 여부를 정확히 기록하고 기존 릴리스의 불변성을 유지합니다.
 
