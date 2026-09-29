@@ -1,0 +1,68 @@
+{
+  "date": "2026-09-29T17:00:47.1625132+09:00",
+  "scope": "workspace.png를 제외한 문서 이미지 4개를 최신 스크린샷으로 갱신",
+  "sourceVersion": "0.3.9",
+  "environment": "Windows / Chrome / 실제 Desktop headless 호스트",
+  "images": [
+    {
+      "path": "doc/Portway.Document/docs/images/workspace-light.png",
+      "originalCapture": "output/playwright/workspace-light-20260929-b1afd451.png",
+      "width": 1440,
+      "height": 940,
+      "sha256": "D94F6A0B90AA52143BB5168784D887B925A09C6188AE8073305302A7BAE1B7F2",
+      "previousSha256": "2B1EFD0781B55177344A7C554B6619C51B645B5BEC3EC0E5266F6210CDF8875C",
+      "visuallyInspected": true
+    },
+    {
+      "path": "doc/Portway.Document/docs/images/workspace-dark.png",
+      "originalCapture": "output/playwright/workspace-dark-20260929-b1afd451.png",
+      "width": 1440,
+      "height": 940,
+      "sha256": "0F5F97E566A95416DAAB6F8F574E3B480B05EC07182ADDA19D49832D4FE72985",
+      "previousSha256": "1727E82BD39567255E45E47873C4D12301FBE0EA1380CAA7D2E75A5EA0E8D55D",
+      "visuallyInspected": true
+    },
+    {
+      "path": "doc/Portway.Document/docs/images/sidebar-expanded.png",
+      "originalCapture": "output/playwright/sidebar-expanded-20260929-b1afd451.png",
+      "width": 1440,
+      "height": 940,
+      "sha256": "A223D0BFFE29B0AB5C06AE39622D7DD9B26D12E253D1370564D4AE2AE9206909",
+      "previousSha256": "137F895F9650D51ECE32536633597F2EC3EF46E1F74DF647939B8275876F287F",
+      "visuallyInspected": true
+    },
+    {
+      "path": "doc/Portway.Document/docs/images/terminal.png",
+      "originalCapture": "output/playwright/terminal-20260929-b1afd451.png",
+      "width": 1440,
+      "height": 940,
+      "sha256": "3493581A2CFA95BFF8EB2BB61D6DFC0B8FBC860D146BF96991AE6CDF3BE38B73",
+      "previousSha256": "28485BBD495CFB4561C141D774B586C1200953C67E968321FA677FFB7217CAAB",
+      "visuallyInspected": true
+    }
+  ],
+  "preservedWorkspace": {
+    "path": "doc/Portway.Document/docs/images/workspace.png",
+    "sha256": "BCBED1EDFE9977A8A85C3B6A7F8C030E45D4C26A0520406C0024627AEB579C91",
+    "unchanged": true
+  },
+  "checks": {
+    "frontendBuild": "통과",
+    "releaseBuildWarnings": 0,
+    "releaseBuildErrors": 0,
+    "currentSourceAssets": "해시 일치",
+    "consoleErrors": 0,
+    "consoleWarnings": 0,
+    "lightDarkTheme": "실제 UI에서 전환",
+    "expandedSidebar": "마우스 hover로 펼침",
+    "sshHostKey": "실제 테스트 서버 호스트 키와 스캔 지문 일치",
+    "sftp": "실제 SSH 테스트 서버에 연결해 파일 목록 표시",
+    "terminal": "실제 SSH PTY에서 pwd·ls 명령 실행과 한글 이름 출력 확인",
+    "allImagesVisuallyInspected": true
+  },
+  "limits": [
+    "샘플 파일·사이트를 포함한 촬영 전용 프로필 사용",
+    "Photino 네이티브 창 대신 동일한 웹 UI를 Chrome에서 촬영",
+    "터미널은 촬영 전용 Docker OpenSSH 서버 사용"
+  ]
+}
