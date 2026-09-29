@@ -1,0 +1,45 @@
+{
+  "date": "2026-09-29T16:41:02.1490657+09:00",
+  "scope": "문서의 workspace.png를 최신 개발 소스의 실제 브라우저 스크린샷으로 갱신",
+  "sourceVersion": "0.3.9",
+  "environment": "Windows / Chrome / 실제 Desktop headless 호스트",
+  "image": {
+    "path": "doc/Portway.Document/docs/images/workspace.png",
+    "width": 1440,
+    "height": 940,
+    "sha256": "BCBED1EDFE9977A8A85C3B6A7F8C030E45D4C26A0520406C0024627AEB579C91",
+    "previousSha256": "2B1EFD0781B55177344A7C554B6619C51B645B5BEC3EC0E5266F6210CDF8875C",
+    "originalCapture": "output/playwright/workspace-20260929-47d5098c.png"
+  },
+  "screen": {
+    "theme": "light",
+    "paneTitles": [
+      "내 컴퓨터",
+      "내 컴퓨터"
+    ],
+    "selectedDirectories": [
+      "문서",
+      "사진"
+    ],
+    "topbarCount": 0,
+    "actionsClass": "btn-group",
+    "fileDateFormat": "YYYY-MM-DD 오전/오후 h:mm",
+    "fonts": "loaded",
+    "horizontalOverflow": false
+  },
+  "checks": {
+    "frontendBuild": "통과",
+    "releaseBuildWarnings": 0,
+    "releaseBuildErrors": 0,
+    "latestSourceAssetHashes": "일치",
+    "consoleErrors": 0,
+    "consoleWarnings": 0,
+    "visualInspection": "통과",
+    "documentImageHash": "일치"
+  },
+  "limits": [
+    "전용 예제 디렉토리를 실제 로컬 파일 API로 표시",
+    "원격 서버 연결을 연출하지 않음",
+    "Photino 네이티브 창의 촬영이 아닌 동일 웹 UI의 브라우저 촬영"
+  ]
+}
