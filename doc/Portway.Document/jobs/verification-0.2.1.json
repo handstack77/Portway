@@ -1,0 +1,29 @@
+{
+  "version": "0.2.1",
+  "verifiedAt": "2026-09-28T10:30:54.9834541Z",
+  "windows": {
+    "total": 65,
+    "failed": 0,
+    "passed": 65
+  },
+  "linux": {
+    "total": 65,
+    "failed": 0,
+    "passed": 64,
+    "skipped": 1
+  },
+  "windowsInstallationUpgradeUninstall": "passed: 0.1.0 -> 0.2.1",
+  "winScpEncryptionInterop": "passed: official 6.5.7",
+  "macOS": "osx-arm64 cross-publish only",
+  "fullParity": false,
+  "checklist": "doc/Portway.Document/docs/PARITY.md",
+  "checksums": [
+    "1A3BD6816ACC24DA54A79228DF38D26943622B47BDA3EB91CD3A541830A1BC81  Portway-0.2.1-win-x64-stable.zip",
+    "1966FBBA83E5BA87D9A6512809469F0ED045A4A8B16E70DA84F8FB51E9BC2164  Portway-0.2.1-linux-x64-stable.zip",
+    "EA8EBC4E80E830D5959589C878E9B607EDB42AC012D8F391A14A32CFDCCC8E06  releases/win-x64-stable/Portway-win-x64-stable-Setup.exe",
+    "925CC4805951C804A1DE24B54F2B1AC10DA2A13B51FFE04AF39214989C6F54CA  releases/win-x64-stable/Portway-win-x64-stable-Portable.zip",
+    "A20C283E25C64BC2F7FE0381532003C00F8FB0318680BDC308E20FF4F34FDEE6  releases/win-x64-stable/Portway-0.2.1-win-x64-stable-full.nupkg",
+    "50220ABE6F3E8CBBD852536621867E66D3AA8282468A34873CC3AA1DBA24A6B4  releases/win-x64-stable/Portway-0.2.1-win-x64-stable-delta.nupkg",
+    "66F91D73B882D72D4B25F4A5B553AC9AD1228224720B967BA13E0C0ACF612653  releases/linux-x64-0.2.1-stable/Portway-linux-x64-stable.AppImage"
+  ]
+}

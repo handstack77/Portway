@@ -1,0 +1,9 @@
+**/bin
+**/obj
+artifacts
+doc/Portway.Document/jobs
+dist
+tests
+.git
+node_modules
+output

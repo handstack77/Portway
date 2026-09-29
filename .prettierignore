@@ -1,0 +1,14 @@
+**/vendor/**
+**/node_modules/**
+**/bin/**
+**/obj/**
+**/TestResults/**
+artifacts/**
+doc/Portway.Document/jobs/**
+dist/**
+output/**
+.vs/**
+.playwright-cli/**
+**/package-lock.json
+src/Portway.Server/wwwroot/theme.js
+src/Portway.Server/wwwroot/design-tokens.css

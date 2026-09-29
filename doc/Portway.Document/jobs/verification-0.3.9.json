@@ -1,0 +1,78 @@
+{
+  "version": "0.3.9",
+  "date": "2026-09-29",
+  "host": "Windows x64",
+  "changes": [
+    "Vertically centered Portway logo text",
+    "64px folded / 260px hover sidebar with fixed workspace",
+    "Keyboard focus, saved-site scrolling, reduced-motion and no-hover support",
+    "Checkbox cell padding and overflow fix"
+  ],
+  "reference": "https://preview.tabler.io/layout-folded-hover.html",
+  "tests": {
+    "frontend": {
+      "passed": 21
+    },
+    "dotnet": {
+      "passed": 58,
+      "skipped": 23
+    },
+    "package": {
+      "passed": 1
+    },
+    "publishedWebAssetHashMatches": 280
+  },
+  "ui": {
+    "engines": [
+      "Chromium",
+      "WebKit on Windows"
+    ],
+    "sizes": [
+      "1440x940",
+      "980x680"
+    ],
+    "themes": [
+      "light",
+      "dark"
+    ],
+    "savedSitesTested": 18,
+    "sidebarWidths": [
+      64,
+      260
+    ],
+    "brandCenterY": [
+      42,
+      42
+    ],
+    "publishedFontSizes": {
+      "navigation": 15,
+      "tools": 14,
+      "icons": 20
+    },
+    "passed": [
+      "Hover and fixed workspace",
+      "Keyboard focus/Tab/actions",
+      "Saved site scrolling/editing",
+      "Checkbox individual/all/indeterminate/Home/Space",
+      "Reduced motion",
+      "Touch emulation no-hover fallback",
+      "Published 0.3.9 layout and colors"
+    ],
+    "consoleErrors": 0,
+    "consoleWarnings": 0
+  },
+  "artifacts": {
+    "report": "doc/Portway.Document/jobs/VALIDATION-0.3.9.md",
+    "buildLog": "artifacts/build-0.3.9.log",
+    "packageTrx": "tests/Portway.Tests/TestResults/package-0.3.9.trx",
+    "checksum": "dist/SHA256SUMS-0.3.9.txt"
+  },
+  "limits": [
+    "No native macOS/Linux Photino run",
+    "Touch check used browser emulation",
+    "No new live protocol/installation/auto-update run",
+    "Windows unsigned",
+    "No public deployment",
+    "Linux package remains 0.3.1"
+  ]
+}

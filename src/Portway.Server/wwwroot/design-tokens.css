@@ -1,0 +1,76 @@
+/* Tabler는 색상과 컴포넌트를, Master CSS는 완전한 문자열로 작성한 레이아웃 유틸리티를 담당합니다.
+   이 파일에서는 작업 공간 전용 레이아웃과 컴포넌트의 세부 모양만 조정합니다. */
+:root,
+[data-bs-theme="light"] {
+  --tblr-font-sans-serif: "Noto Sans KR Variable", "Noto Sans KR", sans-serif;
+  --tblr-body-font-family: var(--tblr-font-sans-serif);
+  --canvas: var(--tblr-body-bg, #f6f8fb);
+  --surface: var(--tblr-bg-surface, #fff);
+  --ink: var(--tblr-body-color, #182433);
+  --muted: var(--tblr-secondary, #667382);
+  --line: var(--tblr-border-color, #dce1e7);
+  --accent: var(--tblr-primary);
+  --accent-hover: var(--tblr-primary-darken);
+  --accent-soft: var(--tblr-primary-lt);
+  --accent-ink: var(--tblr-link-color);
+  --danger: #c53444;
+  --danger-soft: #fbe9eb;
+  --warning: #97601b;
+  --warning-soft: #fff3dc;
+  --sidebar-bg: var(--surface);
+  --header-bg: var(--surface);
+  --input-bg: var(--surface);
+  --floating-bg: var(--surface);
+  --editor-bg: var(--surface);
+  --editor-selection: #066fd133;
+  --dialog-backdrop: #0e252b66;
+  --dialog-shadow: 0 25px 100px #001e2540;
+  --shadow: 0 8px 30px #1824330a;
+}
+[data-bs-theme="dark"] {
+  /* Visual Studio 2026 Fluent 테마 토큰을 참고한 중성 배경색입니다.
+     환경 배경(EnvironmentBody) #1c1c1c, 기본(Base) #202020, 헤더(Header) #282828, 표면(Surface) #2c2c2c.
+     두 테마 모두 Portway 작업의 강조색은 Tabler 기본 파란색을 유지합니다. */
+  --tblr-body-bg: #1c1c1c;
+  --tblr-body-bg-rgb: 28, 28, 28;
+  --tblr-body-color: #f3f3f3;
+  --tblr-body-color-rgb: 243, 243, 243;
+  --tblr-bg-surface: #202020;
+  --tblr-bg-surface-secondary: #282828;
+  --tblr-bg-surface-tertiary: #2c2c2c;
+  --tblr-bg-surface-dark: #181818;
+  --tblr-bg-forms: #1e1e1e;
+  --tblr-secondary: #bcbcbc;
+  --tblr-secondary-rgb: 188, 188, 188;
+  --tblr-secondary-color: #bcbcbc;
+  --tblr-secondary-color-rgb: 188, 188, 188;
+  --tblr-secondary-bg: #282828;
+  --tblr-secondary-bg-rgb: 40, 40, 40;
+  --tblr-tertiary-color: #a0a0a0;
+  --tblr-tertiary-color-rgb: 160, 160, 160;
+  --tblr-tertiary-bg: #2c2c2c;
+  --tblr-tertiary-bg-rgb: 44, 44, 44;
+  --tblr-border-color: #454545;
+  --tblr-border-color-translucent: #ffffff15;
+  --tblr-border-dark-color: #555555;
+  --tblr-border-active-color: #6aa9e3;
+  --tblr-emphasis-color: #fff;
+  --tblr-emphasis-color-rgb: 255, 255, 255;
+  --accent: rgb(var(--tblr-link-color-rgb));
+  --accent-hover: rgb(var(--tblr-link-hover-color-rgb));
+  --accent-soft: var(--tblr-primary-lt);
+  --accent-ink: rgb(var(--tblr-link-color-rgb));
+  --danger: #ff99a4;
+  --danger-soft: #442726;
+  --warning: #e9bf78;
+  --warning-soft: #433519;
+  --sidebar-bg: #202020;
+  --header-bg: #282828;
+  --input-bg: #1e1e1e;
+  --floating-bg: #2c2c2c;
+  --editor-bg: #1e1e1e;
+  --editor-selection: #264f78;
+  --dialog-backdrop: #0008;
+  --dialog-shadow: 0 25px 100px #0006;
+  --shadow: 0 8px 30px #0004;
+}

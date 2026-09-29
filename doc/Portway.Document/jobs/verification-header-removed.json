@@ -1,0 +1,30 @@
+{
+  "scope": "네이티브 창 제목은 소스 및 빌드로 확인. UI 배치와 동작은 격리된 Chromium에서 검증.",
+  "build": {
+    "directory": "artifacts/qa/header-build",
+    "errors": 0,
+    "warnings": 0,
+    "configuration": "Debug"
+  },
+  "title": "Portway · 파일 전송 클라이언트",
+  "browser": {
+    "pageErrors": 0,
+    "engine": "Chromium",
+    "themeTogglePersistsAfterReload": true,
+    "themes": [
+      "light",
+      "dark"
+    ],
+    "newSiteAndAddSessionOpen": true,
+    "settingsThemeAvailable": true,
+    "sessionAtTop": true,
+    "panelsQueueStatusVisible": true,
+    "horizontalOverflow": false,
+    "headerRemoved": true,
+    "sidebarToolsVisible": true,
+    "sizes": [
+      "1440x940",
+      "980x680"
+    ]
+  }
+}

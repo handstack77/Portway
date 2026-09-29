@@ -1,0 +1,141 @@
+{
+  "browser": {
+    "layouts": [
+      {
+        "theme": "light",
+        "viewport": {
+          "width": 1440,
+          "height": 940
+        },
+        "left": {
+          "x": 88,
+          "width": 656,
+          "height": 718.96875,
+          "bottom": 846
+        },
+        "right": {
+          "x": 760,
+          "width": 656,
+          "height": 718.96875,
+          "bottom": 846
+        },
+        "horizontalOverflow": false
+      },
+      {
+        "theme": "light",
+        "viewport": {
+          "width": 980,
+          "height": 680
+        },
+        "left": {
+          "x": 76,
+          "width": 438,
+          "height": 477,
+          "bottom": 592
+        },
+        "right": {
+          "x": 530,
+          "width": 438,
+          "height": 477,
+          "bottom": 592
+        },
+        "horizontalOverflow": false
+      },
+      {
+        "theme": "dark",
+        "viewport": {
+          "width": 1440,
+          "height": 940
+        },
+        "left": {
+          "x": 88,
+          "width": 656,
+          "height": 718.96875,
+          "bottom": 846
+        },
+        "right": {
+          "x": 760,
+          "width": 656,
+          "height": 718.96875,
+          "bottom": 846
+        },
+        "horizontalOverflow": false
+      },
+      {
+        "theme": "dark",
+        "viewport": {
+          "width": 980,
+          "height": 680
+        },
+        "left": {
+          "x": 76,
+          "width": 438,
+          "height": 477,
+          "bottom": 592
+        },
+        "right": {
+          "x": 530,
+          "width": 438,
+          "height": 477,
+          "bottom": 592
+        },
+        "horizontalOverflow": false
+      }
+    ],
+    "copyId": "227e033b0f0b42c28eb76c97bd599291",
+    "reverseId": "5c5f2d73e768498783f2cfdf77fc48b9",
+    "moveId": "d2d0aa25224240569a1329a9645e7893",
+    "dragId": "854d0fcca2ef436d989092ac2e59b45a",
+    "textChecksumMatches": true,
+    "binaryChecksumMatches": true,
+    "emptyDirectoryPreserved": true,
+    "rightPanelFileManagement": true,
+    "unsafeSameNestedJunctionRejected": true,
+    "pageErrors": []
+  },
+  "tabs": {
+    "rightPanelMonacoReadsAndWritesLocalFile": true,
+    "localPathFilterRetainedAcrossTabs": true,
+    "remoteToolbarRestored": true,
+    "disconnectReturnsToLocalWorkspace": true,
+    "remoteBackend": "탭 전환 UI만 모의 응답으로 검증. 로컬 파일 작업은 실제 API 사용.",
+    "pageErrors": []
+  },
+  "tests": {
+    "skipped": "실제 원격/WinSCP 조건 4개, Windows 심볼릭 링크 생성 권한 조건 1개",
+    "frontendFailed": 0,
+    "dotnetSkipped": 5,
+    "frontendPassed": 28,
+    "dotnetPassed": 23,
+    "dotnetFailed": 0
+  },
+  "build": {
+    "warnings": 0,
+    "path": "artifacts/qa/local-workspace-final-build",
+    "errors": 0,
+    "configuration": "Debug"
+  },
+  "scope": "Windows의 실제 로컬 파일 API/큐와 Chromium UI에서 검증. Windows junction 거부를 확인. 원격 탭 전환은 모의 응답 사용. 실제 Photino 창 및 macOS/Linux 실행은 이번 변경에서 검증하지 않음.",
+  "startup": {
+    "initial": {
+      "titles": [
+        "내 컴퓨터",
+        "내 컴퓨터"
+      ],
+      "left": "C:\\Users\\junwo",
+      "right": "C:\\Users\\junwo",
+      "copyRight": "오른쪽으로 복사",
+      "copyLeft": "왼쪽으로 복사",
+      "externalDisabled": true
+    },
+    "loading": {
+      "titles": [
+        "내 컴퓨터",
+        "내 컴퓨터"
+      ],
+      "copyRight": "오른쪽으로 복사"
+    },
+    "bothLocalPanelsFromFirstRender": true,
+    "pageErrors": []
+  }
+}

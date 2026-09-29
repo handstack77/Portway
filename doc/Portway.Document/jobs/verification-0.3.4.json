@@ -1,0 +1,74 @@
+{
+  "version": "0.3.4",
+  "date": "2026-09-29",
+  "host": "Windows x64",
+  "changes": [
+    "Monaco Editor 0.57.0 bundled ESM and workers",
+    "Shared Tabler dialog chrome and themes",
+    "Snapshot-safe saves and editor model cleanup"
+  ],
+  "tests": {
+    "frontend": {
+      "passed": 7
+    },
+    "dotnet": {
+      "passed": 58,
+      "skipped": 23
+    },
+    "package": {
+      "passed": 1
+    },
+    "publishedWebAssetHashMatches": 152
+  },
+  "ui": {
+    "engines": [
+      "Chromium",
+      "WebKit on Windows"
+    ],
+    "sizes": [
+      "1440x940",
+      "980x680"
+    ],
+    "themes": [
+      "light",
+      "dark"
+    ],
+    "realFileSystems": [
+      "local disk",
+      "isolated Docker SFTP"
+    ],
+    "passed": [
+      "find/replace",
+      "Ctrl/Cmd+S",
+      "Korean text",
+      "cp949 round trip",
+      "UTF-16LE BOM",
+      "ETag conflict prevents overwrite",
+      "edits during save stay dirty",
+      "BOM-only dirty state",
+      "cancel/discard",
+      "model disposal",
+      "editor/json/css/html/ts workers",
+      "preset prompt",
+      "settings/connection/transfer dialogs",
+      "SSH PTY echo",
+      "load failure disables save",
+      "published 0.3.4 editor save"
+    ]
+  },
+  "artifacts": {
+    "report": "doc/Portway.Document/jobs/VALIDATION-0.3.4.md",
+    "buildLog": "artifacts/build-0.3.4.log",
+    "packageTrx": "tests/Portway.Tests/TestResults/package-0.3.4.trx",
+    "checksum": "dist/SHA256SUMS-0.3.4.txt"
+  },
+  "limits": [
+    "No macOS/Linux native Photino UI run",
+    "No native IME validation",
+    "No native Windows Photino UI automation this release",
+    "Windows unsigned",
+    "No public deployment",
+    "Installation and auto-update checks refer to 0.3.3",
+    "Existing Linux AppImage remains 0.3.1"
+  ]
+}

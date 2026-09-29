@@ -1,0 +1,75 @@
+{
+  "version": "0.3.5",
+  "date": "2026-09-29",
+  "host": "Windows x64",
+  "changes": [
+    "Path-based multi-selection and marquee",
+    "Context menu and keyboard navigation",
+    "Multi-item transfer, move, checksum and permissions",
+    "Selection-safe refresh, filtering and delayed response guard",
+    "Collapsible queue and Tabler theme layout"
+  ],
+  "tests": {
+    "frontend": {
+      "passed": 14
+    },
+    "dotnet": {
+      "passed": 58,
+      "skipped": 23
+    },
+    "package": {
+      "passed": 1
+    },
+    "publishedWebAssetHashMatches": 154,
+    "externalDropFileHashMatches": 107
+  },
+  "ui": {
+    "engines": [
+      "Chromium",
+      "WebKit on Windows"
+    ],
+    "sizes": [
+      "1440x940",
+      "980x680"
+    ],
+    "themes": [
+      "light",
+      "dark"
+    ],
+    "realFileSystems": [
+      "local disk",
+      "isolated Docker SFTP"
+    ],
+    "passed": [
+      "checkbox and range selection",
+      "Ctrl/Cmd select all and invert",
+      "marquee, autoscroll and Escape cancellation",
+      "context menu selection preservation and keyboard",
+      "sorting, filtering and refresh selection",
+      "delayed listing cannot overwrite newer folder",
+      "native HTML multi-drag to opposite folder",
+      "F5 download and F6 move",
+      "batch checksum and chmod",
+      "multi-item trash and restore",
+      "permanent deletion cancel and partial failure",
+      "CDP actual path external drop, 107 hashes, empty folders, Korean, 9.5MB file",
+      "external drop cancel and skip conflict",
+      "queue collapse, small viewport and themes",
+      "published F4 Monaco and Ctrl+S remote save"
+    ]
+  },
+  "artifacts": {
+    "report": "doc/Portway.Document/jobs/VALIDATION-0.3.5.md",
+    "buildLog": "artifacts/build-0.3.5.log",
+    "packageTrx": "tests/Portway.Tests/TestResults/package-0.3.5.trx",
+    "checksum": "dist/SHA256SUMS-0.3.5.txt"
+  },
+  "limits": [
+    "No native macOS/Linux Photino or Explorer/Finder gesture test",
+    "No native IME, touch or screen reader validation",
+    "Windows unsigned",
+    "No public deployment",
+    "Installation and auto-update checks refer to 0.3.3",
+    "Existing Linux AppImage remains 0.3.1"
+  ]
+}

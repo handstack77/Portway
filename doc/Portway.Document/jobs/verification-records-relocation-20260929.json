@@ -1,0 +1,279 @@
+{
+  "moved": [
+    {
+      "source": "verification-0.3.4.json",
+      "movedContentUnchanged": true,
+      "sha256": "DD21203F9BA9319A81BEBB00357042A5E97A64BDFD7D67A7E30A92A98A1B25A5",
+      "destination": "docs/verification-0.3.4.json",
+      "afterLinkUpdateSha256": "6C48535E44286E02F92F7C1F731AF7220CAB38A52D921E36EC07D958999381ED"
+    },
+    {
+      "source": "verification-0.3.5.json",
+      "movedContentUnchanged": true,
+      "sha256": "AC0658E76251A9771425344B04F6AC02CED7E3A523C5ED022883D20EC8B03CB4",
+      "destination": "docs/verification-0.3.5.json",
+      "afterLinkUpdateSha256": "8AF9BE7D4E9DC747338F397A4EAEE13ECEFCD88373EFE923C76F0929C9D6D530"
+    },
+    {
+      "source": "verification-0.3.6.json",
+      "movedContentUnchanged": true,
+      "sha256": "1EEE66DB0A4D06862BDFE3D19A00DE74F818E533C75200EF53575443EDBDBDCB",
+      "destination": "docs/verification-0.3.6.json",
+      "afterLinkUpdateSha256": "658F6F01CB2C74E0DB2DEEE5DFE78AA2FA3D062E563A290B5336BE0DAB5FC658"
+    },
+    {
+      "source": "verification-0.3.7.json",
+      "movedContentUnchanged": true,
+      "sha256": "A854C3C4AFF31B277887F15F98D431C811E45F50365FFFAA6A7C33D5A6B47344",
+      "destination": "docs/verification-0.3.7.json",
+      "afterLinkUpdateSha256": "9F8AE41403EAF6D38B877764AC5B593D929EA4A8D797A1414970CAC22C1BEFA1"
+    },
+    {
+      "source": "verification-0.3.9.json",
+      "movedContentUnchanged": true,
+      "sha256": "00CCCA1B460F0E2BB60138346A5B973A36793D7C9029B6F2FE7B5429DF9F477C",
+      "destination": "docs/verification-0.3.9.json",
+      "afterLinkUpdateSha256": "EA3AC7403447481547686524312957CEBE31F3507907EB871D0170B025E81F4E"
+    },
+    {
+      "source": "docs/REFACTORING.md",
+      "movedContentUnchanged": true,
+      "sha256": "37EB436F1B214C788B3045A7DCDD1EBF8C68245CD93AA7AD8B38654E3995ECDA",
+      "destination": "jobs/REFACTORING.md",
+      "afterLinkUpdateSha256": "220101086CBD59F4B5349EFABD85EEB8A1D32149BEAB490EA68A7D5A8FE5BA43"
+    },
+    {
+      "source": "docs/VALIDATION-0.1.0.md",
+      "movedContentUnchanged": true,
+      "sha256": "9B63C4B3CE7A72690E10214687638EF09896A8CF4D45D4D2D1638C7B80D8AF42",
+      "destination": "jobs/VALIDATION-0.1.0.md",
+      "afterLinkUpdateSha256": "9B63C4B3CE7A72690E10214687638EF09896A8CF4D45D4D2D1638C7B80D8AF42"
+    },
+    {
+      "source": "docs/VALIDATION-0.2.1.md",
+      "movedContentUnchanged": true,
+      "sha256": "CF343167B2B001828659BFF3A7289ACDC9A4D5E06B49FA6C6FB41A99376B739D",
+      "destination": "jobs/VALIDATION-0.2.1.md",
+      "afterLinkUpdateSha256": "3A5C6961348E23CF01E2A7B1036353F132C7E37E3E1107779355D599B17C1094"
+    },
+    {
+      "source": "docs/VALIDATION-0.3.0.md",
+      "movedContentUnchanged": true,
+      "sha256": "3D880D2596EA6361487CC59B6473E1522DB78D9D85EA29CF760D25086C39EB79",
+      "destination": "jobs/VALIDATION-0.3.0.md",
+      "afterLinkUpdateSha256": "67EE5EE4D301CF8B39377BDC9BF7FD67810942B6F127B72216B54E6390D83796"
+    },
+    {
+      "source": "docs/VALIDATION-0.3.1.md",
+      "movedContentUnchanged": true,
+      "sha256": "EA362F8A3C86FA920F0C334C222DE3B1F47ECFCB6BC5A95768E2686A643042A6",
+      "destination": "jobs/VALIDATION-0.3.1.md",
+      "afterLinkUpdateSha256": "5CC82D11A1CA9AD0EDDC33D3695B1AC8F766104448F52337107771C128B99BDF"
+    },
+    {
+      "source": "docs/VALIDATION-0.3.3.md",
+      "movedContentUnchanged": true,
+      "sha256": "F2A9FE1871152AD882E6D94556E7871D953259ED479851784462FD3EB943A6B9",
+      "destination": "jobs/VALIDATION-0.3.3.md",
+      "afterLinkUpdateSha256": "F2A9FE1871152AD882E6D94556E7871D953259ED479851784462FD3EB943A6B9"
+    },
+    {
+      "source": "docs/VALIDATION-0.3.4.md",
+      "movedContentUnchanged": true,
+      "sha256": "BCB26445A6210CA9A0F411CC6CC10E62EF6E0CD2EC8B2CC0460F8AEBA74DAAB7",
+      "destination": "jobs/VALIDATION-0.3.4.md",
+      "afterLinkUpdateSha256": "8F8847667B4674DE143279E2425AC329A10ACE43B338AFC30EAEAC060F1F3BF3"
+    },
+    {
+      "source": "docs/VALIDATION-0.3.5.md",
+      "movedContentUnchanged": true,
+      "sha256": "1DF9DE1352B9AF6A36B2EC5EFC7E095567683D34C87D7F24ECB63073337D611B",
+      "destination": "jobs/VALIDATION-0.3.5.md",
+      "afterLinkUpdateSha256": "414542992C1B5D4B9D6C2BFEF12784D3C64A67AA2CCA553C4B9C836618B0DDFA"
+    },
+    {
+      "source": "docs/VALIDATION-0.3.6.md",
+      "movedContentUnchanged": true,
+      "sha256": "351D0D69871994EFE548C4B78D46EC5EEC06C58A631F599E6B0942168EE5463C",
+      "destination": "jobs/VALIDATION-0.3.6.md",
+      "afterLinkUpdateSha256": "8F4233D2118C5FDB9C9BEFA22286C4A3AD7D4CC364A47D904B879FF5C9C237C7"
+    },
+    {
+      "source": "docs/VALIDATION-0.3.7.md",
+      "movedContentUnchanged": true,
+      "sha256": "0BBAE05722AFA2D4D9347BEE0ED11BEA6921038A9FFE70A3516F43DD4F665993",
+      "destination": "jobs/VALIDATION-0.3.7.md",
+      "afterLinkUpdateSha256": "DBD7124515F6FF0FEE2094B553D8313F374F57F26445A46998B0E5592042D92A"
+    },
+    {
+      "source": "docs/VALIDATION-0.3.9.md",
+      "movedContentUnchanged": true,
+      "sha256": "80896821FF2E77209167FD56FC5552D35BB7B3840F2CCD46668FEAFCD3CC1509",
+      "destination": "jobs/VALIDATION-0.3.9.md",
+      "afterLinkUpdateSha256": "05572D7B260F556886F4D02094E73C9DF787D5E79DC5E05295B2D95C5400B7E0"
+    },
+    {
+      "source": "docs/VALIDATION.md",
+      "movedContentUnchanged": true,
+      "sha256": "7742ADE96632E0BD53261A56F31FF947A84A9D56B152119B5341CAA842755D1F",
+      "destination": "jobs/VALIDATION.md",
+      "afterLinkUpdateSha256": "849DCDD8650E926E8B48A3B009C6BBE2EB971420D439EB4201A62A03AB55FE8B"
+    },
+    {
+      "source": "docs/verification-0.2.1.json",
+      "movedContentUnchanged": true,
+      "sha256": "BFA09B027DE9CB500DEFF081219C4DCF9462F5AFD54AC9B51CA41CBA23702C61",
+      "destination": "jobs/verification-0.2.1.json",
+      "afterLinkUpdateSha256": "BFA09B027DE9CB500DEFF081219C4DCF9462F5AFD54AC9B51CA41CBA23702C61"
+    },
+    {
+      "source": "docs/verification-0.3.0.json",
+      "movedContentUnchanged": true,
+      "sha256": "8402CD6BB4F36380B38E1FCCCBEE6B3F0E25F0EC6A612062EC5068362908A0F4",
+      "destination": "jobs/verification-0.3.0.json",
+      "afterLinkUpdateSha256": "8402CD6BB4F36380B38E1FCCCBEE6B3F0E25F0EC6A612062EC5068362908A0F4"
+    },
+    {
+      "source": "docs/verification-0.3.1.json",
+      "movedContentUnchanged": true,
+      "sha256": "DBBF22B4814DB18E45A83E1EB4FA0DF64647078A6E699CB55F067B39598E86EC",
+      "destination": "jobs/verification-0.3.1.json",
+      "afterLinkUpdateSha256": "DBBF22B4814DB18E45A83E1EB4FA0DF64647078A6E699CB55F067B39598E86EC"
+    },
+    {
+      "source": "docs/verification-0.3.3.json",
+      "movedContentUnchanged": true,
+      "sha256": "9175808C788768EF288EFF333D1C65C5004964F1611321A4DE7296B7C87832D8",
+      "destination": "jobs/verification-0.3.3.json",
+      "afterLinkUpdateSha256": "9175808C788768EF288EFF333D1C65C5004964F1611321A4DE7296B7C87832D8"
+    },
+    {
+      "source": "artifacts/refactor-browser-results.json",
+      "movedContentUnchanged": true,
+      "sha256": "540380E3027F6C978C87C7D17AAF7D8AF63EF2B923B764625EECA917BF8B63E5",
+      "destination": "jobs/refactor-browser-results.json",
+      "afterLinkUpdateSha256": "540380E3027F6C978C87C7D17AAF7D8AF63EF2B923B764625EECA917BF8B63E5"
+    },
+    {
+      "source": "artifacts/refactor-source-check.json",
+      "movedContentUnchanged": true,
+      "sha256": "ABF9B0890CACCC363D64E766407BBA2050A7D22156DAF8120184B3EB99B3932A",
+      "destination": "jobs/refactor-source-check.json",
+      "afterLinkUpdateSha256": "ABF9B0890CACCC363D64E766407BBA2050A7D22156DAF8120184B3EB99B3932A"
+    },
+    {
+      "source": "artifacts/typography-size-comparison.json",
+      "movedContentUnchanged": true,
+      "sha256": "F7A934D826D901A6C6E40FE8923A8D789B7D9D340D3C6A66EFACBD8EBCAD222B",
+      "destination": "jobs/typography-size-comparison.json",
+      "afterLinkUpdateSha256": "F7A934D826D901A6C6E40FE8923A8D789B7D9D340D3C6A66EFACBD8EBCAD222B"
+    },
+    {
+      "source": "artifacts/verification-connection-time.json",
+      "movedContentUnchanged": true,
+      "sha256": "117542D78963E0D0D67DBEBDE4E40526F04D4F149F52380AB1B0784C95C235D2",
+      "destination": "jobs/verification-connection-time.json",
+      "afterLinkUpdateSha256": "117542D78963E0D0D67DBEBDE4E40526F04D4F149F52380AB1B0784C95C235D2"
+    },
+    {
+      "source": "artifacts/verification-debug-startup.json",
+      "movedContentUnchanged": true,
+      "sha256": "5729D9E0F319EBD59E987D40512F2734BE954F7AB84FF1688CA6217FF5D4206B",
+      "destination": "jobs/verification-debug-startup.json",
+      "afterLinkUpdateSha256": "5729D9E0F319EBD59E987D40512F2734BE954F7AB84FF1688CA6217FF5D4206B"
+    },
+    {
+      "source": "artifacts/verification-devtools.json",
+      "movedContentUnchanged": true,
+      "sha256": "C88D1D9DF0B6ED45538ABDB9A67AC6C37DAE7B332F334D881274BF2C3EA4C542",
+      "destination": "jobs/verification-devtools.json",
+      "afterLinkUpdateSha256": "C88D1D9DF0B6ED45538ABDB9A67AC6C37DAE7B332F334D881274BF2C3EA4C542"
+    },
+    {
+      "source": "artifacts/verification-explorer-focus.json",
+      "movedContentUnchanged": true,
+      "sha256": "D4025C69E76D9FD0083DC1B986F6D0E6A6C6B1560E86789A1EE178044076D1D6",
+      "destination": "jobs/verification-explorer-focus.json",
+      "afterLinkUpdateSha256": "D4025C69E76D9FD0083DC1B986F6D0E6A6C6B1560E86789A1EE178044076D1D6"
+    },
+    {
+      "source": "artifacts/verification-header-removed.json",
+      "movedContentUnchanged": true,
+      "sha256": "8AEEA9FEBDA900022520C98DBE179DF312B2A46CC0BF3E347D295B43C1B805C9",
+      "destination": "jobs/verification-header-removed.json",
+      "afterLinkUpdateSha256": "8AEEA9FEBDA900022520C98DBE179DF312B2A46CC0BF3E347D295B43C1B805C9"
+    },
+    {
+      "source": "artifacts/verification-korean-messages.json",
+      "movedContentUnchanged": true,
+      "sha256": "BDD293F57DF0C44654BABE5743279DA659CA7A4CD306FC9DD4DCCB6582D656A1",
+      "destination": "jobs/verification-korean-messages.json",
+      "afterLinkUpdateSha256": "BDD293F57DF0C44654BABE5743279DA659CA7A4CD306FC9DD4DCCB6582D656A1"
+    },
+    {
+      "source": "artifacts/verification-local-workspace.json",
+      "movedContentUnchanged": true,
+      "sha256": "FCA53CC6611A1B8F185C68C908BB6686E1A4F9E412ECB4C4254B6FF02F501A9D",
+      "destination": "jobs/verification-local-workspace.json",
+      "afterLinkUpdateSha256": "FCA53CC6611A1B8F185C68C908BB6686E1A4F9E412ECB4C4254B6FF02F501A9D"
+    },
+    {
+      "source": "artifacts/verification-refactoring.json",
+      "movedContentUnchanged": true,
+      "sha256": "C0ECCCD9062CD81D64F5559B7006CA569C478B694B5BC84B7CF5D1437B2D6274",
+      "destination": "jobs/verification-refactoring.json",
+      "afterLinkUpdateSha256": "C0ECCCD9062CD81D64F5559B7006CA569C478B694B5BC84B7CF5D1437B2D6274"
+    },
+    {
+      "source": "artifacts/verification-site-archive.json",
+      "movedContentUnchanged": true,
+      "sha256": "D3E90F54F7A20C2BDE3D4E13AD233B73E0452A681AFBAA5C0D807B2C3B4C6FF8",
+      "destination": "jobs/verification-site-archive.json",
+      "afterLinkUpdateSha256": "D3E90F54F7A20C2BDE3D4E13AD233B73E0452A681AFBAA5C0D807B2C3B4C6FF8"
+    },
+    {
+      "source": "artifacts/verification-site-enter.json",
+      "movedContentUnchanged": true,
+      "sha256": "E861DAD1E8B34A4A74475398AA31D577FCCB20991B1B15FCD3150FB90C07FF96",
+      "destination": "jobs/verification-site-enter.json",
+      "afterLinkUpdateSha256": "E861DAD1E8B34A4A74475398AA31D577FCCB20991B1B15FCD3150FB90C07FF96"
+    },
+    {
+      "source": "artifacts/verification-terminal-cursor-focus.json",
+      "movedContentUnchanged": true,
+      "sha256": "212C2EE7D8B31F529017EFD12D2014ACC6C791DF46BBADA368AAB7DB0E4AE13C",
+      "destination": "jobs/verification-terminal-cursor-focus.json",
+      "afterLinkUpdateSha256": "212C2EE7D8B31F529017EFD12D2014ACC6C791DF46BBADA368AAB7DB0E4AE13C"
+    },
+    {
+      "source": "artifacts/verification-toolbar-group.json",
+      "movedContentUnchanged": true,
+      "sha256": "511C60C3CA8E7AE5EDE76FE22A638DAD7D48F33F965BB6881EB7B680BA7C2221",
+      "destination": "jobs/verification-toolbar-group.json",
+      "afterLinkUpdateSha256": "511C60C3CA8E7AE5EDE76FE22A638DAD7D48F33F965BB6881EB7B680BA7C2221"
+    }
+  ],
+  "limits": [
+    "원본 로그·TRX·스크린샷·임시 프로필은 기존 위치 유지",
+    "설치·업데이트·실제 프로토콜 테스트는 이번 경로 정리에서 재실행하지 않음; 결과 저장 코드의 문법과 공통 기록 생성기를 검증함"
+  ],
+  "date": "2026-09-29T15:00:49.9507087+09:00",
+  "scope": "검증 기록 경로 정리",
+  "checks": {
+    "filesMoved": 36,
+    "movedToDocs": 5,
+    "movedToJobs": 31,
+    "localMarkdownLinksChecked": 323,
+    "missingLinks": 0,
+    "jsonFilesParsed": 26,
+    "powershellScriptsParsed": 8,
+    "writerJobsOutput": true,
+    "writerUtf8JsonRoundTrip": true,
+    "writerDuplicateRejectedWithoutOverwrite": true,
+    "writerInvalidNameRejected": true,
+    "sourceCheckUtilityBuild": {
+      "warnings": 0,
+      "errors": 0
+    }
+  }
+}

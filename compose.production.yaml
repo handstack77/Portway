@@ -1,0 +1,28 @@
+services:
+  distribution:
+    build: .
+    restart: unless-stopped
+    environment:
+      Distribution__ApiKey: ${PORTWAY_PUBLISH_KEY:?Set PORTWAY_PUBLISH_KEY}
+      Distribution__DataPath: /data
+    volumes:
+      - releases:/data
+  proxy:
+    image: caddy:2
+    restart: unless-stopped
+    environment:
+      PORTWAY_DOMAIN: ${PORTWAY_DOMAIN:?Set your distribution domain}
+    ports:
+      - "80:80"
+      - "443:443"
+      - "443:443/udp"
+    volumes:
+      - ./deploy/Caddyfile:/etc/caddy/Caddyfile:ro
+      - caddy_data:/data
+      - caddy_config:/config
+    depends_on:
+      - distribution
+volumes:
+  releases:
+  caddy_data:
+  caddy_config:

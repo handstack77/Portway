@@ -1,0 +1,34 @@
+{
+  "date": "2026-09-29",
+  "changes": {
+    "fileDate": "현지 시간의 YYYY-MM-DD 오전/오후 h:mm",
+    "connectionElapsed": "성공한 연결마다 시작 시점을 저장하고 상태바에 시:분:초로 갱신",
+    "layout": "날짜 열 너비 확보, 타이머는 로컬 탭에서 숨김"
+  },
+  "validation": {
+    "frontendTests": {"passed": 31, "failed": 0},
+    "debugBuild": {"warnings": 0, "errors": 0, "defaultOutputUpdated": true},
+    "browser": {
+      "actualLocalFileTimestamps": true,
+      "remoteBackend": "모의 응답으로 연결·목록·연결 종료 UI 검증",
+      "elapsedUpdates": true,
+      "independentSessionStarts": true,
+      "tabsPreserveElapsed": true,
+      "localHidesElapsed": true,
+      "disconnectAndReconnect": true,
+      "progressMessagePreserved": true,
+      "themes": ["light", "dark"],
+      "viewports": ["1440x940", "980x680"],
+      "clippedDates": false,
+      "pageOverflow": false,
+      "pageErrors": []
+    },
+    "limits": "실제 원격 서버 연결·macOS/Linux 네이티브 실행은 이번 UI 변경 검증에 포함하지 않음"
+  },
+  "screenshots": [
+    "output/playwright/connection-time-light-1440.png",
+    "output/playwright/connection-time-light-980.png",
+    "output/playwright/connection-time-dark-1440.png",
+    "output/playwright/connection-time-dark-980.png"
+  ]
+}

@@ -1,0 +1,10 @@
+{
+  "date": "2026-09-29",
+  "method": "Isolated Debug and Release Windows executables; Visual Studio IDE launch was not automated",
+  "webView2Version": "153.0.4234.48",
+  "qaProcessesStopped": true,
+  "debugBuild": "passed, 0 warnings, 0 errors",
+  "releaseNativeF12": "passed: no DevTools window opened with web content focused",
+  "releaseBuild": "passed, 0 warnings, 0 errors",
+  "debugNativeF12": "passed: WebView2 DevTools window opened with web content focused"
+}

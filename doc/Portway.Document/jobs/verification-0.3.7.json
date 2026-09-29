@@ -1,0 +1,65 @@
+{
+  "version": "0.3.7",
+  "date": "2026-09-29",
+  "host": "Windows x64",
+  "changes": [
+    "Light/dark only theme controls",
+    "One-time migration from system, retaining other preferences",
+    "Visual Studio 2026 inspired neutral dark surfaces",
+    "Shared editor/terminal color tokens"
+  ],
+  "reference": "https://learn.microsoft.com/en-us/visualstudio/extensibility/ux-guidelines/theme-color-token-reference?view=visualstudio",
+  "tests": {
+    "frontend": {
+      "passed": 21,
+      "themeTests": 7
+    },
+    "dotnet": {
+      "passed": 58,
+      "skipped": 23
+    },
+    "package": {
+      "passed": 1
+    },
+    "publishedWebAssetHashMatches": 280
+  },
+  "ui": {
+    "engines": [
+      "Chromium",
+      "WebKit on Windows"
+    ],
+    "sizes": [
+      "1440x940",
+      "980x680"
+    ],
+    "themes": [
+      "light",
+      "dark"
+    ],
+    "passed": [
+      "Legacy profile migration and preservation of other fields",
+      "Persisted theme after OS change and reload",
+      "Two-way toggle and settings select",
+      "Context menu bounds and dialogs",
+      "Monaco dark background and exact Korean file save",
+      "Release center migration, toggle and persistence",
+      "Published 0.3.7 palette and layout"
+    ],
+    "consoleErrors": 0,
+    "consoleWarnings": 0
+  },
+  "artifacts": {
+    "report": "doc/Portway.Document/jobs/VALIDATION-0.3.7.md",
+    "buildLog": "artifacts/build-0.3.7.log",
+    "packageTrx": "tests/Portway.Tests/TestResults/package-0.3.7.trx",
+    "checksum": "dist/SHA256SUMS-0.3.7.txt"
+  },
+  "limits": [
+    "No native macOS/Linux Photino run",
+    "No new live SSH terminal or protocol integration run",
+    "Windows unsigned",
+    "No public deployment",
+    "Installation/auto-update checks refer to 0.3.3",
+    "Existing Linux package remains 0.3.1"
+  ]
+}

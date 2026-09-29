@@ -1,0 +1,11 @@
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <!-- 솔루션 복원에서 이 프로젝트를 NuGet 의존성이 없는 프로젝트로 처리합니다. -->
+  <Import Project="$(MSBuildToolsPath)/NuGet.targets" Condition="Exists('$(MSBuildToolsPath)/NuGet.targets')" />
+  <!-- 외부 의존성이나 생성 파일이 없는 기본 Node 프로젝트의 CLI 빌드입니다. -->
+  <Target Name="Build">
+    <Exec Command="npm run build" WorkingDirectory="$(MSBuildProjectDirectory)" />
+  </Target>
+  <Target Name="Restore" />
+  <Target Name="Clean" />
+  <Target Name="Rebuild" DependsOnTargets="Clean;Build" />
+</Project>

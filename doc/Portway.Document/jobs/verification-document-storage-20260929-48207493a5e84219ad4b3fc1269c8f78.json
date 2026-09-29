@@ -1,0 +1,389 @@
+{
+  "date": "2026-09-29T16:10:51.3504918+09:00",
+  "scope": "docs·jobs를 Portway.Document 하위로 이동하고 이후 문서·검증 기록 경로 변경",
+  "environment": "Windows / .NET 10.0.401 / Visual Studio 2026 Community MSBuild",
+  "sourceVersion": "0.3.9",
+  "migration": {
+    "files": [
+      {
+        "source": "docs/API-REFERENCE.md",
+        "destination": "doc/Portway.Document/docs/API-REFERENCE.md",
+        "sha256": "407FA5B94EBAB4D37A138827703CF8A72F1F14C852F2128A0E0877A382FFCBD9",
+        "bytes": 9161
+      },
+      {
+        "source": "docs/ARCHITECTURE.md",
+        "destination": "doc/Portway.Document/docs/ARCHITECTURE.md",
+        "sha256": "C20E14A2D3A7A4589DD757E43ED0C8104FD216C279B1965050F457B8ADE5260F",
+        "bytes": 12950
+      },
+      {
+        "source": "docs/AUTOMATION.md",
+        "destination": "doc/Portway.Document/docs/AUTOMATION.md",
+        "sha256": "8FA5C5E075583C9733AE49168AB6CD49B10088B86AE7C4F3F75554CF602FB963",
+        "bytes": 3602
+      },
+      {
+        "source": "docs/DEPLOYMENT.md",
+        "destination": "doc/Portway.Document/docs/DEPLOYMENT.md",
+        "sha256": "C669A22148AEF43ACF4234DC28014B91F007EC2C8BE998C437BBAE875CEA6F88",
+        "bytes": 8690
+      },
+      {
+        "source": "docs/DESIGN-AND-DROP.md",
+        "destination": "doc/Portway.Document/docs/DESIGN-AND-DROP.md",
+        "sha256": "0F1A9972A5783C94C3589406B4E92FFF54F9E3F1072307635F2F914617BD4EB3",
+        "bytes": 7074
+      },
+      {
+        "source": "docs/DEVELOPER-GUIDE.md",
+        "destination": "doc/Portway.Document/docs/DEVELOPER-GUIDE.md",
+        "sha256": "4A611ABEEBE5C9CD3F92A30B69C0E5784F7EE04BFE1E5ACA15E5FA851B8B1557",
+        "bytes": 55623
+      },
+      {
+        "source": "docs/PARITY.md",
+        "destination": "doc/Portway.Document/docs/PARITY.md",
+        "sha256": "34FF2EF2BC94032F86BED9F18212A6A0CDCA25F6C2D5CEB56D3460C515338B35",
+        "bytes": 7048
+      },
+      {
+        "source": "docs/SOURCE-MAP.md",
+        "destination": "doc/Portway.Document/docs/SOURCE-MAP.md",
+        "sha256": "925468BEF73643B742165F9C39FD36D294A932CF29FFFEF837EDA7720CB8B69A",
+        "bytes": 7398
+      },
+      {
+        "source": "docs/USER-GUIDE.md",
+        "destination": "doc/Portway.Document/docs/USER-GUIDE.md",
+        "sha256": "BE32C4B97239352AF2CC8D8F2138495F46496F584B0D231820E4D822534DD356",
+        "bytes": 42485
+      },
+      {
+        "source": "docs/images/sidebar-expanded.png",
+        "destination": "doc/Portway.Document/docs/images/sidebar-expanded.png",
+        "sha256": "137F895F9650D51ECE32536633597F2EC3EF46E1F74DF647939B8275876F287F",
+        "bytes": 109936
+      },
+      {
+        "source": "docs/images/terminal.png",
+        "destination": "doc/Portway.Document/docs/images/terminal.png",
+        "sha256": "28485BBD495CFB4561C141D774B586C1200953C67E968321FA677FFB7217CAAB",
+        "bytes": 101650
+      },
+      {
+        "source": "docs/images/workspace-dark.png",
+        "destination": "doc/Portway.Document/docs/images/workspace-dark.png",
+        "sha256": "1727E82BD39567255E45E47873C4D12301FBE0EA1380CAA7D2E75A5EA0E8D55D",
+        "bytes": 111671
+      },
+      {
+        "source": "docs/images/workspace-light.png",
+        "destination": "doc/Portway.Document/docs/images/workspace-light.png",
+        "sha256": "2B1EFD0781B55177344A7C554B6619C51B645B5BEC3EC0E5266F6210CDF8875C",
+        "bytes": 112811
+      },
+      {
+        "source": "docs/images/workspace.png",
+        "destination": "doc/Portway.Document/docs/images/workspace.png",
+        "sha256": "2B1EFD0781B55177344A7C554B6619C51B645B5BEC3EC0E5266F6210CDF8875C",
+        "bytes": 112811
+      },
+      {
+        "source": "jobs/README.md",
+        "destination": "doc/Portway.Document/jobs/README.md",
+        "sha256": "2B1FB6E1044038A1BE53FDEEBF66DBA639F85F726E53E9F059150C3F34A6D0AD",
+        "bytes": 1989
+      },
+      {
+        "source": "jobs/refactor-browser-results.json",
+        "destination": "doc/Portway.Document/jobs/refactor-browser-results.json",
+        "sha256": "540380E3027F6C978C87C7D17AAF7D8AF63EF2B923B764625EECA917BF8B63E5",
+        "bytes": 6830
+      },
+      {
+        "source": "jobs/refactor-source-check.json",
+        "destination": "doc/Portway.Document/jobs/refactor-source-check.json",
+        "sha256": "ABF9B0890CACCC363D64E766407BBA2050A7D22156DAF8120184B3EB99B3932A",
+        "bytes": 229
+      },
+      {
+        "source": "jobs/REFACTORING.md",
+        "destination": "doc/Portway.Document/jobs/REFACTORING.md",
+        "sha256": "220101086CBD59F4B5349EFABD85EEB8A1D32149BEAB490EA68A7D5A8FE5BA43",
+        "bytes": 6875
+      },
+      {
+        "source": "jobs/typography-size-comparison.json",
+        "destination": "doc/Portway.Document/jobs/typography-size-comparison.json",
+        "sha256": "F7A934D826D901A6C6E40FE8923A8D789B7D9D340D3C6A66EFACBD8EBCAD222B",
+        "bytes": 5464
+      },
+      {
+        "source": "jobs/VALIDATION-0.1.0.md",
+        "destination": "doc/Portway.Document/jobs/VALIDATION-0.1.0.md",
+        "sha256": "9B63C4B3CE7A72690E10214687638EF09896A8CF4D45D4D2D1638C7B80D8AF42",
+        "bytes": 6226
+      },
+      {
+        "source": "jobs/VALIDATION-0.2.1.md",
+        "destination": "doc/Portway.Document/jobs/VALIDATION-0.2.1.md",
+        "sha256": "3A5C6961348E23CF01E2A7B1036353F132C7E37E3E1107779355D599B17C1094",
+        "bytes": 5797
+      },
+      {
+        "source": "jobs/VALIDATION-0.3.0.md",
+        "destination": "doc/Portway.Document/jobs/VALIDATION-0.3.0.md",
+        "sha256": "67EE5EE4D301CF8B39377BDC9BF7FD67810942B6F127B72216B54E6390D83796",
+        "bytes": 6493
+      },
+      {
+        "source": "jobs/VALIDATION-0.3.1.md",
+        "destination": "doc/Portway.Document/jobs/VALIDATION-0.3.1.md",
+        "sha256": "5CC82D11A1CA9AD0EDDC33D3695B1AC8F766104448F52337107771C128B99BDF",
+        "bytes": 4793
+      },
+      {
+        "source": "jobs/VALIDATION-0.3.3.md",
+        "destination": "doc/Portway.Document/jobs/VALIDATION-0.3.3.md",
+        "sha256": "F2A9FE1871152AD882E6D94556E7871D953259ED479851784462FD3EB943A6B9",
+        "bytes": 5911
+      },
+      {
+        "source": "jobs/VALIDATION-0.3.4.md",
+        "destination": "doc/Portway.Document/jobs/VALIDATION-0.3.4.md",
+        "sha256": "EA4C46AD79ED2DE889E3D7A50B7F00C816B67F4D11012BBAA5F40F9CE2C4B4E1",
+        "bytes": 6673
+      },
+      {
+        "source": "jobs/VALIDATION-0.3.5.md",
+        "destination": "doc/Portway.Document/jobs/VALIDATION-0.3.5.md",
+        "sha256": "63A326CF76C50CA368E510A0AB812C57139234A12D2DB0059EEAFBF9009874F5",
+        "bytes": 7222
+      },
+      {
+        "source": "jobs/VALIDATION-0.3.6.md",
+        "destination": "doc/Portway.Document/jobs/VALIDATION-0.3.6.md",
+        "sha256": "87117F22EC9D19AA14EA5E9993D5B43F30F87FA3DC6622397346E9A9B577AF88",
+        "bytes": 4679
+      },
+      {
+        "source": "jobs/VALIDATION-0.3.7.md",
+        "destination": "doc/Portway.Document/jobs/VALIDATION-0.3.7.md",
+        "sha256": "3DA1DFF4FC720ADE4EA1C392147855BD180B1EE310C3BE9A7524FA86FAEED7E3",
+        "bytes": 4498
+      },
+      {
+        "source": "jobs/VALIDATION-0.3.9.md",
+        "destination": "doc/Portway.Document/jobs/VALIDATION-0.3.9.md",
+        "sha256": "CDFE066010B69EB386691CA6C969439144C90C7EA30DF41D17AF4068363E15C1",
+        "bytes": 5337
+      },
+      {
+        "source": "jobs/VALIDATION-document-project.md",
+        "destination": "doc/Portway.Document/jobs/VALIDATION-document-project.md",
+        "sha256": "AA3FC3FE88942BB1B2146BD1C7E54900926E9FE9C8125D9C4A16513C2490441A",
+        "bytes": 2080
+      },
+      {
+        "source": "jobs/VALIDATION-versioned-packaging.md",
+        "destination": "doc/Portway.Document/jobs/VALIDATION-versioned-packaging.md",
+        "sha256": "BD4B8CE9A6E9948EA0FDE06D58BB441895C9DFC9BC25B9CD7373736B9FFD1271",
+        "bytes": 4716
+      },
+      {
+        "source": "jobs/VALIDATION.md",
+        "destination": "doc/Portway.Document/jobs/VALIDATION.md",
+        "sha256": "B7B94B0E143E40DE3FE22DD8B9FFF19C700CF31A450B50B12E974B0D6CAA6E17",
+        "bytes": 1996
+      },
+      {
+        "source": "jobs/verification-0.2.1.json",
+        "destination": "doc/Portway.Document/jobs/verification-0.2.1.json",
+        "sha256": "BFA09B027DE9CB500DEFF081219C4DCF9462F5AFD54AC9B51CA41CBA23702C61",
+        "bytes": 1393
+      },
+      {
+        "source": "jobs/verification-0.3.0.json",
+        "destination": "doc/Portway.Document/jobs/verification-0.3.0.json",
+        "sha256": "8402CD6BB4F36380B38E1FCCCBEE6B3F0E25F0EC6A612062EC5068362908A0F4",
+        "bytes": 1932
+      },
+      {
+        "source": "jobs/verification-0.3.1.json",
+        "destination": "doc/Portway.Document/jobs/verification-0.3.1.json",
+        "sha256": "DBBF22B4814DB18E45A83E1EB4FA0DF64647078A6E699CB55F067B39598E86EC",
+        "bytes": 2024
+      },
+      {
+        "source": "jobs/verification-0.3.3.json",
+        "destination": "doc/Portway.Document/jobs/verification-0.3.3.json",
+        "sha256": "9175808C788768EF288EFF333D1C65C5004964F1611321A4DE7296B7C87832D8",
+        "bytes": 2590
+      },
+      {
+        "source": "jobs/verification-0.3.4.json",
+        "destination": "doc/Portway.Document/jobs/verification-0.3.4.json",
+        "sha256": "6C48535E44286E02F92F7C1F731AF7220CAB38A52D921E36EC07D958999381ED",
+        "bytes": 1748
+      },
+      {
+        "source": "jobs/verification-0.3.5.json",
+        "destination": "doc/Portway.Document/jobs/verification-0.3.5.json",
+        "sha256": "8AF9BE7D4E9DC747338F397A4EAEE13ECEFCD88373EFE923C76F0929C9D6D530",
+        "bytes": 2162
+      },
+      {
+        "source": "jobs/verification-0.3.6.json",
+        "destination": "doc/Portway.Document/jobs/verification-0.3.6.json",
+        "sha256": "658F6F01CB2C74E0DB2DEEE5DFE78AA2FA3D062E563A290B5336BE0DAB5FC658",
+        "bytes": 1494
+      },
+      {
+        "source": "jobs/verification-0.3.7.json",
+        "destination": "doc/Portway.Document/jobs/verification-0.3.7.json",
+        "sha256": "9F8AE41403EAF6D38B877764AC5B593D929EA4A8D797A1414970CAC22C1BEFA1",
+        "bytes": 1786
+      },
+      {
+        "source": "jobs/verification-0.3.9.json",
+        "destination": "doc/Portway.Document/jobs/verification-0.3.9.json",
+        "sha256": "EA3AC7403447481547686524312957CEBE31F3507907EB871D0170B025E81F4E",
+        "bytes": 1832
+      },
+      {
+        "source": "jobs/verification-connection-time.json",
+        "destination": "doc/Portway.Document/jobs/verification-connection-time.json",
+        "sha256": "117542D78963E0D0D67DBEBDE4E40526F04D4F149F52380AB1B0784C95C235D2",
+        "bytes": 1356
+      },
+      {
+        "source": "jobs/verification-debug-startup.json",
+        "destination": "doc/Portway.Document/jobs/verification-debug-startup.json",
+        "sha256": "5729D9E0F319EBD59E987D40512F2734BE954F7AB84FF1688CA6217FF5D4206B",
+        "bytes": 1079
+      },
+      {
+        "source": "jobs/verification-devtools.json",
+        "destination": "doc/Portway.Document/jobs/verification-devtools.json",
+        "sha256": "C88D1D9DF0B6ED45538ABDB9A67AC6C37DAE7B332F334D881274BF2C3EA4C542",
+        "bytes": 481
+      },
+      {
+        "source": "jobs/verification-document-project.json",
+        "destination": "doc/Portway.Document/jobs/verification-document-project.json",
+        "sha256": "4FED039DCA5A4E682884EDA36A17CFB464C6B23EB534A39B52DBE9E5F8650622",
+        "bytes": 920
+      },
+      {
+        "source": "jobs/verification-explorer-focus.json",
+        "destination": "doc/Portway.Document/jobs/verification-explorer-focus.json",
+        "sha256": "D4025C69E76D9FD0083DC1B986F6D0E6A6C6B1560E86789A1EE178044076D1D6",
+        "bytes": 938
+      },
+      {
+        "source": "jobs/verification-header-removed.json",
+        "destination": "doc/Portway.Document/jobs/verification-header-removed.json",
+        "sha256": "8AEEA9FEBDA900022520C98DBE179DF312B2A46CC0BF3E347D295B43C1B805C9",
+        "bytes": 791
+      },
+      {
+        "source": "jobs/verification-korean-messages.json",
+        "destination": "doc/Portway.Document/jobs/verification-korean-messages.json",
+        "sha256": "BDD293F57DF0C44654BABE5743279DA659CA7A4CD306FC9DD4DCCB6582D656A1",
+        "bytes": 883
+      },
+      {
+        "source": "jobs/verification-local-workspace.json",
+        "destination": "doc/Portway.Document/jobs/verification-local-workspace.json",
+        "sha256": "FCA53CC6611A1B8F185C68C908BB6686E1A4F9E412ECB4C4254B6FF02F501A9D",
+        "bytes": 3715
+      },
+      {
+        "source": "jobs/verification-records-relocation-20260929.json",
+        "destination": "doc/Portway.Document/jobs/verification-records-relocation-20260929.json",
+        "sha256": "A26C8699CACC0196E7336A27BC318FA1EA2375FDC7B4126D55CE3DDE3E008228",
+        "bytes": 12994
+      },
+      {
+        "source": "jobs/verification-records-storage-check-bbd4299ab0b44d4a8ae6340ca01b584e.json",
+        "destination": "doc/Portway.Document/jobs/verification-records-storage-check-bbd4299ab0b44d4a8ae6340ca01b584e.json",
+        "sha256": "E752FFB80F1C9F418E58CD264D4BC623FBBDC6DE6CDDF2C87D9609295E48B17E",
+        "bytes": 213
+      },
+      {
+        "source": "jobs/verification-refactoring.json",
+        "destination": "doc/Portway.Document/jobs/verification-refactoring.json",
+        "sha256": "C0ECCCD9062CD81D64F5559B7006CA569C478B694B5BC84B7CF5D1437B2D6274",
+        "bytes": 8613
+      },
+      {
+        "source": "jobs/verification-remaining-records-relocation-16c5d2957658431381f7f9cc9a30c016.json",
+        "destination": "doc/Portway.Document/jobs/verification-remaining-records-relocation-16c5d2957658431381f7f9cc9a30c016.json",
+        "sha256": "6179A51A224C4CE31A77B9D32D701D87F4192AE77F32088BB7D0234821AB6AC3",
+        "bytes": 1182
+      },
+      {
+        "source": "jobs/verification-site-archive.json",
+        "destination": "doc/Portway.Document/jobs/verification-site-archive.json",
+        "sha256": "D3E90F54F7A20C2BDE3D4E13AD233B73E0452A681AFBAA5C0D807B2C3B4C6FF8",
+        "bytes": 2556
+      },
+      {
+        "source": "jobs/verification-site-enter.json",
+        "destination": "doc/Portway.Document/jobs/verification-site-enter.json",
+        "sha256": "E861DAD1E8B34A4A74475398AA31D577FCCB20991B1B15FCD3150FB90C07FF96",
+        "bytes": 2631
+      },
+      {
+        "source": "jobs/verification-terminal-cursor-focus.json",
+        "destination": "doc/Portway.Document/jobs/verification-terminal-cursor-focus.json",
+        "sha256": "212C2EE7D8B31F529017EFD12D2014ACC6C791DF46BBADA368AAB7DB0E4AE13C",
+        "bytes": 11194
+      },
+      {
+        "source": "jobs/verification-toolbar-group.json",
+        "destination": "doc/Portway.Document/jobs/verification-toolbar-group.json",
+        "sha256": "511C60C3CA8E7AE5EDE76FE22A638DAD7D48F33F965BB6881EB7B680BA7C2221",
+        "bytes": 743
+      },
+      {
+        "source": "jobs/verification-versioned-packaging.json",
+        "destination": "doc/Portway.Document/jobs/verification-versioned-packaging.json",
+        "sha256": "E76B5CA5821B85F2D7BD2CFF2AB32F339883E648F6BC54F68FBA6FAC631E0F44",
+        "bytes": 2909
+      }
+    ],
+    "total": 58,
+    "guidesAndImages": 14,
+    "records": 44,
+    "sha256PreservedBeforeReferenceUpdates": true,
+    "historicalRelocationManifestsPreserved": true
+  },
+  "storage": {
+    "docs": "doc/Portway.Document/docs",
+    "jobs": "doc/Portway.Document/jobs",
+    "writer": "scripts/write-verification.ps1"
+  },
+  "checks": {
+    "guideLinks": {
+      "checked": 339,
+      "broken": 0
+    },
+    "releaseSolutionBuild": {
+      "warnings": 0,
+      "errors": 0
+    },
+    "visualStudioMSBuild": "통과",
+    "visualStudioProjectItems": 58,
+    "powershellParse": "통과",
+    "cliHelpPath": "통과",
+    "projectReadmeFormatting": "통과"
+  },
+  "report": "doc/Portway.Document/jobs/VALIDATION-document-storage.md",
+  "evidence": "artifacts/qa/document-storage-48207493a5e84219ad4b3fc1269c8f78",
+  "limits": [
+    "Visual Studio GUI 문서 표시 검증 미실행",
+    "실제 설치·업데이트 시나리오는 문서 경로 변경의 검증 범위에 포함하지 않음"
+  ]
+}

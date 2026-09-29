@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Portway · 배포 센터</title>
+    <link rel="icon" type="image/svg+xml" href="/logo.svg" />
+    <meta name="color-scheme" content="light dark" />
+    <script src="/theme.js"></script>
+    <link rel="stylesheet" href="/vendor/tabler/tabler.min.css" />
+    <link rel="stylesheet" href="/vendor/tabler-icons/tabler-icons.min.css" />
+    <link rel="stylesheet" href="/vendor/master/master.css" />
+    <link rel="stylesheet" href="/vendor/noto-sans-kr/index.css" />
+    <link rel="stylesheet" href="/design-tokens.css" />
+    <link rel="stylesheet" href="/server.css" />
+    <script type="module" src="/server.js"></script>
+  </head>
+  <body>
+    <header>
+      <a class="brand" href="/"
+        ><i class="ti ti-arrows-exchange" aria-hidden="true"></i> <b>portway</b
+        ><span>RELEASE CENTER</span></a
+      >
+      <div class="flex ai:center gap:12">
+        <span class="live">● 업데이트 서비스</span
+        ><button id="theme-toggle" class="btn" aria-label="테마 변경">
+          <i class="ti ti-moon-stars" aria-hidden="true"></i
+          ><span id="theme-label">테마</span>
+        </button>
+      </div>
+    </header>
+    <main>
+      <div class="intro">
+        <div>
+          <p class="eyebrow">ONE WORKSPACE. EVERY PLATFORM.</p>
+          <h1>파일의 여정은 계속됩니다.</h1>
+          <p class="description">
+            Windows, macOS, Linux를 위한 Portway.<br />내 환경에 맞는 최신
+            릴리스를 다운로드하세요.
+          </p>
+        </div>
+        <div class="mark">
+          <i class="ti ti-arrows-exchange" aria-hidden="true"></i>
+        </div>
+      </div>
+      <div class="section-title">
+        <h2>배포된 릴리스</h2>
+        <button id="refresh" class="btn">
+          <i class="ti ti-reload" aria-hidden="true"></i>새로고침
+        </button>
+      </div>
+      <section id="releases"><p class="empty">릴리스를 읽는 중…</p></section>
+      <details class="admin">
+        <summary>릴리스 게시</summary>
+        <p>
+          해당 버전의 배포 ZIP을 업로드합니다. 파일을 검증한 뒤 기존 릴리스에 새
+          버전을 추가합니다.
+        </p>
+        <form id="publish">
+          <div class="form-grid">
+            <label
+              >채널<select id="channel">
+                <option>win-x64-stable</option>
+                <option>win-arm64-stable</option>
+                <option>osx-arm64-stable</option>
+                <option>osx-x64-stable</option>
+                <option>linux-x64-stable</option>
+                <option>linux-arm64-stable</option>
+                <option>win-x64-beta</option>
+                <option>osx-arm64-beta</option>
+                <option>linux-x64-beta</option>
+              </select></label
+            ><label
+              >배포 API 키<input
+                id="key"
+                type="password"
+                autocomplete="off"
+                required /></label
+            ><label class="full"
+              >배포 ZIP<input id="archive" type="file" accept=".zip" required
+            /></label>
+          </div>
+          <button type="submit" class="primary">검증 후 게시</button
+          ><output id="result" aria-live="polite"></output>
+        </form>
+      </details>
+    </main>
+    <footer>
+      <span>Portway Distribution</span
+      ><span>Powered by Velopack · 채널별 업데이트</span>
+    </footer>
+  </body>
+</html>

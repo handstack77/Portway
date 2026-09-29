@@ -1,0 +1,337 @@
+* {
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+  background: #f5f8f6;
+  color: #1b3930;
+  font:
+    16px/1.7 -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    sans-serif;
+}
+header {
+  height: 83px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid #dfe8e2;
+  padding: 0 7vw;
+  background: #fff;
+}
+.brand {
+  color: #1b4939;
+  text-decoration: none;
+  font-size: 29px;
+  letter-spacing: -1px;
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+.brand span {
+  font-size: 11px;
+  letter-spacing: 2px;
+  font-weight: 500;
+  margin-left: 15px;
+  color: #859e91;
+}
+.live {
+  font-size: 13px;
+  color: #5f8d78;
+}
+main {
+  max-width: 1130px;
+  margin: 0 auto;
+  padding: 0 35px 60px;
+}
+.intro {
+  padding: 80px 0 60px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.eyebrow {
+  font-size: 12px;
+  letter-spacing: 2px;
+  color: #549780;
+}
+h1 {
+  font-size: 39px;
+  letter-spacing: -1.7px;
+  line-height: 1.4;
+  margin: 15px 0 18px;
+}
+.description {
+  color: #85988e;
+  font-size: 16px;
+  line-height: 1.9;
+}
+.mark {
+  width: 148px;
+  height: 148px;
+  border-radius: 39px;
+  background: var(--tblr-primary);
+  display: grid;
+  place-items: center;
+  font-size: 89px;
+  font-weight: 200;
+  transform: rotate(-7deg);
+  margin-right: 25px;
+  color: var(--tblr-primary-fg);
+}
+.section-title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+h2 {
+  font-size: 19px;
+  font-weight: 600;
+}
+button,
+.download {
+  border: 1px solid #d4e2d8;
+  border-radius: 6px;
+  background: #fff;
+  padding: 9px 15px;
+  color: #2a6950;
+  font: inherit;
+  font-size: 14px;
+  cursor: pointer;
+  text-decoration: none;
+}
+.primary {
+  background: #1b8865;
+  color: white;
+  border-color: #1b8865;
+}
+#releases {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+}
+.card {
+  background: #fff;
+  border: 1px solid #dce7df;
+  border-radius: 12px;
+  padding: 24px;
+}
+.card .os {
+  font-size: 27px;
+  margin-bottom: 14px;
+}
+.card h3 {
+  font-size: 19px;
+  margin: 0 0 4px;
+}
+.card .channel {
+  font: 12px var(--tblr-font-sans-serif);
+  color: #8ba294;
+}
+.card .version {
+  font-size: 29px;
+  letter-spacing: -1px;
+  margin: 23px 0 15px;
+  color: #296548;
+}
+.downloads {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+.download {
+  display: flex;
+  justify-content: space-between;
+  background: #f4faf6;
+  font-size: 13px;
+  word-break: break-all;
+}
+.download small {
+  color: #92a698;
+  white-space: nowrap;
+  margin-left: 10px;
+}
+.feed {
+  font-size: 12px;
+  background: #f7f9f8;
+  padding: 8px;
+  border-radius: 5px;
+  color: #819b8c;
+  overflow-wrap: anywhere;
+  margin-top: 17px;
+}
+.empty {
+  padding: 45px;
+  background: #fff;
+  border: 1px dashed #d5e3da;
+  border-radius: 10px;
+  color: #8da496;
+  width: 100%;
+}
+.admin {
+  margin-top: 42px;
+  border-top: 1px solid #dce7df;
+  padding-top: 20px;
+  font-size: 14px;
+  color: #7c9587;
+}
+.admin summary {
+  cursor: pointer;
+  color: #39684f;
+  font-weight: 600;
+}
+.form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
+  margin: 20px 0;
+}
+.form-grid label {
+  display: block;
+  font-size: 13px;
+}
+.form-grid .full {
+  grid-column: 1/-1;
+}
+input,
+select {
+  margin-top: 6px;
+  display: block;
+  width: 100%;
+  padding: 11px;
+  border: 1px solid #d9e4dd;
+  border-radius: 6px;
+  background: white;
+  color: #416c55;
+}
+output {
+  display: block;
+  white-space: pre-wrap;
+  margin-top: 15px;
+}
+footer {
+  display: flex;
+  justify-content: space-between;
+  padding: 24px 7vw;
+  border-top: 1px solid #dce7df;
+  color: #91a699;
+  font-size: 13px;
+}
+@media (max-width: 650px) {
+  .mark {
+    display: none;
+  }
+  h1 {
+    font-size: 30px;
+  }
+  .intro {
+    padding: 50px 0 30px;
+  }
+  .brand span {
+    display: none;
+  }
+  .form-grid {
+    grid-template-columns: 1fr;
+  }
+  main {
+    padding: 0 20px 40px;
+  }
+}
+
+/* 같은 빌드 자산의 토큰을 데스크톱과 배포 센터가 함께 사용합니다. */
+body {
+  background: var(--canvas);
+  color: var(--ink);
+  font-family: var(--tblr-font-sans-serif);
+}
+header,
+.card,
+.empty {
+  background: var(--surface);
+  border-color: var(--line);
+}
+.brand,
+h1,
+h2,
+h3 {
+  color: var(--ink);
+}
+.mark > .ti {
+  color: var(--tblr-primary-fg);
+}
+.brand span,
+.description,
+.card .channel,
+.download small,
+.feed,
+.empty,
+.admin,
+footer {
+  color: var(--muted);
+}
+.live,
+.eyebrow,
+.card .version,
+.admin summary {
+  color: var(--accent);
+}
+button,
+.download {
+  background: var(--surface);
+  color: var(--ink);
+  border-color: var(--line);
+}
+button:hover,
+.download:hover {
+  background: var(--accent-soft);
+  color: var(--accent-ink);
+}
+.primary {
+  color: #fff;
+  background: var(--tblr-primary);
+  border-color: var(--tblr-primary);
+}
+.primary:hover {
+  background: var(--tblr-primary-darken);
+  color: #fff;
+}
+.feed {
+  background: var(--canvas);
+}
+.admin,
+footer {
+  border-color: var(--line);
+}
+input,
+select {
+  color: var(--ink);
+  background-color: var(--input-bg);
+  border-color: var(--line);
+}
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+select:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+#theme-toggle {
+  min-width: 85px;
+}
+@media (max-width: 650px) {
+  .live {
+    display: none;
+  }
+}
+
+.btn,
+.form-control,
+.form-select {
+  font-size: 16px;
+}
+input,
+select {
+  font-family: var(--tblr-font-sans-serif);
+}

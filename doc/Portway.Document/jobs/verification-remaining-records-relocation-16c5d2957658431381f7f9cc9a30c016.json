@@ -1,0 +1,32 @@
+{
+  "scope": "docs에 남은 버전별 검증 JSON을 jobs로 이동",
+  "contentHashesMatch": true,
+  "date": "2026-09-29T15:09:19.9368202+09:00",
+  "moved": [
+    {
+      "source": "docs/verification-0.3.4.json",
+      "sha256": "6C48535E44286E02F92F7C1F731AF7220CAB38A52D921E36EC07D958999381ED",
+      "destination": "jobs/verification-0.3.4.json"
+    },
+    {
+      "source": "docs/verification-0.3.5.json",
+      "sha256": "8AF9BE7D4E9DC747338F397A4EAEE13ECEFCD88373EFE923C76F0929C9D6D530",
+      "destination": "jobs/verification-0.3.5.json"
+    },
+    {
+      "source": "docs/verification-0.3.6.json",
+      "sha256": "658F6F01CB2C74E0DB2DEEE5DFE78AA2FA3D062E563A290B5336BE0DAB5FC658",
+      "destination": "jobs/verification-0.3.6.json"
+    },
+    {
+      "source": "docs/verification-0.3.7.json",
+      "sha256": "9F8AE41403EAF6D38B877764AC5B593D929EA4A8D797A1414970CAC22C1BEFA1",
+      "destination": "jobs/verification-0.3.7.json"
+    },
+    {
+      "source": "docs/verification-0.3.9.json",
+      "sha256": "EA3AC7403447481547686524312957CEBE31F3507907EB871D0170B025E81F4E",
+      "destination": "jobs/verification-0.3.9.json"
+    }
+  ]
+}

@@ -1,0 +1,33 @@
+{
+  "date": "2026-09-29",
+  "task": "Portway.Document Node 프로젝트 추가",
+  "environment": {
+    "os": "Windows",
+    "dotnet": "10.0.401",
+    "node": "20.18.0",
+    "npm": "10.8.2",
+    "visualStudio": "2026 Community"
+  },
+  "solution": "Portway.slnx",
+  "project": "doc/Portway.Document/Portway.Document.njsproj",
+  "checks": {
+    "solutionRegistration": "통과",
+    "npmCi": "통과",
+    "nodeStart": "통과",
+    "nodeSyntax": "통과",
+    "solutionReleaseBuild": "통과",
+    "visualStudioMSBuildDebugRelease": "통과",
+    "solutionReleaseTests": {
+      "passed": 8,
+      "failed": 0,
+      "skipped": 0,
+      "filter": "FullyQualifiedName~ReleaseTests"
+    },
+    "formatting": "통과"
+  },
+  "report": "doc/Portway.Document/jobs/VALIDATION-document-project.md",
+  "unverified": [
+    "Visual Studio GUI 프로젝트 로딩과 F5 디버깅",
+    "macOS·Linux 실제 실행"
+  ]
+}

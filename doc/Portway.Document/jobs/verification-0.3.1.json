@@ -1,0 +1,59 @@
+{
+  "version": "0.3.1",
+  "date": "2026-09-28",
+  "windows": {
+    "total": 79,
+    "passed": 79,
+    "failed": 0,
+    "skipped": 0
+  },
+  "linux": {
+    "total": 79,
+    "passed": 78,
+    "failed": 0,
+    "skipped": 1
+  },
+  "frontendTestsPassed": 4,
+  "nativeOsFileManagerGestureVerified": false,
+  "macOSNativeVerified": false,
+  "windowsInstallUpdateUninstall": true,
+  "installerEvidence": "artifacts/qa/PortwayQa7a5c976a75bb48b5a29971f876b5a276/result.txt",
+  "browserDropSftpSha256": "6f43279c24d699e11de05fa68ba6743033fff4ba2eaedc48e3fdccf13b0b27a4",
+  "artifacts": [
+    {
+      "path": "dist/releases/win-x64-stable/Portway-win-x64-stable-Setup.exe",
+      "sha256": "588abd1afb30aaef0752a588892cc0cfd9e97880a7e54ebfc05cdbbaf1c50a9e",
+      "bytes": 108309133
+    },
+    {
+      "path": "dist/releases/win-x64-stable/Portway-win-x64-stable-Portable.zip",
+      "sha256": "90a330a495e16c4022baad904622030dbf22f3fbe6285459707db7cb961d7367",
+      "bytes": 100748933
+    },
+    {
+      "path": "dist/releases/win-x64-stable/Portway-0.3.1-win-x64-stable-full.nupkg",
+      "sha256": "63c01040d190b89019e4955704b599ba4f2294c2605fe6d2393f476e2d196427",
+      "bytes": 100771469
+    },
+    {
+      "path": "dist/releases/win-x64-stable/Portway-0.3.1-win-x64-stable-delta.nupkg",
+      "sha256": "058477d4dbdf8be368597c8386253c592d05871cd8b41ca7603c6c6977dab987",
+      "bytes": 251432
+    },
+    {
+      "path": "dist/Portway-0.3.1-win-x64-stable.zip",
+      "sha256": "d3c62925738b5cba09bed451272de63b49dd956179b7fab1fa0e1ced2fe15a20",
+      "bytes": 701447756
+    },
+    {
+      "path": "dist/releases/linux-x64-0.3.1-stable/Portway-linux-x64-stable.AppImage",
+      "sha256": "c6718dd7b3888a13b5f1327c0490573bb81429c74c105817d4b7dd9aa0168802",
+      "bytes": 59861496
+    },
+    {
+      "path": "dist/Portway-0.3.1-linux-x64-stable.zip",
+      "sha256": "b55e3a92c0420b7567043f37eee964515bbbca2c63d3ae1fda68ad16f460f703",
+      "bytes": 118386835
+    }
+  ]
+}

@@ -1,0 +1,305 @@
+{
+  "date": "2026-09-29",
+  "scope": "솔루션 책임 분리·작성 소스 포맷·개발 문서화",
+  "source": {
+    "sourceFiles": 74,
+    "formatted": 0,
+    "unchangedTokens": 59,
+    "desktopRouteHandlersUnchanged": 67,
+    "serverRouteHandlersUnchanged": 4,
+    "remoteTextMethodBodiesUnchanged": 3,
+    "securityMiddlewareUnchanged": true
+  },
+  "builds": {
+    "debug": {
+      "warnings": 0,
+      "errors": 0,
+      "defaultOutputUpdated": true
+    },
+    "release": {
+      "warnings": 0,
+      "errors": 0
+    }
+  },
+  "tests": {
+    "dotnet": {
+      "baselinePassed": 86,
+      "passed": 89,
+      "skipped": 24,
+      "failed": 0
+    },
+    "frontend": {
+      "passed": 31,
+      "failed": 0
+    }
+  },
+  "format": {
+    "dotnetWhitespaceCheck": true,
+    "prettierCheck": true,
+    "prettier": "3.9.9"
+  },
+  "nativeWindows": {
+    "debugWindowReady": true,
+    "sameProfileRestartReady": true,
+    "f12DevToolsVerified": true
+  },
+  "browser": {
+    "connection": {
+      "actualLocalFileDates": true,
+      "remoteDatesAndConnections": "원격 연결 응답은 모의 API 사용",
+      "elapsedTicksEverySecond": true,
+      "independentSessionTimers": true,
+      "tabsPreserveElapsed": true,
+      "localHidesTimer": true,
+      "reconnectResetsTimer": true,
+      "progressMessagePreserved": true,
+      "layouts": [
+        {
+          "theme": "light",
+          "width": 1440,
+          "overflow": false,
+          "dates": [
+            {
+              "text": "\n                      2025-07-13 오전 6:54\n                    ",
+              "width": 180,
+              "scroll": 180,
+              "visible": true
+            },
+            {
+              "text": "\n                      2025-12-31 오후 11:59\n                    ",
+              "width": 180,
+              "scroll": 180,
+              "visible": true
+            },
+            {
+              "text": "\n                      2025-07-13 오전 6:54\n                    ",
+              "width": 180,
+              "scroll": 180,
+              "visible": true
+            },
+            {
+              "text": "\n                      2025-12-31 오후 11:59\n                    ",
+              "width": 180,
+              "scroll": 180,
+              "visible": true
+            }
+          ],
+          "timerVisible": true
+        },
+        {
+          "theme": "light",
+          "width": 980,
+          "overflow": false,
+          "dates": [
+            {
+              "text": "\n                      2025-07-13 오전 6:54\n                    ",
+              "width": 180,
+              "scroll": 180,
+              "visible": true
+            },
+            {
+              "text": "\n                      2025-12-31 오후 11:59\n                    ",
+              "width": 180,
+              "scroll": 180,
+              "visible": true
+            },
+            {
+              "text": "\n                      2025-07-13 오전 6:54\n                    ",
+              "width": 180,
+              "scroll": 180,
+              "visible": true
+            },
+            {
+              "text": "\n                      2025-12-31 오후 11:59\n                    ",
+              "width": 180,
+              "scroll": 180,
+              "visible": true
+            }
+          ],
+          "timerVisible": true
+        },
+        {
+          "theme": "dark",
+          "width": 1440,
+          "overflow": false,
+          "dates": [
+            {
+              "text": "\n                      2025-07-13 오전 6:54\n                    ",
+              "width": 180,
+              "scroll": 180,
+              "visible": true
+            },
+            {
+              "text": "\n                      2025-12-31 오후 11:59\n                    ",
+              "width": 180,
+              "scroll": 180,
+              "visible": true
+            },
+            {
+              "text": "\n                      2025-07-13 오전 6:54\n                    ",
+              "width": 180,
+              "scroll": 180,
+              "visible": true
+            },
+            {
+              "text": "\n                      2025-12-31 오후 11:59\n                    ",
+              "width": 180,
+              "scroll": 180,
+              "visible": true
+            }
+          ],
+          "timerVisible": true
+        },
+        {
+          "theme": "dark",
+          "width": 980,
+          "overflow": false,
+          "dates": [
+            {
+              "text": "\n                      2025-07-13 오전 6:54\n                    ",
+              "width": 180,
+              "scroll": 180,
+              "visible": true
+            },
+            {
+              "text": "\n                      2025-12-31 오후 11:59\n                    ",
+              "width": 180,
+              "scroll": 180,
+              "visible": true
+            },
+            {
+              "text": "\n                      2025-07-13 오전 6:54\n                    ",
+              "width": 180,
+              "scroll": 180,
+              "visible": true
+            },
+            {
+              "text": "\n                      2025-12-31 오후 11:59\n                    ",
+              "width": 180,
+              "scroll": 180,
+              "visible": true
+            }
+          ],
+          "timerVisible": true
+        }
+      ],
+      "pageErrors": []
+    },
+    "local": {
+      "layouts": [
+        {
+          "theme": "light",
+          "viewport": {
+            "width": 1440,
+            "height": 940
+          },
+          "left": {
+            "x": 88,
+            "width": 656,
+            "height": 718.96875,
+            "bottom": 846
+          },
+          "right": {
+            "x": 760,
+            "width": 656,
+            "height": 718.96875,
+            "bottom": 846
+          },
+          "horizontalOverflow": false
+        },
+        {
+          "theme": "light",
+          "viewport": {
+            "width": 980,
+            "height": 680
+          },
+          "left": {
+            "x": 76,
+            "width": 438,
+            "height": 477,
+            "bottom": 592
+          },
+          "right": {
+            "x": 530,
+            "width": 438,
+            "height": 477,
+            "bottom": 592
+          },
+          "horizontalOverflow": false
+        },
+        {
+          "theme": "dark",
+          "viewport": {
+            "width": 1440,
+            "height": 940
+          },
+          "left": {
+            "x": 88,
+            "width": 656,
+            "height": 718.96875,
+            "bottom": 846
+          },
+          "right": {
+            "x": 760,
+            "width": 656,
+            "height": 718.96875,
+            "bottom": 846
+          },
+          "horizontalOverflow": false
+        },
+        {
+          "theme": "dark",
+          "viewport": {
+            "width": 980,
+            "height": 680
+          },
+          "left": {
+            "x": 76,
+            "width": 438,
+            "height": 477,
+            "bottom": 592
+          },
+          "right": {
+            "x": 530,
+            "width": 438,
+            "height": 477,
+            "bottom": 592
+          },
+          "horizontalOverflow": false
+        }
+      ],
+      "copyId": "919c0367ac7e4d759c742c4c9438f3d7",
+      "reverseId": "1faafa5e155e4b899f18635136b1eb51",
+      "moveId": "a0d552796c06445cb0c8ce001b798b07",
+      "dragId": "aa3a6a510ca0406c9053a5fe7ff8c35e",
+      "textChecksumMatches": true,
+      "binaryChecksumMatches": true,
+      "emptyDirectoryPreserved": true,
+      "rightPanelFileManagement": true,
+      "unsafeSameNestedJunctionRejected": true,
+      "pageErrors": []
+    },
+    "editor": {
+      "rightPanelMonacoReadsAndWritesLocalFile": true,
+      "localPathFilterRetainedAcrossTabs": true,
+      "remoteToolbarRestored": true,
+      "disconnectReturnsToLocalWorkspace": true,
+      "remoteBackend": "탭 전환 UI만 모의 응답으로 검증. 로컬 파일 작업은 실제 API 사용.",
+      "pageErrors": []
+    },
+    "finalView": {
+      "bothPanelsReady": true,
+      "bothSelectionSummariesReady": true,
+      "untrustedNameRemainsText": true,
+      "noInjectedElements": true,
+      "pathAttributePreserved": true,
+      "localFooterCopyAccessible": true
+    }
+  },
+  "limits": [
+    "원격 탭 UI는 모의 응답 사용",
+    "원격 프로토콜·WinSCP·실제 패키지 검사는 조건부 건너뜀",
+    "Windows 실제 심볼릭 링크 권한 검사 건너뜀; junction은 실제 검증",
+    "macOS/Linux 네이티브 실행 및 새 패키징·배포 미실행"
+  ]
+}

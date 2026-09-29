@@ -1,0 +1,95 @@
+{
+  "finalLayout": [
+    {
+      "theme": "light",
+      "width": 1440,
+      "height": 940,
+      "inputFullyVisible": true,
+      "exportLeftOfImport": true,
+      "horizontalOverflow": false
+    },
+    {
+      "theme": "light",
+      "width": 980,
+      "height": 680,
+      "inputFullyVisible": true,
+      "exportLeftOfImport": true,
+      "horizontalOverflow": false
+    },
+    {
+      "theme": "dark",
+      "width": 1440,
+      "height": 940,
+      "inputFullyVisible": true,
+      "exportLeftOfImport": true,
+      "horizontalOverflow": false
+    },
+    {
+      "theme": "dark",
+      "width": 980,
+      "height": 680,
+      "inputFullyVisible": true,
+      "exportLeftOfImport": true,
+      "horizontalOverflow": false
+    }
+  ],
+  "limitations": "macOS·Linux의 네이티브 저장 창과 실제 원격 서버 연결은 이번 검증에 포함하지 않았습니다.",
+  "native": {
+    "completed": false,
+    "fixed": "Photino 저장 창에 존재하지 않는 파일 경로 대신 기존 폴더 경로를 전달하도록 수정했습니다.",
+    "reason": "검증용 창이 최소화된 상태에서 UI 도구가 사용자 입력을 감지하여 후속 저장·취소 검증을 중단했습니다."
+  },
+  "browser": {
+    "layouts": [
+      {
+        "theme": "light",
+        "width": 1440,
+        "height": 940,
+        "exportLeftOfImport": true,
+        "overflow": false,
+        "buttonVisible": true,
+        "accept": ".json,.ini"
+      },
+      {
+        "theme": "light",
+        "width": 980,
+        "height": 680,
+        "exportLeftOfImport": true,
+        "overflow": false,
+        "buttonVisible": true,
+        "accept": ".json,.ini"
+      },
+      {
+        "theme": "dark",
+        "width": 1440,
+        "height": 940,
+        "exportLeftOfImport": true,
+        "overflow": false,
+        "buttonVisible": true,
+        "accept": ".json,.ini"
+      },
+      {
+        "theme": "dark",
+        "width": 980,
+        "height": 680,
+        "exportLeftOfImport": true,
+        "overflow": false,
+        "buttonVisible": true,
+        "accept": ".json,.ini"
+      }
+    ],
+    "emptyExport": true,
+    "jsonDownload": true,
+    "roundTrip": true,
+    "existingSitesPreserved": true,
+    "invalidImportAtomic": true,
+    "iniImport": true,
+    "exportAuthentication": 401
+  },
+  "tests": {
+    "failed": 0,
+    "skipped": 2,
+    "passed": 35
+  },
+  "build": "Desktop 및 CLI Debug 빌드 성공, 경고 0개·오류 0개"
+}

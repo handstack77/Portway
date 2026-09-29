@@ -1,0 +1,92 @@
+{
+  "initialFocus": "사이트 연결·편집 팝업을 연 직후 호스트 입력란에 포커스가 있고 Enter로 연결 요청을 실행하는 것을 확인했습니다.",
+  "browser": {
+    "realApiError": true,
+    "enterConnect": true,
+    "popupRetained": true,
+    "inputRetained": true,
+    "inlineErrorEmpty": true,
+    "visibility": [
+      {
+        "theme": "light",
+        "viewport": {
+          "width": 1440,
+          "height": 940
+        },
+        "width": 298.140625,
+        "height": 51.796875,
+        "inViewport": true,
+        "insideOpenDialog": true,
+        "role": "alert",
+        "pointerEvents": "none",
+        "visible": true
+      },
+      {
+        "theme": "light",
+        "viewport": {
+          "width": 980,
+          "height": 680
+        },
+        "width": 298.140625,
+        "height": 51.796875,
+        "inViewport": true,
+        "insideOpenDialog": true,
+        "role": "alert",
+        "pointerEvents": "none",
+        "visible": true
+      },
+      {
+        "theme": "dark",
+        "viewport": {
+          "width": 1440,
+          "height": 940
+        },
+        "width": 298.140625,
+        "height": 51.796875,
+        "inViewport": true,
+        "insideOpenDialog": true,
+        "role": "alert",
+        "pointerEvents": "none",
+        "visible": true
+      },
+      {
+        "theme": "dark",
+        "viewport": {
+          "width": 980,
+          "height": 680
+        },
+        "width": 298.140625,
+        "height": 51.796875,
+        "inViewport": true,
+        "insideOpenDialog": true,
+        "role": "alert",
+        "pointerEvents": "none",
+        "visible": true
+      }
+    ],
+    "nativeValidationToast": true,
+    "compositionGuard": [
+      false,
+      false,
+      true
+    ],
+    "saveOnlyPreserved": true,
+    "duplicateRequestBlocked": true,
+    "programmaticSubmitDefaultsToConnect": true,
+    "mockedSuccessCloses": true,
+    "successToastSurvivesClose": true,
+    "newDialogEnter": true,
+    "limitation": "성공 응답과 지연은 모의 API로 검증했습니다. 실제 SSH 연결과 OS 한글 IME 입력은 검증하지 않았습니다."
+  },
+  "frontendTests": {
+    "failed": 0,
+    "passed": 28
+  },
+  "build": "Desktop Debug 빌드 성공, 경고 0개·오류 0개",
+  "fingerprint": {
+    "fingerprintErrorToast": "호스트 키 확인은 SFTP / SCP에서 사용합니다.",
+    "popupOpen": true,
+    "inlineError": ""
+  },
+  "console": "의도적으로 실패시킨 연결 요청의 HTTP 400 메시지 3개만 확인했습니다."
+}

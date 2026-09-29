@@ -1,0 +1,23 @@
+{
+  "qaStopped": true,
+  "browser": "Chromium",
+  "date": "2026-09-29",
+  "frontendBuild": "passed",
+  "desktopBuild": "isolated Debug build passed, 0 warnings, 0 errors",
+  "note": "Default Debug build was locked by an existing Visual Studio debug session; verified separate output without stopping user processes",
+  "layouts": [
+    "light 1440x940",
+    "dark 1440x940",
+    "light 980x680",
+    "dark 980x680"
+  ],
+  "results": [
+    "central transfer buttons absent",
+    "six adjacent Tabler btn-group buttons with gap 0",
+    "equal-width panels separated by 16px",
+    "no horizontal overflow",
+    "continuous sync dialog opens",
+    "sync connection prerequisite message works",
+    "no console errors"
+  ]
+}

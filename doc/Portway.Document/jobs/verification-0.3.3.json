@@ -1,0 +1,80 @@
+{
+  "version": "0.3.3",
+  "date": "2026-09-29",
+  "windowsDefaultTests": {
+    "total": 81,
+    "passed": 58,
+    "failed": 0,
+    "skipped": 23,
+    "log": "artifacts/build-0.3.3.log"
+  },
+  "updateRegressionTests": {
+    "passed": 11,
+    "includedInWindowsDefaultTests": true
+  },
+  "frontendTestsPassed": 4,
+  "packageTests": {
+    "passed": 1,
+    "failed": 0,
+    "skipped": 0
+  },
+  "windowsAutomaticUpdate": {
+    "verified": true,
+    "fromVersion": "0.3.3",
+    "toVersion": "0.3.4",
+    "targetIsQaOnly": true,
+    "usedUpdateActionApi": false,
+    "runningVersionUnchangedUntilExit": true,
+    "nextStartAppliedOffline": true,
+    "profilePreserved": true,
+    "subsequentLaunchVerified": true,
+    "uninstallVerified": true,
+    "evidence": "artifacts/qa/PortwayAutoQa120e36e2034f44859f03f0837d86b0ea/result.txt"
+  },
+  "windowsManualUpdate": {
+    "verified": true,
+    "nativePhotinoRestartVerified": true,
+    "evidence": "artifacts/qa/PortwayQae86be62d03e747c79ffaf8c8c0b45cc7/result.txt"
+  },
+  "browserUi": {
+    "realSourceBuildStatusVerified": true,
+    "progressAndReadyResponsesSimulated": true,
+    "vaultDialogRefreshRegressionVerified": true,
+    "closedDialogPollingStopped": true,
+    "consoleErrors": 0,
+    "consoleWarnings": 0,
+    "publishedWebAssetHashesMatched": 25
+  },
+  "macOSAutomaticUpdateVerified": false,
+  "linuxAutomaticUpdateVerified": false,
+  "windowsCodeSigned": false,
+  "publicDeploymentPerformed": false,
+  "protocolIntegrationRerun": false,
+  "artifacts": [
+    {
+      "path": "dist/releases/win-x64-stable/Portway-win-x64-stable-Setup.exe",
+      "sha256": "4312eac45359286b6eb49e050c5e9745cf2d6897c40e8672bd2ac8e514a77223",
+      "bytes": 108315332
+    },
+    {
+      "path": "dist/releases/win-x64-stable/Portway-win-x64-stable-Portable.zip",
+      "sha256": "0b44d830091669abf820f20199408b35fa1fd24ccfa90547fc579b1cefe053b4",
+      "bytes": 100755132
+    },
+    {
+      "path": "dist/releases/win-x64-stable/Portway-0.3.3-win-x64-stable-full.nupkg",
+      "sha256": "9c4f0782f34ed545f8d06ae561cf9374826ebb2d4c81cba3890f70ed368da163",
+      "bytes": 100777668
+    },
+    {
+      "path": "dist/releases/win-x64-stable/Portway-0.3.3-win-x64-stable-delta.nupkg",
+      "sha256": "3db9e6262cc728344aefb7eda45875f162e9185200db3400ce402a5835d2a2c0",
+      "bytes": 260880
+    },
+    {
+      "path": "dist/Portway-0.3.3-win-x64-stable.zip",
+      "sha256": "23016fef518b781f86f50e3ade1b10a755cc42e2e54ae5fc2441be39a612189b",
+      "bytes": 902647504
+    }
+  ]
+}

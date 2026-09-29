@@ -1,0 +1,71 @@
+{
+  "qaPackageVersion": "0.3.10",
+  "sizes": {
+    "currentFull": 113739863,
+    "currentZip": 341863947,
+    "previousZip": 1611021304,
+    "currentNupkgCount": 2,
+    "previousNupkgCount": 25,
+    "zipReductionPercent": 78.78,
+    "currentDelta": 792833
+  },
+  "scope": "버전별 ZIP 및 변경분 업데이트",
+  "remote": {
+    "remoteSeedVersion": "0.3.9",
+    "zipBytes": 341863950,
+    "deltaBytes": 792833,
+    "zipEntries": 7,
+    "currentVersion": "0.3.10",
+    "nupkgCount": 2
+  },
+  "limits": [
+    "TestVelopackLocator를 통한 실제 파일 다운로드·복원 검사이며 설치·재시작 적용 검사는 아님",
+    "macOS/Linux 네이티브 패키징 미실행",
+    "공개 배포·원격 CI 미실행",
+    "검증용 패키지 미서명",
+    "이전 dist 릴리스 산출물 보존"
+  ],
+  "commands": [
+    "dotnet test tests/Portway.Tests/Portway.Tests.csproj -c Release --artifacts-path artifacts/qa/version-packaging-build --filter FullyQualifiedName~PackageTests",
+    "dotnet test tests/Portway.Tests/Portway.Tests.csproj -c Release --artifacts-path artifacts/qa/version-packaging-build --filter FullyQualifiedName~ReleaseTests|FullyQualifiedName~UpdateTests",
+    "scripts/package.ps1 -Version 0.3.10 -Runtime win-x64 -PreviousReleaseDirectory dist/releases/win-x64-stable",
+    "scripts/package.ps1 -Version 0.3.10 -Runtime win-x64 -PreviousReleaseUrl <격리 HTTP 피드>",
+    "dotnet build Portway.slnx -c Release --artifacts-path artifacts/qa/version-packaging-build"
+  ],
+  "changes": [
+    "현재 버전만 포함하는 ZIP",
+    "로컬·HTTP 최신 Full 기준 Delta 생성",
+    "기존 피드와 새 버전 피드 병합",
+    "BaseVersion·패키지 불변성 검사",
+    "CI 이전 Full 다운로드"
+  ],
+  "date": "2026-09-29T15:42:40.3024535+09:00",
+  "sourceVersion": "0.3.9",
+  "artifacts": {
+    "archiveSha256": "7CF7112CF2B9BFBBDA47EA09355BF42E961FC9D6B74E0736A6C638673EB18E1D",
+    "packageTrx": "tests/Portway.Tests/TestResults/version-packaging.trx",
+    "contractsTrx": "tests/Portway.Tests/TestResults/version-packaging-contracts.trx",
+    "report": "doc/Portway.Document/jobs/VALIDATION-versioned-packaging.md",
+    "archive": "artifacts/qa/version-packaging/dist/Portway-0.3.10-win-x64-stable.zip"
+  },
+  "host": "Windows x64",
+  "checks": {
+    "scopedDotnetFormatCheck": true,
+    "localSeed": true,
+    "assemblyVersionMismatchRejected": true,
+    "releaseBuildWarnings": 0,
+    "previousOutputsProtected": true,
+    "remoteSeed": true,
+    "releaseBuildErrors": 0,
+    "reconstructedEntryHashesMatch": true,
+    "failed": 0,
+    "fullFallbackHashMatches": true,
+    "powershellScriptsParsed": 9,
+    "corruptDeltaFallsBackToFull": true,
+    "skipped": 0,
+    "deltaOnlyDownload": true,
+    "releaseAndUpdateTestsPassed": 19,
+    "realPackageTestsPassed": 3,
+    "prettierCheck": true
+  }
+}

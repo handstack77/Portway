@@ -1,0 +1,484 @@
+{
+  "after": {
+    "results": [
+      {
+        "reducedMotion": "no-preference",
+        "theme": "light",
+        "style": "block",
+        "duration": "2s",
+        "focusReentry": true,
+        "gapsMs": [
+          1017,
+          983,
+          1000,
+          1000
+        ],
+        "transitions": [
+          {
+            "ms": 7,
+            "value": "rgb(6, 111, 209)"
+          },
+          {
+            "ms": 1024,
+            "value": "rgba(0, 0, 0, 0)"
+          },
+          {
+            "ms": 2007,
+            "value": "rgb(6, 111, 209)"
+          },
+          {
+            "ms": 3007,
+            "value": "rgba(0, 0, 0, 0)"
+          },
+          {
+            "ms": 4007,
+            "value": "rgb(6, 111, 209)"
+          }
+        ],
+        "verified": true
+      },
+      {
+        "reducedMotion": "no-preference",
+        "theme": "light",
+        "style": "underline",
+        "duration": "2s",
+        "focusReentry": true,
+        "gapsMs": [
+          1000,
+          1001,
+          1000,
+          1000
+        ],
+        "transitions": [
+          {
+            "ms": 5,
+            "value": "solid"
+          },
+          {
+            "ms": 1005,
+            "value": "hidden"
+          },
+          {
+            "ms": 2006,
+            "value": "solid"
+          },
+          {
+            "ms": 3006,
+            "value": "hidden"
+          },
+          {
+            "ms": 4006,
+            "value": "solid"
+          }
+        ],
+        "verified": true
+      },
+      {
+        "reducedMotion": "no-preference",
+        "theme": "light",
+        "style": "bar",
+        "duration": "2s",
+        "focusReentry": true,
+        "gapsMs": [
+          1000,
+          1000,
+          1000,
+          1000
+        ],
+        "transitions": [
+          {
+            "ms": 6,
+            "value": "rgb(6, 111, 209) 1px 0px 0px 0px inset"
+          },
+          {
+            "ms": 1006,
+            "value": "rgba(0, 0, 0, 0) 0px 0px 0px 0px inset"
+          },
+          {
+            "ms": 2006,
+            "value": "rgb(6, 111, 209) 1px 0px 0px 0px inset"
+          },
+          {
+            "ms": 3006,
+            "value": "rgba(0, 0, 0, 0) 0px 0px 0px 0px inset"
+          },
+          {
+            "ms": 4006,
+            "value": "rgb(6, 111, 209) 1px 0px 0px 0px inset"
+          }
+        ],
+        "verified": true
+      },
+      {
+        "reducedMotion": "no-preference",
+        "theme": "dark",
+        "style": "block",
+        "duration": "2s",
+        "focusReentry": true,
+        "gapsMs": [
+          1000,
+          1000,
+          1000,
+          1000
+        ],
+        "transitions": [
+          {
+            "ms": 9,
+            "value": "rgb(106, 169, 227)"
+          },
+          {
+            "ms": 1009,
+            "value": "rgba(0, 0, 0, 0)"
+          },
+          {
+            "ms": 2009,
+            "value": "rgb(106, 169, 227)"
+          },
+          {
+            "ms": 3009,
+            "value": "rgba(0, 0, 0, 0)"
+          },
+          {
+            "ms": 4009,
+            "value": "rgb(106, 169, 227)"
+          }
+        ],
+        "verified": true
+      },
+      {
+        "reducedMotion": "no-preference",
+        "theme": "dark",
+        "style": "underline",
+        "duration": "2s",
+        "focusReentry": true,
+        "gapsMs": [
+          1000,
+          1000,
+          1000,
+          1000
+        ],
+        "transitions": [
+          {
+            "ms": 3,
+            "value": "solid"
+          },
+          {
+            "ms": 1003,
+            "value": "hidden"
+          },
+          {
+            "ms": 2003,
+            "value": "solid"
+          },
+          {
+            "ms": 3003,
+            "value": "hidden"
+          },
+          {
+            "ms": 4003,
+            "value": "solid"
+          }
+        ],
+        "verified": true
+      },
+      {
+        "reducedMotion": "no-preference",
+        "theme": "dark",
+        "style": "bar",
+        "duration": "2s",
+        "focusReentry": true,
+        "gapsMs": [
+          1000,
+          1000,
+          1000,
+          1000
+        ],
+        "transitions": [
+          {
+            "ms": 10,
+            "value": "rgb(106, 169, 227) 1px 0px 0px 0px inset"
+          },
+          {
+            "ms": 1010,
+            "value": "rgba(0, 0, 0, 0) 0px 0px 0px 0px inset"
+          },
+          {
+            "ms": 2010,
+            "value": "rgb(106, 169, 227) 1px 0px 0px 0px inset"
+          },
+          {
+            "ms": 3010,
+            "value": "rgba(0, 0, 0, 0) 0px 0px 0px 0px inset"
+          },
+          {
+            "ms": 4010,
+            "value": "rgb(106, 169, 227) 1px 0px 0px 0px inset"
+          }
+        ],
+        "verified": true
+      },
+      {
+        "reducedMotion": "reduce",
+        "theme": "light",
+        "style": "block",
+        "duration": "2s",
+        "focusReentry": true,
+        "gapsMs": [
+          1001,
+          1000,
+          1000,
+          1000
+        ],
+        "transitions": [
+          {
+            "ms": 10,
+            "value": "rgb(6, 111, 209)"
+          },
+          {
+            "ms": 1011,
+            "value": "rgba(0, 0, 0, 0)"
+          },
+          {
+            "ms": 2011,
+            "value": "rgb(6, 111, 209)"
+          },
+          {
+            "ms": 3011,
+            "value": "rgba(0, 0, 0, 0)"
+          },
+          {
+            "ms": 4011,
+            "value": "rgb(6, 111, 209)"
+          }
+        ],
+        "verified": true
+      },
+      {
+        "reducedMotion": "reduce",
+        "theme": "light",
+        "style": "underline",
+        "duration": "2s",
+        "focusReentry": true,
+        "gapsMs": [
+          1017,
+          983,
+          1000,
+          1000
+        ],
+        "transitions": [
+          {
+            "ms": 10,
+            "value": "solid"
+          },
+          {
+            "ms": 1027,
+            "value": "hidden"
+          },
+          {
+            "ms": 2010,
+            "value": "solid"
+          },
+          {
+            "ms": 3010,
+            "value": "hidden"
+          },
+          {
+            "ms": 4010,
+            "value": "solid"
+          }
+        ],
+        "verified": true
+      },
+      {
+        "reducedMotion": "reduce",
+        "theme": "light",
+        "style": "bar",
+        "duration": "2s",
+        "focusReentry": true,
+        "gapsMs": [
+          1000,
+          1000,
+          1000,
+          1000
+        ],
+        "transitions": [
+          {
+            "ms": 10,
+            "value": "rgb(6, 111, 209) 1px 0px 0px 0px inset"
+          },
+          {
+            "ms": 1010,
+            "value": "rgba(0, 0, 0, 0) 0px 0px 0px 0px inset"
+          },
+          {
+            "ms": 2010,
+            "value": "rgb(6, 111, 209) 1px 0px 0px 0px inset"
+          },
+          {
+            "ms": 3010,
+            "value": "rgba(0, 0, 0, 0) 0px 0px 0px 0px inset"
+          },
+          {
+            "ms": 4010,
+            "value": "rgb(6, 111, 209) 1px 0px 0px 0px inset"
+          }
+        ],
+        "verified": true
+      },
+      {
+        "reducedMotion": "reduce",
+        "theme": "dark",
+        "style": "block",
+        "duration": "2s",
+        "focusReentry": true,
+        "gapsMs": [
+          1000,
+          1000,
+          1000,
+          1000
+        ],
+        "transitions": [
+          {
+            "ms": 10,
+            "value": "rgb(106, 169, 227)"
+          },
+          {
+            "ms": 1010,
+            "value": "rgba(0, 0, 0, 0)"
+          },
+          {
+            "ms": 2010,
+            "value": "rgb(106, 169, 227)"
+          },
+          {
+            "ms": 3010,
+            "value": "rgba(0, 0, 0, 0)"
+          },
+          {
+            "ms": 4010,
+            "value": "rgb(106, 169, 227)"
+          }
+        ],
+        "verified": true
+      },
+      {
+        "reducedMotion": "reduce",
+        "theme": "dark",
+        "style": "underline",
+        "duration": "2s",
+        "focusReentry": true,
+        "gapsMs": [
+          1000,
+          1000,
+          1000,
+          1000
+        ],
+        "transitions": [
+          {
+            "ms": 9,
+            "value": "solid"
+          },
+          {
+            "ms": 1009,
+            "value": "hidden"
+          },
+          {
+            "ms": 2009,
+            "value": "solid"
+          },
+          {
+            "ms": 3009,
+            "value": "hidden"
+          },
+          {
+            "ms": 4009,
+            "value": "solid"
+          }
+        ],
+        "verified": true
+      },
+      {
+        "reducedMotion": "reduce",
+        "theme": "dark",
+        "style": "bar",
+        "duration": "2s",
+        "focusReentry": true,
+        "gapsMs": [
+          1000,
+          1000,
+          1000,
+          1000
+        ],
+        "transitions": [
+          {
+            "ms": 10,
+            "value": "rgb(106, 169, 227) 1px 0px 0px 0px inset"
+          },
+          {
+            "ms": 1010,
+            "value": "rgba(0, 0, 0, 0) 0px 0px 0px 0px inset"
+          },
+          {
+            "ms": 2010,
+            "value": "rgb(106, 169, 227) 1px 0px 0px 0px inset"
+          },
+          {
+            "ms": 3010,
+            "value": "rgba(0, 0, 0, 0) 0px 0px 0px 0px inset"
+          },
+          {
+            "ms": 4010,
+            "value": "rgb(106, 169, 227) 1px 0px 0px 0px inset"
+          }
+        ],
+        "verified": true
+      }
+    ],
+    "animation": "애니메이션을 멈추거나 시간을 조작하지 않고 requestAnimationFrame으로 실제 전환을 기록했습니다.",
+    "transport": "모의 SSH 연결로 실제 workflows.js와 xterm 렌더러를 검증했습니다."
+  },
+  "baseline": [
+    {
+      "reducedMotion": "no-preference",
+      "duration": "2s",
+      "transitionCount": 5,
+      "minGapMs": 983,
+      "transitions": [
+        {
+          "ms": 15,
+          "color": "rgb(6, 111, 209)"
+        },
+        {
+          "ms": 998,
+          "color": "rgba(0, 0, 0, 0)"
+        },
+        {
+          "ms": 1998,
+          "color": "rgb(6, 111, 209)"
+        },
+        {
+          "ms": 2998,
+          "color": "rgba(0, 0, 0, 0)"
+        },
+        {
+          "ms": 3998,
+          "color": "rgb(6, 111, 209)"
+        }
+      ]
+    },
+    {
+      "reducedMotion": "reduce",
+      "duration": "1e-05s",
+      "transitionCount": 1,
+      "minGapMs": null,
+      "transitions": [
+        {
+          "ms": 8,
+          "color": "rgb(6, 111, 209)"
+        }
+      ]
+    }
+  ],
+  "build": "Debug 빌드 성공, 경고 0개·오류 0개",
+  "limitation": "Chromium에서 모의 SSH 연결로 렌더러를 검증했습니다. 실제 원격 서버와 네이티브 OS별 실행은 검증하지 않았습니다."
+}

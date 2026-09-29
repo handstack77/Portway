@@ -1,0 +1,136 @@
+{
+  "before": {
+    "body": {
+      "size": "13px",
+      "family": "\"Inter Var\", Inter, -apple-system, BlinkMacSystemFont, \"San Francisco\", \"Segoe UI\", Roboto, \"Helvetica Neue\", sans-serif, \"Noto Sans\", sans-serif"
+    },
+    ".nav button": {
+      "size": "13px",
+      "family": "\"Inter Var\", Inter, -apple-system, BlinkMacSystemFont, \"San Francisco\", \"Segoe UI\", Roboto, \"Helvetica Neue\", sans-serif, \"Noto Sans\", sans-serif"
+    },
+    ".sidebar-bottom button": {
+      "size": "12px",
+      "family": "\"Inter Var\", Inter, -apple-system, BlinkMacSystemFont, \"San Francisco\", \"Segoe UI\", Roboto, \"Helvetica Neue\", sans-serif"
+    },
+    ".workspace-actions .btn": {
+      "size": "12px",
+      "family": "\"Inter Var\", Inter, -apple-system, BlinkMacSystemFont, \"San Francisco\", \"Segoe UI\", Roboto, \"Helvetica Neue\", sans-serif"
+    },
+    ".icon": {
+      "size": "18px",
+      "family": "tabler-icons"
+    },
+    ".topbar h1": {
+      "size": "21px",
+      "family": "\"Inter Var\", Inter, -apple-system, BlinkMacSystemFont, \"San Francisco\", \"Segoe UI\", Roboto, \"Helvetica Neue\", sans-serif, \"Noto Sans\", sans-serif"
+    },
+    ".title-kicker": {
+      "size": "10px",
+      "family": "\"Inter Var\", Inter, -apple-system, BlinkMacSystemFont, \"San Francisco\", \"Segoe UI\", Roboto, \"Helvetica Neue\", sans-serif, \"Noto Sans\", sans-serif"
+    },
+    ".filelist table": {
+      "size": "12px",
+      "family": "\"Inter Var\", Inter, -apple-system, BlinkMacSystemFont, \"San Francisco\", \"Segoe UI\", Roboto, \"Helvetica Neue\", sans-serif, \"Noto Sans\", sans-serif"
+    },
+    ".filelist th": {
+      "size": "12px",
+      "family": "\"Inter Var\", Inter, -apple-system, BlinkMacSystemFont, \"San Francisco\", \"Segoe UI\", Roboto, \"Helvetica Neue\", sans-serif, \"Noto Sans\", sans-serif"
+    },
+    ".filelist .size": {
+      "size": "10px",
+      "family": "\"Inter Var\", Inter, -apple-system, BlinkMacSystemFont, \"San Francisco\", \"Segoe UI\", Roboto, \"Helvetica Neue\", sans-serif, \"Noto Sans\", sans-serif"
+    },
+    ".pathbar input": {
+      "size": "12px",
+      "family": "Consolas, monospace"
+    },
+    ".filterbar input": {
+      "size": "11px",
+      "family": "\"Inter Var\", Inter, -apple-system, BlinkMacSystemFont, \"San Francisco\", \"Segoe UI\", Roboto, \"Helvetica Neue\", sans-serif, \"Noto Sans\", sans-serif"
+    },
+    ".pane-title strong": {
+      "size": "13px",
+      "family": "\"Inter Var\", Inter, -apple-system, BlinkMacSystemFont, \"San Francisco\", \"Segoe UI\", Roboto, \"Helvetica Neue\", sans-serif, \"Noto Sans\", sans-serif"
+    },
+    ".pane-footer": {
+      "size": "10px",
+      "family": "\"Inter Var\", Inter, -apple-system, BlinkMacSystemFont, \"San Francisco\", \"Segoe UI\", Roboto, \"Helvetica Neue\", sans-serif, \"Noto Sans\", sans-serif"
+    },
+    ".statusbar": {
+      "size": "10px",
+      "family": "\"Inter Var\", Inter, -apple-system, BlinkMacSystemFont, \"San Francisco\", \"Segoe UI\", Roboto, \"Helvetica Neue\", sans-serif, \"Noto Sans\", sans-serif"
+    },
+    ".theme-toggle": {
+      "size": "12px",
+      "family": "\"Inter Var\", Inter, -apple-system, BlinkMacSystemFont, \"San Francisco\", \"Segoe UI\", Roboto, \"Helvetica Neue\", sans-serif"
+    }
+  },
+  "after": {
+    "body": {
+      "size": "15px",
+      "family": "\"Noto Sans KR Variable\", \"Noto Sans KR\", sans-serif"
+    },
+    ".nav button": {
+      "size": "15px",
+      "family": "\"Noto Sans KR Variable\", \"Noto Sans KR\", sans-serif"
+    },
+    ".sidebar-bottom button": {
+      "size": "14px",
+      "family": "\"Noto Sans KR Variable\", \"Noto Sans KR\", sans-serif"
+    },
+    ".workspace-actions .btn": {
+      "size": "14px",
+      "family": "\"Noto Sans KR Variable\", \"Noto Sans KR\", sans-serif"
+    },
+    ".icon": {
+      "size": "20px",
+      "family": "tabler-icons"
+    },
+    ".topbar h1": {
+      "size": "23px",
+      "family": "\"Noto Sans KR Variable\", \"Noto Sans KR\", sans-serif"
+    },
+    ".title-kicker": {
+      "size": "12px",
+      "family": "\"Noto Sans KR Variable\", \"Noto Sans KR\", sans-serif"
+    },
+    ".filelist table": {
+      "size": "14px",
+      "family": "\"Noto Sans KR Variable\", \"Noto Sans KR\", sans-serif"
+    },
+    ".filelist th": {
+      "size": "14px",
+      "family": "\"Noto Sans KR Variable\", \"Noto Sans KR\", sans-serif"
+    },
+    ".filelist .size": {
+      "size": "12px",
+      "family": "\"Noto Sans KR Variable\", \"Noto Sans KR\", sans-serif"
+    },
+    ".pathbar input": {
+      "size": "14px",
+      "family": "\"Noto Sans KR Variable\", \"Noto Sans KR\", sans-serif"
+    },
+    ".filterbar input": {
+      "size": "13px",
+      "family": "\"Noto Sans KR Variable\", \"Noto Sans KR\", sans-serif"
+    },
+    ".pane-title strong": {
+      "size": "15px",
+      "family": "\"Noto Sans KR Variable\", \"Noto Sans KR\", sans-serif"
+    },
+    ".pane-footer": {
+      "size": "12px",
+      "family": "\"Noto Sans KR Variable\", \"Noto Sans KR\", sans-serif"
+    },
+    ".statusbar": {
+      "size": "12px",
+      "family": "\"Noto Sans KR Variable\", \"Noto Sans KR\", sans-serif"
+    },
+    ".theme-toggle": {
+      "size": "14px",
+      "family": "\"Noto Sans KR Variable\", \"Noto Sans KR\", sans-serif"
+    }
+  },
+  "matchedDeltaPixels": 2,
+  "matchedSelectors": 16
+}

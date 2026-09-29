@@ -1,0 +1,107 @@
+name: 릴리스 패키징
+on:
+  workflow_dispatch:
+    inputs:
+      version:
+        description: SemVer version
+        required: true
+        default: '0.3.9'
+      track:
+        type: choice
+        options: [stable, beta]
+        default: stable
+      publish:
+        type: boolean
+        description: Publish to configured distribution server
+        default: false
+      first_release:
+        type: boolean
+        description: Allow an empty channel for its first release
+        default: false
+      delta_mode:
+        type: choice
+        description: Delta compression mode
+        options: [BestSpeed, BestSize]
+        default: BestSpeed
+permissions:
+  contents: read
+jobs:
+  package:
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - { os: windows-latest, rid: win-x64 }
+          - { os: windows-latest, rid: win-arm64 }
+          - { os: macos-14, rid: osx-arm64 }
+          - { os: macos-15-intel, rid: osx-x64 }
+          - { os: ubuntu-24.04, rid: linux-x64 }
+          - { os: ubuntu-24.04-arm, rid: linux-arm64 }
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '10.0.x'
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: npm
+          cache-dependency-path: assets/frontend/package-lock.json
+      - name: Linux 네이티브 라이브러리 설치
+        if: startsWith(matrix.rid, 'linux')
+        run: sudo apt-get update && sudo apt-get install -y libgtk-3-0 libwebkit2gtk-4.1-0 libnotify4 libfuse2t64
+      - name: 공개 macOS 릴리스 서명 설정 확인
+        if: startsWith(matrix.rid, 'osx') && inputs.publish && vars.PORTWAY_MAC_SIGNING_ENABLED != 'true'
+        run: echo '게시 전에 macOS 서명과 공증을 설정하세요.' >&2; exit 1
+      - name: macOS 서명 인증서 가져오기
+        if: startsWith(matrix.rid, 'osx') && vars.PORTWAY_MAC_SIGNING_ENABLED == 'true'
+        shell: bash
+        env:
+          PORTWAY_MAC_APP_P12: ${{ secrets.PORTWAY_MAC_APP_P12 }}
+          PORTWAY_MAC_INSTALLER_P12: ${{ secrets.PORTWAY_MAC_INSTALLER_P12 }}
+          PORTWAY_MAC_P12_PASSWORD: ${{ secrets.PORTWAY_MAC_P12_PASSWORD }}
+          PORTWAY_MAC_KEYCHAIN_PASSWORD: ${{ secrets.PORTWAY_MAC_KEYCHAIN_PASSWORD }}
+          PORTWAY_MAC_NOTARY_PROFILE: ${{ secrets.PORTWAY_MAC_NOTARY_PROFILE }}
+          PORTWAY_APPLE_ID: ${{ secrets.PORTWAY_APPLE_ID }}
+          PORTWAY_APPLE_TEAM_ID: ${{ secrets.PORTWAY_APPLE_TEAM_ID }}
+          PORTWAY_APPLE_APP_PASSWORD: ${{ secrets.PORTWAY_APPLE_APP_PASSWORD }}
+        run: bash scripts/macos-signing.sh
+      - name: Velopack 패키징
+        shell: pwsh
+        env:
+          VERSION: ${{ inputs.version }}
+          TRACK: ${{ inputs.track }}
+          RUNTIME: ${{ matrix.rid }}
+          PREVIOUS_SERVER: ${{ vars.PORTWAY_DISTRIBUTION_URL }}
+          FIRST_RELEASE: ${{ inputs.first_release }}
+          DELTA_MODE: ${{ inputs.delta_mode }}
+          PORTWAY_SIGN_PARAMS: ${{ secrets.PORTWAY_SIGN_PARAMS }}
+          PORTWAY_MAC_APP_IDENTITY: ${{ secrets.PORTWAY_MAC_APP_IDENTITY }}
+          PORTWAY_MAC_INSTALLER_IDENTITY: ${{ secrets.PORTWAY_MAC_INSTALLER_IDENTITY }}
+          PORTWAY_MAC_NOTARY_PROFILE: ${{ secrets.PORTWAY_MAC_NOTARY_PROFILE }}
+        run: |
+          $parameters = @{ Version=$env:VERSION; Runtime=$env:RUNTIME; Track=$env:TRACK; DeltaMode=$env:DELTA_MODE }
+          if ($env:PREVIOUS_SERVER) {
+            $parameters.PreviousReleaseUrl = "$($env:PREVIOUS_SERVER.TrimEnd('/'))/releases/$env:RUNTIME-$env:TRACK/"
+            $parameters.AllowEmptyChannel = $env:FIRST_RELEASE -eq 'true'
+          }
+          ./scripts/build.ps1 @parameters
+      - uses: actions/upload-artifact@v4
+        with:
+          name: Portway-${{ matrix.rid }}-${{ inputs.track }}
+          path: dist/Portway-${{ inputs.version }}-${{ matrix.rid }}-${{ inputs.track }}.zip
+      - name: 검증한 압축 파일 게시
+        if: inputs.publish
+        shell: pwsh
+        env:
+          VERSION: ${{ inputs.version }}
+          TRACK: ${{ inputs.track }}
+          RUNTIME: ${{ matrix.rid }}
+          SERVER: ${{ vars.PORTWAY_DISTRIBUTION_URL }}
+          PORTWAY_PUBLISH_KEY: ${{ secrets.PORTWAY_PUBLISH_KEY }}
+        run: ./scripts/publish.ps1 -Server $env:SERVER -Channel "$env:RUNTIME-$env:TRACK" -Archive "dist/Portway-$env:VERSION-$env:RUNTIME-$env:TRACK.zip"
+      - name: 임시 macOS 키체인 제거
+        if: always() && startsWith(matrix.rid, 'osx') && vars.PORTWAY_MAC_SIGNING_ENABLED == 'true'
+        shell: bash
+        run: security delete-keychain "$RUNNER_TEMP/portway-signing/build.keychain-db" || true

@@ -1,0 +1,36 @@
+{
+  "focusHighlight": "clears on outside focus; local and remote highlighting verified",
+  "backgroundFocus": "unit test passed; headless new-tab focus check timed out and does not verify native OS window focus",
+  "frontendBuild": "passed",
+  "browser": "Chromium",
+  "frontendTests": {
+    "passed": 28,
+    "added": 7,
+    "failed": 0
+  },
+  "qaStopped": true,
+  "date": "2026-09-29",
+  "desktopBuild": "isolated Debug, 0 warnings, 0 errors",
+  "outsideFocus": {
+    "keys": [
+      "F2",
+      "F4",
+      "F5",
+      "F7",
+      "Delete"
+    ],
+    "fileMutations": 0,
+    "targets": 5,
+    "nativeDeleteEditing": "passed",
+    "reloads": 0
+  },
+  "panelFocus": [
+    "F2 rename dialog",
+    "F4 Monaco dialog",
+    "F7 new folder dialog",
+    "F5 connection prerequisite",
+    "remote F7 connection prerequisite",
+    "Delete recycled isolated fixture"
+  ],
+  "dialogAndMenuBlocking": "passed"
+}

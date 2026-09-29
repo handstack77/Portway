@@ -1,0 +1,63 @@
+{
+  "version": "0.3.6",
+  "date": "2026-09-29",
+  "host": "Windows x64",
+  "changes": [
+    "Bundled Noto Sans KR Variable 5.3.0",
+    "UI and icon fonts +2px",
+    "Tabler primary #066fd1 and dark link tokens",
+    "Blue SVG and generated OS icons"
+  ],
+  "tests": {
+    "frontend": {
+      "passed": 14
+    },
+    "dotnet": {
+      "passed": 58,
+      "skipped": 23
+    },
+    "package": {
+      "passed": 1
+    },
+    "fontSizeDeltaPixels": 2,
+    "fontSizeSelectorsMatched": 16,
+    "fontFiles": 124,
+    "publishedWebAssetHashMatches": 280
+  },
+  "ui": {
+    "engines": [
+      "Chromium",
+      "WebKit on Windows"
+    ],
+    "sizes": [
+      "1440x940",
+      "980x680"
+    ],
+    "themes": [
+      "light",
+      "dark"
+    ],
+    "passed": [
+      "Custom Noto Sans KR rendering",
+      "No external resource origins",
+      "Local Korean edit/save exact content",
+      "Context menu and connection dialog",
+      "Release center theme",
+      "Published 0.3.6 asset and font load"
+    ]
+  },
+  "artifacts": {
+    "report": "doc/Portway.Document/jobs/VALIDATION-0.3.6.md",
+    "buildLog": "artifacts/build-0.3.6.log",
+    "packageTrx": "tests/Portway.Tests/TestResults/package-0.3.6.trx",
+    "checksum": "dist/SHA256SUMS-0.3.6.txt"
+  },
+  "limits": [
+    "No native macOS/Linux Photino run",
+    "No new live SSH terminal/protocol integration run",
+    "Windows unsigned",
+    "No public deployment",
+    "Installation/auto-update checks refer to 0.3.3",
+    "Existing Linux package remains 0.3.1"
+  ]
+}

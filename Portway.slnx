@@ -1,0 +1,16 @@
+<Solution>
+  <Folder Name="/doc/">
+    <Project Path="doc/Portway.Document/Portway.Document.njsproj" Id="17f3cde8-a410-4fb1-9dda-642847435758">
+      <Build />
+    </Project>
+  </Folder>
+  <Folder Name="/src/">
+    <Project Path="src/Portway.Cli/Portway.Cli.csproj" />
+    <Project Path="src/Portway.Core/Portway.Core.csproj" />
+    <Project Path="src/Portway.Desktop/Portway.Desktop.csproj" />
+    <Project Path="src/Portway.Server/Portway.Server.csproj" />
+  </Folder>
+  <Folder Name="/tests/">
+    <Project Path="tests/Portway.Tests/Portway.Tests.csproj" />
+  </Folder>
+</Solution>

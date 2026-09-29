@@ -1,0 +1,33 @@
+{
+  "date": "2026-09-29",
+  "authoredEnglishOnlyCommentLines": 0,
+  "dotnetTests": {
+    "passed": 58,
+    "skipped": 23,
+    "failed": 0
+  },
+  "frontendTests": {
+    "passed": 28,
+    "failed": 0
+  },
+  "builds": [
+    "Desktop Release",
+    "Server Release",
+    "CLI Release",
+    "frontend assets"
+  ],
+  "syntax": [
+    "PowerShell scripts",
+    "Python scripts"
+  ],
+  "runtime": [
+    "CLI UTF-8 help and errors",
+    "JSON error field and exit code",
+    "HTML-sensitive characters remain escaped",
+    "Desktop headless start message"
+  ],
+  "fixtures": "Korean readiness marker producer and consumer match; integration fixtures not launched",
+  "externalMessages": "Library diagnostics and remote command output retained",
+  "generatedAssets": "Master CSS regenerated; Desktop and Server shared assets match",
+  "qaProcessesStopped": true
+}

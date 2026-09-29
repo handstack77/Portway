@@ -1,0 +1,22 @@
+{
+  "dependencies": {
+    "@fontsource-variable/noto-sans-kr": "5.3.0",
+    "@master/css": "1.37.8",
+    "@tabler/core": "1.4.0",
+    "@tabler/icons-webfont": "3.48.0",
+    "@xterm/addon-fit": "0.11.0",
+    "@xterm/xterm": "6.0.0",
+    "monaco-editor": "0.57.0"
+  },
+  "private": true,
+  "scripts": {
+    "build": "node build.cjs",
+    "test": "node --test",
+    "format": "prettier --write --config ../../.prettierrc.json --ignore-path ../../.prettierignore \"../../src/Portway.Desktop/wwwroot/*.{js,css,html}\" \"../../src/Portway.Server/wwwroot/*.{js,css,html}\" \"*.{cjs,mjs,json}\" \"tests/*.mjs\"",
+    "format:check": "prettier --check --config ../../.prettierrc.json --ignore-path ../../.prettierignore \"../../src/Portway.Desktop/wwwroot/*.{js,css,html}\" \"../../src/Portway.Server/wwwroot/*.{js,css,html}\" \"*.{cjs,mjs,json}\" \"tests/*.mjs\""
+  },
+  "devDependencies": {
+    "esbuild": "0.28.2",
+    "prettier": "3.9.9"
+  }
+}

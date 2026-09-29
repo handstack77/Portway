@@ -1,0 +1,9 @@
+**/bin
+**/obj
+artifacts
+dist
+.git
+.playwright-cli
+node_modules
+output
+**/TestResults

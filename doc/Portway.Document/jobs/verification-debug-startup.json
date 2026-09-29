@@ -1,0 +1,27 @@
+{
+  "nativeWindowsVerification": {
+    "sameProfileRestartShowsWorkspace": true,
+    "freshPrivateProfileShowsWorkspace": true,
+    "f12OpensDevTools": true
+  },
+  "sitesVaultQueueUntouched": true,
+  "references": [
+    "https://learn.microsoft.com/en-us/microsoft-edge/webview2/concepts/user-data-folder",
+    "https://learn.microsoft.com/en-us/microsoft-edge/webview2/concepts/process-model"
+  ],
+  "existingSharedProfileUntouched": true,
+  "debugBuild": {
+    "defaultOutput": "src/Portway.Desktop/bin/Debug/net10.0",
+    "warnings": 0,
+    "errors": 0
+  },
+  "releaseBuild": {
+    "warnings": 0,
+    "path": "artifacts/qa/debug-startup-release",
+    "errors": 0
+  },
+  "resultBefore": "네이티브 창은 검은 화면, WebView 콘텐츠 없음",
+  "resultAfter": "Portway 전용 webview 폴더 지정 후 네이티브 UI 정상",
+  "defaultProfileFolder": "공용 Photino 폴더",
+  "scope": "Windows WebView2 153.0.4234.48 실제 Photino Debug 창. Visual Studio 세션 재시작과 macOS/Linux 네이티브 실행은 자동화하지 않음."
+}
