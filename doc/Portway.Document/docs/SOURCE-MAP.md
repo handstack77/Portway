@@ -4,7 +4,7 @@
 
 ## 처음 읽는 순서
 
-솔루션의 `doc` 폴더에는 [Portway.Document](../README.md) Node.js 프로젝트가 있습니다. 문서 작업용 기본 콘솔 진입점이며 기존 가이드와 검증 기록은 각각 `doc/Portway.Document/docs/`, `doc/Portway.Document/jobs/`에 유지합니다.
+솔루션의 `doc` 폴더에는 [Portway.Document](../README.md) Node.js 프로젝트와 [Portway.Artifact](../../Portway.Artifact/Portway.Artifact.esproj) JavaScript 프로젝트가 있습니다. Document는 문서 작업용 기본 콘솔 진입점이며 기존 가이드와 검증 기록은 각각 `doc/Portway.Document/docs/`, `doc/Portway.Document/jobs/`에 유지합니다. Artifact는 루트의 `assets/`, `deploy/`, `scripts/` 파일을 현재 위치에서 Visual Studio에 연결합니다.
 
 1. [Portway.slnx](../../../Portway.slnx)와 각 프로젝트 파일로 프로젝트 참조를 확인합니다. 버전은 `Directory.Build.props`, SDK는 `global.json`이 기준입니다.
 2. [Desktop Program.cs](../../../src/Portway.Desktop/Program.cs)에서 Velopack 초기화 → 호스트 시작 → Photino 창 → 종료 흐름을 읽습니다.

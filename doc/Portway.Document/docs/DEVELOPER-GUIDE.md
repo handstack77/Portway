@@ -82,6 +82,8 @@ npm run build --prefix doc/Portway.Document
 
 현재 `build`는 진입점의 JavaScript 구문을 검사하며 솔루션 빌드에서도 실행합니다. 프로젝트를 문서 생성 도구로 확장할 때 해당 빌드 명령을 갱신합니다. 프로젝트 구성·명령은 프로젝트 README에 기록하고 개발·사용 가이드는 `doc/Portway.Document/docs/`, 작업별 검증 기록은 `doc/Portway.Document/jobs/`에 유지합니다.
 
+같은 `doc` 솔루션 폴더의 [Portway.Artifact.esproj](../../Portway.Artifact/Portway.Artifact.esproj)는 저장소 루트의 `assets/`, `deploy/`, `scripts/` 파일을 재귀 와일드카드로 연결합니다. 파일은 원래 위치에서 편집하며 `assets/frontend/node_modules/`는 프로젝트 항목에서 제외합니다. 이 프로젝트는 파일 탐색용이므로 솔루션 빌드에서 별도 npm 설치나 빌드 스크립트를 실행하지 않습니다.
+
 ### Visual Studio에서 웹 UI 디버깅
 
 Visual Studio 2026에서 `Portway.Desktop`을 시작 프로젝트로 지정하고 **Debug** 구성으로 실행합니다. 실행된 Portway 창의 웹 UI(예: 파일 검색 입력란)를 클릭해 포커스를 둔 뒤 **F12**를 누르면 WebView2 개발자 도구가 열립니다. Elements·Console·Network·Sources에서 UI와 JavaScript를 확인할 수 있습니다. C# 디버깅은 Visual Studio의 중단점을 사용합니다.

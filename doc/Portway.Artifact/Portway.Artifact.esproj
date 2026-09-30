@@ -1,0 +1,19 @@
+<Project Sdk="Microsoft.VisualStudio.JavaScript.Sdk/1.0.5277448">
+  <PropertyGroup>
+    <EnableDefaultItems>false</EnableDefaultItems>
+    <ShouldRunNpmInstall>false</ShouldRunNpmInstall>
+    <ShouldRunNpmAudit>false</ShouldRunNpmAudit>
+    <ShouldRunBuildScript>false</ShouldRunBuildScript>
+  </PropertyGroup>
+  <ItemGroup>
+    <None Include="../../assets/**/*" Exclude="../../assets/**/node_modules/**/*">
+      <Link>assets/%(RecursiveDir)%(Filename)%(Extension)</Link>
+    </None>
+    <None Include="../../deploy/**/*">
+      <Link>deploy/%(RecursiveDir)%(Filename)%(Extension)</Link>
+    </None>
+    <None Include="../../scripts/**/*">
+      <Link>scripts/%(RecursiveDir)%(Filename)%(Extension)</Link>
+    </None>
+  </ItemGroup>
+</Project>

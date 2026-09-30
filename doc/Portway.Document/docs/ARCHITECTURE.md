@@ -12,6 +12,7 @@
 | Portway.Server | 릴리스 ZIP 검증·게시·다운로드와 배포 대시보드 | 없음 |
 | Portway.Tests | Core·Desktop·Server의 단위·API·조건부 통합 검사 | Core, Desktop, Server |
 | Portway.Document | Node 프로젝트 아래 `docs/`의 가이드·이미지와 `jobs/`의 검증 기록 관리 | 없음 |
+| Portway.Artifact | Visual Studio에서 루트 `assets/`, `deploy/`, `scripts/` 파일을 와일드카드 링크로 표시 | 없음 |
 
 ```mermaid
 flowchart LR

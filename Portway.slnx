@@ -1,5 +1,9 @@
 <Solution>
   <Folder Name="/doc/">
+    <Project Path="doc/Portway.Artifact/Portway.Artifact.esproj">
+      <Build />
+      <Deploy />
+    </Project>
     <Project Path="doc/Portway.Document/Portway.Document.njsproj" Id="17f3cde8-a410-4fb1-9dda-642847435758">
       <Build />
     </Project>
