@@ -105,7 +105,14 @@ for (const asset of ["tabler", "tabler-icons", "master", "noto-sans-kr"])
   fs.cpSync(path.join(vendor, asset), path.join(serverWeb, "vendor", asset), {
     recursive: true,
   });
-for (const asset of ["theme.js", "design-tokens.css", "logo.svg"])
+for (const asset of [
+  "theme.js",
+  "design-tokens.css",
+  "logo.svg",
+  "favicon.svg",
+  "favicon.ico",
+  "apple-touch-icon.png",
+])
   fs.copyFileSync(path.join(web, asset), path.join(serverWeb, asset));
 console.log(
   "Tabler CSS, 아이콘 웹 폰트, Master CSS 유틸리티, xterm 및 Monaco 자산 빌드를 완료했습니다.",

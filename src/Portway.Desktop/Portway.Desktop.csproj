@@ -17,5 +17,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Update="wwwroot\**" CopyToOutputDirectory="PreserveNewest" />
+    <None Include="..\..\assets\portway.ico;..\..\assets\portway.png" CopyToOutputDirectory="PreserveNewest" Visible="false" />
   </ItemGroup>
 </Project>

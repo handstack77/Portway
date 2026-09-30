@@ -1,5 +1,7 @@
 # Portway
 
+<img src="doc/Portway.Document/docs/images/portway-logo.svg" alt="Portway" height="56" />
+
 Photino와 ASP.NET Core로 만든 Windows · macOS · Linux 파일 전송 앱입니다. 웹 UI를 각 OS의 WebView 안에서 실행하고, 파일 작업은 로컬 .NET 프로세스가 수행합니다. Velopack `vpk` 설치 패키지, 자동 업데이트 클라이언트, 자체 배포 서버를 함께 제공합니다.
 
 현재 버전은 **0.3.9**입니다. 왼쪽 메뉴는 아이콘으로 접히고 마우스를 올리거나 키보드로 진입하면 펼쳐지는 Folded Hover 방식입니다. 로고 옆 Portway 텍스트의 세로 정렬과 체크박스 옆 말줄임표를 수정했습니다. 시스템 테마 옵션을 제거하고 Visual Studio 2026 톤의 다크 화면과 라이트↔다크 전환을 적용했습니다. Noto Sans KR, 기존보다 2px 큰 글자·아이콘, Tabler 기본 파란색 테마를 적용했습니다. 박스·체크박스 다중 선택, 우클릭 작업 메뉴, 키보드 탐색과 여러 항목 전송·이동을 제공합니다. Monaco 내장 편집기와 정돈된 공통 팝업도 포함합니다. 시작 시 백그라운드 업데이트 확인·다운로드와 다음 실행 시 무인 적용을 지원합니다. 주요 파일 관리 흐름이 실제 프로토콜 서버와 연결되어 동작합니다. 외부 파일·폴더 드롭, Tabler·Tabler Icons 웹 폰트·Master CSS 디자인 시스템, 라이트/다크 테마를 추가했습니다. 전체 WinSCP 기능 동등성은 아직 달성하지 못했습니다. [기능별 대체 검증표](doc/Portway.Document/docs/PARITY.md)와 [실행 검증 결과](doc/Portway.Document/jobs/VALIDATION.md)에 구현/검증/미구현을 구분했습니다.

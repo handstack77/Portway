@@ -44,7 +44,7 @@ npm run build --prefix assets/frontend
 npm test --prefix assets/frontend
 ```
 
-Desktop의 `theme.js`, `design-tokens.css`, `logo.svg`와 공통 vendor 자산은 빌드 시 Server의 `wwwroot`로 복사됩니다. 서버 쪽 복사본을 직접 수정하지 않습니다. 새 Master CSS 클래스를 추가했으면 자산을 다시 빌드합니다. 라이선스 원문도 패키지의 vendor 디렉토리에 포함됩니다.
+Desktop의 `theme.js`, `design-tokens.css`, `logo.svg`, 파비콘(`favicon.svg`, `favicon.ico`, `apple-touch-icon.png`)과 공통 vendor 자산은 빌드 시 Server의 `wwwroot`로 복사됩니다. 서버 쪽 복사본을 직접 수정하지 않습니다. 새 Master CSS 클래스를 추가했으면 자산을 다시 빌드합니다. 라이선스 원문도 패키지의 vendor 디렉토리에 포함됩니다.
 
 ## 검증 범위
 

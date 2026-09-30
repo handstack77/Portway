@@ -29,6 +29,12 @@ header {
   gap: 12px;
   align-items: center;
 }
+.brand img {
+  display: block;
+  width: 36px;
+  height: 36px;
+  flex: 0 0 36px;
+}
 .brand span {
   font-size: 11px;
   letter-spacing: 2px;
@@ -67,18 +73,12 @@ h1 {
   font-size: 16px;
   line-height: 1.9;
 }
-.mark {
+.hero-mark {
+  display: block;
   width: 148px;
   height: 148px;
-  border-radius: 39px;
-  background: var(--tblr-primary);
-  display: grid;
-  place-items: center;
-  font-size: 89px;
-  font-weight: 200;
   transform: rotate(-7deg);
   margin-right: 25px;
-  color: var(--tblr-primary-fg);
 }
 .section-title {
   display: flex;
@@ -220,7 +220,7 @@ footer {
   font-size: 13px;
 }
 @media (max-width: 650px) {
-  .mark {
+  .hero-mark {
     display: none;
   }
   h1 {
@@ -257,9 +257,6 @@ h1,
 h2,
 h3 {
   color: var(--ink);
-}
-.mark > .ti {
-  color: var(--tblr-primary-fg);
 }
 .brand span,
 .description,

@@ -198,6 +198,19 @@ Desktop의 [Program.cs](../../../src/Portway.Desktop/Program.cs)는 Velopack 초
 
 `--tblr-primary`를 재정의하지 않고 설치된 Tabler 1.4.0의 기본값 `#066fd1`을 사용합니다. 다크 화면의 읽기용 강조색은 `--tblr-link-color-rgb`, 버튼은 `--tblr-primary`입니다. Monaco에 넘길 색상은 CSS rgb/color-mix를 hex로 변환합니다. SVG 로고와 `make-icons.py`의 OS 아이콘도 같은 파란색·흰색을 사용합니다.
 
+로고는 관문(아치) 안의 양방향 전송 화살표입니다. [make-icons.py](../../../scripts/make-icons.py)가 하나의 도형 정의에서 모든 이미지를 생성하므로 생성 파일을 직접 편집하지 않고 스크립트를 수정한 뒤 `python scripts/make-icons.py`(Pillow 필요)와 프런트엔드 빌드를 실행합니다. 32px 이하는 선을 굵게 한 단순화 도형, 24px 이하는 화살표 하나만 사용합니다.
+
+| 생성 파일 | 용도 |
+| --- | --- |
+| `src/Portway.Desktop/wwwroot/logo.svg` | 사이드바·배포 센터 헤더와 소개 영역 로고 |
+| `wwwroot/favicon.svg`, `favicon.ico`(16·32·48), `apple-touch-icon.png`(180) | Desktop·배포 센터 파비콘. 빌드가 Server `wwwroot`로 복사 |
+| `assets/portway.ico`(16–256) | Windows 실행 파일(`ApplicationIcon`), Photino 창 아이콘, vpk 설치 패키지 |
+| `assets/portway.png`(512) | Linux 창 아이콘과 vpk 패키지 |
+| `assets/portway.icns` | macOS vpk 패키지. 1024 캔버스에 824 격자 여백 적용 |
+| `doc/Portway.Document/docs/images/portway-logo.svg` | README 워드마크 |
+
+`Program.cs`는 실행 폴더에 복사한 `portway.ico`(Windows) 또는 `portway.png`로 `SetIconFile`을 호출합니다.
+
 0.3.7 다크 팔레트는 [Visual Studio 2026 공식 테마 토큰](https://learn.microsoft.com/en-us/visualstudio/extensibility/ux-guidelines/theme-color-token-reference?view=visualstudio)의 중성 회색을 참고합니다. 캔버스 `#1c1c1c`, 패널 `#202020`, 헤더 `#282828`, 팝업 `#2c2c2c`, 경계 `#454545`를 공유 토큰과 Tabler 변수에 함께 매핑합니다. `--input-bg`, `--editor-bg`, `--floating-bg`, `--header-bg`는 역할별 명암을 구분하며 Monaco·터미널도 같은 토큰을 읽습니다. 라이트와 Tabler 기본 파란색은 유지합니다. `assets/frontend/tests/theme.test.mjs`는 최초 선택·캐시·기존 설정 변환·OS 변경 무시·저장소 실패를 검증합니다.
 
 ### Monaco 빌드와 저장 수명 주기

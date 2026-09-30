@@ -68,6 +68,7 @@
 - 앱 창과 웹 문서 제목은 `Portway · 파일 전송 클라이언트`입니다. 별도 `header.topbar` 없이 연결 탭부터 시작하며, 테마 전환은 사이드바와 설정에서 제공하고 새 연결은 새 사이트·연결 탭 추가에서 엽니다.
 - 상단의 업로드·다운로드·외부 파일·외부 폴더·동기화·지속 동기화는 접근성 이름을 가진 Tabler `btn-group`으로 묶고 버튼 사이 gap을 두지 않습니다. 파일 패널은 같은 너비의 두 열이며 가운데 전송 아이콘 버튼을 추가하지 않습니다.
 - UI와 Monaco 글꼴은 패키지에 포함한 **Noto Sans KR Variable**을 사용합니다. `--tblr-font-sans-serif`와 로컬 Fontsource 자산을 함께 유지합니다. 강조색은 Tabler 기본 primary이며 임의 녹색으로 재정의하지 않습니다. 아이콘 폰트는 Tabler Icons를 유지합니다.
+- 로고·파비콘·OS 아이콘(`wwwroot/logo.svg`, `favicon.*`, `apple-touch-icon.png`, `assets/portway.{ico,png,icns}`, 문서 워드마크)은 `scripts/make-icons.py`의 한 도형 정의에서 생성합니다. 생성 파일을 직접 수정하지 말고 스크립트를 고친 뒤 재생성·프런트엔드 빌드를 실행하며 16·24·32px 판독성을 확인합니다.
 - 기본 컴포넌트와 색상 토큰: **Tabler CSS**. 아이콘: **Tabler Icons 웹 폰트**의 `<i class="ti ti-..." aria-hidden="true">`. 레이아웃 유틸리티: **Master CSS**.
 - `app.css`는 워크스페이스 레이아웃과 의미 있는 색상 토큰을 담당합니다. 새 화면의 색상을 개별 하드코딩하지 말고 `--surface`, `--canvas`, `--ink`, `--muted`, `--line`, `--accent` 등과 Tabler 변수를 재사용합니다.
 - Master 유틸리티는 `class="flex ai:center gap:12"`처럼 완전한 문자열로 작성합니다. 동적 조각을 연결하면 정적 빌드가 추출하지 못합니다.

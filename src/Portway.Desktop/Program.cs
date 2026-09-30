@@ -55,6 +55,8 @@ public class Program
             // 다른 Photino 앱과 WebView2 사용자 데이터 폴더를 공유하지 않습니다.
             var webViewPath = Path.Combine(app.Services.GetRequiredService<ProfileStore>().DataPath, "webview");
             Directory.CreateDirectory(webViewPath);
+            // Windows 제목 표시줄과 Linux 작업 표시줄에 앱 아이콘을 지정합니다. macOS는 앱 번들 아이콘을 사용합니다.
+            var iconPath = Path.Combine(AppContext.BaseDirectory, OperatingSystem.IsWindows() ? "portway.ico" : "portway.png");
             var window = new PhotinoWindow()
                 .SetLogVerbosity(0)
                 .SetTemporaryFilesPath(webViewPath)
@@ -63,8 +65,10 @@ public class Program
                 .SetSize(new Size(1440, 940))
                 .SetMinSize(980, 680)
                 .Center()
-                .SetDevToolsEnabled(devToolsEnabled)
-                .Load(address + "/#" + token);
+                .SetDevToolsEnabled(devToolsEnabled);
+            if (File.Exists(iconPath))
+                window.SetIconFile(iconPath);
+            window.Load(address + "/#" + token);
             app.Services.GetRequiredService<SiteExportService>().Window = window;
             using var stopRegistration = app.Lifetime.ApplicationStopping.Register(() => window.Invoke(window.Close));
             window.WaitForClose();
