@@ -7,7 +7,7 @@ param(
 )
 $ErrorActionPreference = 'Stop'
 $repo = Split-Path $PSScriptRoot -Parent
-$directory = Join-Path $repo 'doc/Portway.Document/jobs'
+$directory = Join-Path $repo 'assets/Portway.Document/jobs'
 $null = [IO.Directory]::CreateDirectory($directory)
 $path = Join-Path $directory "verification-$Name.json"
 $json = ConvertTo-Json -InputObject $Data -Depth 50

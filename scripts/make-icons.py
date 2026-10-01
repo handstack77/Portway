@@ -11,8 +11,8 @@ from PIL import Image, ImageChops, ImageDraw
 
 REPO = Path(__file__).resolve().parent.parent
 WEB = REPO / 'src' / 'Portway.Desktop' / 'wwwroot'
-ASSETS = REPO / 'doc' / 'Portway.Artifact' / 'assets'
-DOC_IMAGES = REPO / 'doc' / 'Portway.Document' / 'docs' / 'images'
+ASSETS = REPO / 'assets' / 'Portway.Artifact' / 'assets'
+DOC_IMAGES = REPO / 'assets' / 'Portway.Document' / 'docs' / 'images'
 
 # Tabler 1.4.0 기본 primary(#066fd1)를 중심으로 한 대각선 그라데이션입니다.
 TOP = '#2a8cf0'

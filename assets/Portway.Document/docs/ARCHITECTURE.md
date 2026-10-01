@@ -14,7 +14,7 @@
 | Portway.Document | JavaScript SDK의 `.esproj`에서 Node 콘솔·npm 구문 검사, `docs/`의 가이드·이미지와 `jobs/`의 검증 기록 관리 | 없음 |
 | Portway.Artifact | 내부 `assets/` 파일을 실제 폴더 구조로 표시하고 루트 `deploy/`, `scripts/`는 와일드카드 링크로 표시 | 없음 |
 
-OS 아이콘과 프런트엔드 빌드 프로젝트의 실제 위치는 `doc/Portway.Artifact/assets/`입니다. Artifact 프로젝트는 `Folder`로 `assets`를 명시하고 `None Include="assets/**/*" Visible="true"`로 내부 자산을 등록하며 `node_modules`를 제외합니다. 내부 자산은 `Link` 없이 실제 폴더 구조로 표시합니다. 생성한 웹 자산은 기존 Desktop·Server의 `wwwroot/vendor/`에 유지하며, 앱 실행 폴더에는 OS 아이콘의 파일명 그대로 복사합니다.
+OS 아이콘과 프런트엔드 빌드 프로젝트의 실제 위치는 `assets/Portway.Artifact/assets/`입니다. Artifact 프로젝트는 `Folder`로 `assets`를 명시하고 `None Include="assets/**/*" Visible="true"`로 내부 자산을 등록하며 `node_modules`를 제외합니다. 내부 자산은 `Link` 없이 실제 폴더 구조로 표시합니다. 생성한 웹 자산은 기존 Desktop·Server의 `wwwroot/vendor/`에 유지하며, 앱 실행 폴더에는 OS 아이콘의 파일명 그대로 복사합니다.
 
 ```mermaid
 flowchart LR

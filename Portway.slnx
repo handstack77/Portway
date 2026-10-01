@@ -1,10 +1,10 @@
 <Solution>
-  <Folder Name="/doc/">
-    <Project Path="doc/Portway.Artifact/Portway.Artifact.esproj">
+  <Folder Name="/assets/">
+    <Project Path="assets/Portway.Artifact/Portway.Artifact.esproj">
       <Build />
       <Deploy />
     </Project>
-    <Project Path="doc/Portway.Document/Portway.Document.esproj" Id="17f3cde8-a410-4fb1-9dda-642847435758">
+    <Project Path="assets/Portway.Document/Portway.Document.esproj" Id="17f3cde8-a410-4fb1-9dda-642847435758">
       <Build />
     </Project>
   </Folder>

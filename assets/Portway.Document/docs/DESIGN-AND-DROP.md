@@ -32,16 +32,16 @@ Portway 0.3.1은 파일 관리자에서 원격 패널로 파일·폴더를 드�
 | 레이아웃 유틸리티 | Master CSS 1.37.8의 정적 renderer |
 | 공통 색상 토큰 | Desktop `wwwroot/design-tokens.css` |
 | 테마 적용 | Desktop `wwwroot/theme.js` |
-| 자산 재생성 | `doc/Portway.Artifact/assets/frontend/build.cjs` |
+| 자산 재생성 | `assets/Portway.Artifact/assets/frontend/build.cjs` |
 
 Tabler 1.4 계열을 사용해 최신 WebKit 전용 CSS 기능에 대한 의존성을 늘리지 않았습니다. 업데이트는 실제 지원 WebView에서 검증한 뒤 진행합니다. Master CSS는 빌드할 때 완전한 클래스 문자열을 스캔해 `vendor/master/master.css`를 생성합니다. 앱 실행에 Node.js나 Master 런타임, CDN 접속이 필요하지 않습니다.
 
 `data-bs-theme="light|dark"`를 공통 기준으로 사용합니다. 0.3.7부터 시스템 선택지를 제거했습니다. 최초 실행 또는 기존 `system` 값만 시작 시 `prefers-color-scheme`으로 한 번 해석하고 라이트/다크로 저장합니다. OS 테마 변경은 추적하지 않습니다. 다크 배경은 Visual Studio 2026 톤의 중성 회색 계층을 사용합니다. Desktop 설정은 `/api/preferences`에 영구 저장하고, 페이지의 첫 렌더를 위해 현재 웹 origin의 localStorage에도 캐시합니다. 배포 센터의 테마는 해당 웹 origin의 localStorage에 저장합니다. 앱과 배포 센터는 같은 토큰·CSS·웹 폰트를 사용하며, 네이티브 창 프레임 색상은 OS/Photino 정책을 따릅니다.
 
 ```powershell
-npm ci --prefix doc/Portway.Artifact/assets/frontend
-npm run build --prefix doc/Portway.Artifact/assets/frontend
-npm test --prefix doc/Portway.Artifact/assets/frontend
+npm ci --prefix assets/Portway.Artifact/assets/frontend
+npm run build --prefix assets/Portway.Artifact/assets/frontend
+npm test --prefix assets/Portway.Artifact/assets/frontend
 ```
 
 Desktop의 `theme.js`, `design-tokens.css`, `logo.svg`, 파비콘(`favicon.svg`, `favicon.ico`, `apple-touch-icon.png`)과 공통 vendor 자산은 빌드 시 Server의 `wwwroot`로 복사됩니다. 서버 쪽 복사본을 직접 수정하지 않습니다. 새 Master CSS 클래스를 추가했으면 자산을 다시 빌드합니다. 라이선스 원문도 패키지의 vendor 디렉토리에 포함됩니다.

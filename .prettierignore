@@ -4,7 +4,7 @@
 **/obj/**
 **/TestResults/**
 artifacts/**
-doc/Portway.Document/jobs/**
+assets/Portway.Document/jobs/**
 dist/**
 output/**
 .vs/**

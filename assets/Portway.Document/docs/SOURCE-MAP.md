@@ -4,7 +4,7 @@
 
 ## 처음 읽는 순서
 
-솔루션의 `doc` 폴더에는 [Portway.Document](../README.md)와 [Portway.Artifact](../../Portway.Artifact/Portway.Artifact.esproj) JavaScript SDK 프로젝트가 있습니다. Document의 프로젝트 파일은 [Portway.Document.esproj](../Portway.Document.esproj)이며 문서 작업용 Node.js 콘솔 진입점과 npm 구문 검사 명령을 사용합니다. 기존 가이드와 검증 기록은 각각 `doc/Portway.Document/docs/`, `doc/Portway.Document/jobs/`에 유지합니다. Artifact는 내부의 `doc/Portway.Artifact/assets/`와 루트의 `deploy/`, `scripts/` 파일을 Visual Studio에 연결합니다. `node_modules`는 프로젝트 항목에서 제외합니다.
+솔루션의 `assets` 폴더에는 [Portway.Document](../README.md)와 [Portway.Artifact](../../Portway.Artifact/Portway.Artifact.esproj) JavaScript SDK 프로젝트가 있습니다. Document의 프로젝트 파일은 [Portway.Document.esproj](../Portway.Document.esproj)이며 문서 작업용 Node.js 콘솔 진입점과 npm 구문 검사 명령을 사용합니다. 기존 가이드와 검증 기록은 각각 `assets/Portway.Document/docs/`, `assets/Portway.Document/jobs/`에 유지합니다. Artifact는 내부의 `assets/Portway.Artifact/assets/`와 루트의 `deploy/`, `scripts/` 파일을 Visual Studio에 연결합니다. `node_modules`는 프로젝트 항목에서 제외합니다.
 
 1. [Portway.slnx](../../../Portway.slnx)와 각 프로젝트 파일로 프로젝트 참조를 확인합니다. 버전은 `Directory.Build.props`, SDK는 `global.json`이 기준입니다.
 2. [Desktop Program.cs](../../../src/Portway.Desktop/Program.cs)에서 Velopack 초기화 → 호스트 시작 → Photino 창 → 종료 흐름을 읽습니다.
@@ -23,11 +23,11 @@
 | 첫 실행·빈 화면·F12 | `app.js: boot` → `Program.cs`, `DesktopHosting.cs` | `DesktopApiTests`; 실제 Windows Debug 시작·재시작 |
 | 사이트·Vault·가져오기 | `siteDialog`, `importDialog` → `DesktopApi.Profiles.cs` → `ProfileStore`, `SiteExportService`, Core `SiteArchive`, `SiteSecrets` | `SiteArchiveTests`, `CoreTests` |
 | 서버 연결·지문·추가 인증 | `connect`, `advanced.js` → `DesktopApi.Connections.cs` → `Connections`, `AuthenticationBroker` → Core `RemoteFactory`, `Protocols` | `AdvancedTests`, `AdvancedProtocolTests`, `ProtocolTests` |
-| 목록·선택·단축키·드래그 | `load`, `renderPane`, `explorer.js`, `selection.js` → `DesktopApi.Files.cs` → `LocalFiles`, `Connections.Use` | `doc/Portway.Artifact/assets/frontend/tests/explorer.test.mjs`, `selection.test.mjs`; 실제 브라우저 흐름 |
+| 목록·선택·단축키·드래그 | `load`, `renderPane`, `explorer.js`, `selection.js` → `DesktopApi.Files.cs` → `LocalFiles`, `Connections.Use` | `assets/Portway.Artifact/assets/frontend/tests/explorer.test.mjs`, `selection.test.mjs`; 실제 브라우저 흐름 |
 | 업로드·다운로드·이어하기 | `transfer` → `DesktopApi.Transfers.cs` → `TransferQueue`, `QueueJournal` → Core `TransferOperations` | `TransferRecoveryTests`, `ProtocolTests` |
 | 로컬 두 패널 복사·이동 | `isLocal`, `transfer` → `DesktopApi.Transfers.cs` → `TransferQueue` → Core `LocalTransferFileSystem`, `TransferOperations` | `LocalTransferTests` |
-| 외부 파일 관리자 드롭 | `drop.js` → `DesktopApi.Transfers.cs` → `DropStore` → `TransferQueue` | `DropTests`, `doc/Portway.Artifact/assets/frontend/tests/drop.test.mjs` |
-| Monaco 편집·저장 충돌 | `edit`, `editor.js`, `editor-state.js` → `DesktopApi.Files.cs` → `LocalFiles` / `RemoteTextFiles` | `DesktopApiTests`, `CoreTests`, `doc/Portway.Artifact/assets/frontend/tests/editor.test.mjs` |
+| 외부 파일 관리자 드롭 | `drop.js` → `DesktopApi.Transfers.cs` → `DropStore` → `TransferQueue` | `DropTests`, `assets/Portway.Artifact/assets/frontend/tests/drop.test.mjs` |
+| Monaco 편집·저장 충돌 | `edit`, `editor.js`, `editor-state.js` → `DesktopApi.Files.cs` → `LocalFiles` / `RemoteTextFiles` | `DesktopApiTests`, `CoreTests`, `assets/Portway.Artifact/assets/frontend/tests/editor.test.mjs` |
 | 동기화·지속 동기화 | `syncDialog`, `workflows.js` → `DesktopApi.Synchronization.cs` → `SyncService`, `LiveSyncService` → Core `Synchronizer` | `WorkflowTests` |
 | 터미널·휴지통·외부 편집 | `workflows.js` → `DesktopApi.Tools.cs` → `TerminalService`, `TrashService`, `ExternalEditorService` | `WorkflowTests` |
 | 업데이트 | `settings` → `DesktopApi.Updates.cs` → `UpdateService`; 시작 자동 작업은 `AutomaticUpdateWorker` | `UpdateTests`, `scripts/test-automatic-update.ps1`, `test-installed-update.ps1` |
@@ -40,7 +40,7 @@
 - 외부 문자열·아이콘·크기: `ui.js`. 날짜·연결 경과 시간: `display-time.js`.
 - 화면 상태·이벤트 연결: `app.js`. 선택과 실제 포커스 판정: `explorer.js`, `selection.js`.
 - 테마 색상: `design-tokens.css`. 배치·컴포넌트 스타일: `app.css`. 최초 테마: `theme.js`.
-- 오프라인 의존성·Master CSS 생성: `doc/Portway.Artifact/assets/frontend/build.cjs`. `vendor` 파일을 직접 수정하지 않습니다.
+- 오프라인 의존성·Master CSS 생성: `assets/Portway.Artifact/assets/frontend/build.cjs`. `vendor` 파일을 직접 수정하지 않습니다.
 
 ## 저장 데이터와 복구를 읽을 때
 
@@ -61,12 +61,12 @@ C#은 루트 `.editorconfig`와 `dotnet format whitespace`, JS/CSS/HTML은 `.pre
 
 ```powershell
 dotnet format whitespace Portway.slnx --no-restore
-npm run format --prefix doc/Portway.Artifact/assets/frontend
-npm run build --prefix doc/Portway.Artifact/assets/frontend
-npm test --prefix doc/Portway.Artifact/assets/frontend
+npm run format --prefix assets/Portway.Artifact/assets/frontend
+npm run build --prefix assets/Portway.Artifact/assets/frontend
+npm test --prefix assets/Portway.Artifact/assets/frontend
 dotnet test Portway.slnx -c Release
 ```
 
-JS 포맷 도구는 devDependency에 고정한 Prettier 3.9.9입니다. `npm ci --prefix doc/Portway.Artifact/assets/frontend`로 동일한 버전을 설치하며 `npm run format:check --prefix doc/Portway.Artifact/assets/frontend`로 쓰기 없이 확인합니다. 생성된 Server 공통 자산은 Desktop 원본과 자산 빌드로 맞춥니다.
+JS 포맷 도구는 devDependency에 고정한 Prettier 3.9.9입니다. `npm ci --prefix assets/Portway.Artifact/assets/frontend`로 동일한 버전을 설치하며 `npm run format:check --prefix assets/Portway.Artifact/assets/frontend`로 쓰기 없이 확인합니다. 생성된 Server 공통 자산은 Desktop 원본과 자산 빌드로 맞춥니다.
 
 실행 중인 앱이 출력 파일을 잠그면 별도 `--artifacts-path`로 빌드합니다. 테스트는 전용 프로필·폴더에서 수행하고 자신의 프로세스만 종료합니다. 예제·실제 OS 검사와 검증 기록 작성 기준은 [AGENTS.md](../../../AGENTS.md)에 있습니다.

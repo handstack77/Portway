@@ -91,7 +91,7 @@ else { Write-Output '이전 릴리스가 없어 최초 전체 패키지를 생�
 
 $exe = if ($IsWindows) { 'Portway.exe' } else { 'Portway' }
 $icon = if ($IsWindows) { 'portway.ico' } elseif ($IsMacOS) { 'portway.icns' } else { 'portway.png' }
-$vpkArgs = @('tool','run','vpk','--','pack','--packId','Portway','--packVersion',$Version,'--packDir',$publish,'--mainExe',$exe,'--runtime',$Runtime,'--channel',$channel,'--packTitle','Portway','--packAuthors','Portway contributors','--icon',(Join-Path $repo "doc/Portway.Artifact/assets/$icon"),'--outputDir',$stage,'--delta',$DeltaMode,'--skip-updates','--yes')
+$vpkArgs = @('tool','run','vpk','--','pack','--packId','Portway','--packVersion',$Version,'--packDir',$publish,'--mainExe',$exe,'--runtime',$Runtime,'--channel',$channel,'--packTitle','Portway','--packAuthors','Portway contributors','--icon',(Join-Path $repo "assets/Portway.Artifact/assets/$icon"),'--outputDir',$stage,'--delta',$DeltaMode,'--skip-updates','--yes')
 if ($IsWindows) {
     $vpkArgs += @('--framework','webview2')
     if ($env:PORTWAY_SIGN_PARAMS) { $vpkArgs += @('--signParams',$env:PORTWAY_SIGN_PARAMS) }

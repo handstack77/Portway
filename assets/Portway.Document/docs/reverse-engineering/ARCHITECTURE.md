@@ -31,7 +31,7 @@ Server가 Desktop의 파일 전송을 중계하지 않습니다. Desktop 실행 
 | Frontend 자산 | 고정 npm 버전으로 Tabler·Icons·Master CSS·Noto Sans KR·Monaco·xterm 등을 로컬 자산으로 생성. 런타임 CDN 불필요 |
 | Tests·Document | Tests는 Core·Desktop·Server 검증. Document는 Node 콘솔과 가이드·검증 기록, 앱 런타임과 별개 |
 
-프로젝트 관계는 [Portway.slnx](../../../../Portway.slnx)와 각 `.csproj`, 자산 관계는 [package.json](../../../../doc/Portway.Artifact/assets/frontend/package.json)·[build.cjs](../../../../doc/Portway.Artifact/assets/frontend/build.cjs)이 근거입니다. 주요 기준은 .NET 10, Photino.NET 4.0.16, Velopack 1.2.158이며 정확한 패키지 값은 프로젝트·lockfile을 확인합니다.
+프로젝트 관계는 [Portway.slnx](../../../../Portway.slnx)와 각 `.csproj`, 자산 관계는 [package.json](../../../../assets/Portway.Artifact/assets/frontend/package.json)·[build.cjs](../../../../assets/Portway.Artifact/assets/frontend/build.cjs)이 근거입니다. 주요 기준은 .NET 10, Photino.NET 4.0.16, Velopack 1.2.158이며 정확한 패키지 값은 프로젝트·lockfile을 확인합니다.
 
 ```mermaid
 flowchart TD
@@ -111,7 +111,7 @@ Full은 신규 설치·복구의 기준이고 Delta는 이전 Full을 바탕으�
 | 연결·작업·화면 수명 분리 | 탐색 중에도 백그라운드 작업 제어 | 별도 연결과 취소·복구 상태 관리 필요. [Connections](../../../../src/Portway.Desktop/Connections.cs)·[TransferQueue](../../../../src/Portway.Desktop/TransferQueue.cs) |
 | 큐 저널·복원 후 일시정지 | 사용자가 대상·원본을 확인한 뒤 재개 | 강제 종료 전체 조건 보장은 없음. [QueueJournal](../../../../src/Portway.Desktop/QueueJournal.cs) |
 | 로컬 전송을 다운로드 어댑터로 구성 | 전송 엔진·충돌·복구 정책 재사용 | 링크·포함 경로 차단과 바이너리 제한. [LocalTransferFileSystem](../../../../src/Portway.Core/LocalTransferFileSystem.cs) |
-| 오프라인 정적 웹 자산 | 앱 UI가 실행 시 CDN 가용성에 의존하지 않음 | 자산 빌드와 패키지 복사 결과 일치 필요. [build.cjs](../../../../doc/Portway.Artifact/assets/frontend/build.cjs) |
+| 오프라인 정적 웹 자산 | 앱 UI가 실행 시 CDN 가용성에 의존하지 않음 | 자산 빌드와 패키지 복사 결과 일치 필요. [build.cjs](../../../../assets/Portway.Artifact/assets/frontend/build.cjs) |
 | 다음 시작 업데이트 + 불변 릴리스 피드 | 실행 중 파일 작업을 보호하고 기존 버전 유지 | 실제 설치와 서명·OS별 적용 검증 필요. [UpdateService](../../../../src/Portway.Desktop/UpdateService.cs)·[ReleaseStore](../../../../src/Portway.Server/ReleaseStore.cs) |
 
 이 문서는 현재 구조만 복원합니다. 새로운 공통 추상화·멀티테넌트 서비스·목표 아키텍처·개선 로드맵을 제안하지 않습니다.

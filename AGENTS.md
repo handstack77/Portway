@@ -2,9 +2,9 @@
 
 이 저장소는 Windows·macOS·Linux용 Photino 파일 전송 앱, .NET/CLI 자동화 API, Velopack 배포 서버를 함께 관리합니다. 사용자에게는 한국어로 변경 내용과 실제 검증 범위를 설명합니다.
 
-환경 구성과 릴리스 절차는 [개발자 가이드](doc/Portway.Document/docs/DEVELOPER-GUIDE.md), 실제 사용 흐름은 [사용자 가이드](doc/Portway.Document/docs/USER-GUIDE.md)를 참고하고 기능 변경 시 관련 문서도 갱신합니다.
+환경 구성과 릴리스 절차는 [개발자 가이드](assets/Portway.Document/docs/DEVELOPER-GUIDE.md), 실제 사용 흐름은 [사용자 가이드](assets/Portway.Document/docs/USER-GUIDE.md)를 참고하고 기능 변경 시 관련 문서도 갱신합니다.
 
-소스 분석은 [소스 탐색 가이드](doc/Portway.Document/docs/SOURCE-MAP.md) → [솔루션 구조](doc/Portway.Document/docs/ARCHITECTURE.md) → [API 목록](doc/Portway.Document/docs/API-REFERENCE.md) 순서로 시작합니다. 리팩토링 검증 근거는 [보고서](doc/Portway.Document/jobs/REFACTORING.md)에 있습니다.
+소스 분석은 [소스 탐색 가이드](assets/Portway.Document/docs/SOURCE-MAP.md) → [솔루션 구조](assets/Portway.Document/docs/ARCHITECTURE.md) → [API 목록](assets/Portway.Document/docs/API-REFERENCE.md) 순서로 시작합니다. 리팩토링 검증 근거는 [보고서](assets/Portway.Document/jobs/REFACTORING.md)에 있습니다.
 
 ## 적용 범위와 작업 순서
 
@@ -16,7 +16,7 @@
 4. 변경에 맞는 검사와 실제 사용 흐름을 검증하고 관련 가이드를 갱신합니다. 통과한 검사도 새 코드 변경이 생기면 영향을 받는 범위를 다시 확인합니다.
 5. 최종 보고에는 변경된 동작, 실행한 검증과 결과, 남은 제한을 간결하게 적습니다. 구현·모의 응답·실제 서버·실제 OS 검증을 구분합니다.
 
-개발에는 .NET 10 SDK, Node.js 20 이상, PowerShell 7이 필요합니다. 프로토콜 통합 검증에는 Docker가 필요하고, 네이티브 UI 실행에는 대상 OS의 WebView 의존성과 그래픽 세션이 필요합니다. 버전의 기준은 각 `.csproj`, [프런트엔드 package.json](doc/Portway.Artifact/assets/frontend/package.json)과 lockfile입니다. 상세 설치 조건은 개발자 가이드를 따릅니다.
+개발에는 .NET 10 SDK, Node.js 20 이상, PowerShell 7이 필요합니다. 프로토콜 통합 검증에는 Docker가 필요하고, 네이티브 UI 실행에는 대상 OS의 WebView 의존성과 그래픽 세션이 필요합니다. 버전의 기준은 각 `.csproj`, [프런트엔드 package.json](assets/Portway.Artifact/assets/frontend/package.json)과 lockfile입니다. 상세 설치 조건은 개발자 가이드를 따릅니다.
 
 ## 구조와 기준
 
@@ -24,12 +24,13 @@
 - `src/Portway.Desktop`: Photino 호스트, loopback Minimal API, Vault·큐·작업 서비스와 `wwwroot`의 ES 모듈 UI.
 - `src/Portway.Cli`: Core API를 사용하는 명령줄 인터페이스.
 - `src/Portway.Server`: 릴리스 ZIP 검증·배포 API와 다운로드 대시보드.
-- `doc/Portway.Artifact/assets/frontend`: 고정 버전 npm 의존성, 오프라인 웹 자산 빌드, 프런트엔드 테스트.
-- `doc/Portway.Artifact/assets`: OS 아이콘과 프런트엔드 자산을 보관합니다. 루트에 별도 `assets` 폴더를 만들지 않으며, Artifact 프로젝트는 내부 `assets/**/*`와 루트 `deploy/`, `scripts/`를 연결합니다. 프런트엔드에서 루트 소스·포맷 설정을 참조할 때 이동한 위치의 상대 경로를 사용합니다.
+- `assets/Portway.Artifact/assets/frontend`: 고정 버전 npm 의존성, 오프라인 웹 자산 빌드, 프런트엔드 테스트.
+- 루트 `assets/`에는 솔루션의 `assets` 폴더에 등록한 `Portway.Artifact`와 `Portway.Document` 프로젝트를 보관합니다. 이전 루트 `doc/`를 다시 만들지 않으며, 과거 검증 기록의 당시 경로는 이력으로 유지합니다.
+- `assets/Portway.Artifact/assets`: OS 아이콘과 프런트엔드 자산을 보관합니다. Artifact 프로젝트는 내부 `assets/**/*`와 루트 `deploy/`, `scripts/`를 연결합니다. 프런트엔드에서 루트 소스·포맷 설정을 참조할 때 이동한 위치의 상대 경로를 사용합니다.
 - Artifact의 자동 파일 등록은 비활성화되어 있으므로 내부 자산의 `Folder Include="assets\"`와 `None Include="assets/**/*" Visible="true"` 등록을 유지합니다. 내부 자산은 `Link` 없이 실제 폴더 구조로 표시하고 `node_modules`를 제외합니다.
-- `doc/Portway.Document`: 문서 작업을 확장하는 Node.js 콘솔 프로젝트. `Portway.Document.esproj`는 Artifact와 같은 JavaScript SDK 버전을 사용하며 솔루션의 `doc` 폴더에 등록합니다. `npm start --prefix doc/Portway.Document`, `npm run build --prefix doc/Portway.Document`로 실행·검사하고 프로젝트·솔루션 빌드의 구문 검사도 유지합니다. 자동 npm 설치·감사는 비활성화하며 문서 폴더·파일과 Node 디버깅 프로필을 명시적으로 등록합니다. 기존 가이드는 `doc/Portway.Document/docs/`, 검증 기록은 `doc/Portway.Document/jobs/`에 유지합니다.
+- `assets/Portway.Document`: 문서 작업을 확장하는 Node.js 콘솔 프로젝트. `Portway.Document.esproj`는 Artifact와 같은 JavaScript SDK 버전을 사용하며 솔루션의 `assets` 폴더에 등록합니다. `npm start --prefix assets/Portway.Document`, `npm run build --prefix assets/Portway.Document`로 실행·검사하고 프로젝트·솔루션 빌드의 구문 검사도 유지합니다. 자동 npm 설치·감사는 비활성화하며 문서 폴더·파일과 Node 디버깅 프로필을 명시적으로 등록합니다. 기존 가이드는 `assets/Portway.Document/docs/`, 검증 기록은 `assets/Portway.Document/jobs/`에 유지합니다.
 - `tests/Portway.Tests`, `tests/infrastructure`: 단위·실제 프로토콜 테스트 및 격리된 Docker 서버.
-- 기능 지원 여부는 `doc/Portway.Document/docs/PARITY.md`, 검증 근거는 `doc/Portway.Document/jobs/VALIDATION.md`와 버전별 보고서를 먼저 확인합니다. 구현 완료, 모의 테스트, 실제 OS 검증을 구분하며 WinSCP 완전 호환이라고 단정하지 않습니다.
+- 기능 지원 여부는 `assets/Portway.Document/docs/PARITY.md`, 검증 근거는 `assets/Portway.Document/jobs/VALIDATION.md`와 버전별 보고서를 먼저 확인합니다. 구현 완료, 모의 테스트, 실제 OS 검증을 구분하며 WinSCP 완전 호환이라고 단정하지 않습니다.
 
 ### 주요 변경 위치
 
@@ -70,7 +71,7 @@
 - 앱 창과 웹 문서 제목은 `Portway · 파일 전송 클라이언트`입니다. 별도 `header.topbar` 없이 연결 탭부터 시작하며, 테마 전환은 사이드바와 설정에서 제공하고 새 연결은 새 사이트·연결 탭 추가에서 엽니다.
 - 상단의 업로드·다운로드·외부 파일·외부 폴더·동기화·지속 동기화는 접근성 이름을 가진 Tabler `btn-group`으로 묶고 버튼 사이 gap을 두지 않습니다. 파일 패널은 같은 너비의 두 열이며 가운데 전송 아이콘 버튼을 추가하지 않습니다.
 - UI와 Monaco 글꼴은 패키지에 포함한 **Noto Sans KR Variable**을 사용합니다. `--tblr-font-sans-serif`와 로컬 Fontsource 자산을 함께 유지합니다. 강조색은 Tabler 기본 primary이며 임의 녹색으로 재정의하지 않습니다. 아이콘 폰트는 Tabler Icons를 유지합니다.
-- 로고·파비콘·OS 아이콘(`wwwroot/logo.svg`, `favicon.*`, `apple-touch-icon.png`, `doc/Portway.Artifact/assets/portway.{ico,png,icns}`, 문서 워드마크)은 `scripts/make-icons.py`의 한 도형 정의에서 생성합니다. 생성 파일을 직접 수정하지 말고 스크립트를 고친 뒤 재생성·프런트엔드 빌드를 실행하며 16·24·32px 판독성을 확인합니다.
+- 로고·파비콘·OS 아이콘(`wwwroot/logo.svg`, `favicon.*`, `apple-touch-icon.png`, `assets/Portway.Artifact/assets/portway.{ico,png,icns}`, 문서 워드마크)은 `scripts/make-icons.py`의 한 도형 정의에서 생성합니다. 생성 파일을 직접 수정하지 말고 스크립트를 고친 뒤 재생성·프런트엔드 빌드를 실행하며 16·24·32px 판독성을 확인합니다.
 - 기본 컴포넌트와 색상 토큰: **Tabler CSS**. 아이콘: **Tabler Icons 웹 폰트**의 `<i class="ti ti-..." aria-hidden="true">`. 레이아웃 유틸리티: **Master CSS**.
 - `app.css`는 워크스페이스 레이아웃과 의미 있는 색상 토큰을 담당합니다. 새 화면의 색상을 개별 하드코딩하지 말고 `--surface`, `--canvas`, `--ink`, `--muted`, `--line`, `--accent` 등과 Tabler 변수를 재사용합니다.
 - Master 유틸리티는 `class="flex ai:center gap:12"`처럼 완전한 문자열로 작성합니다. 동적 조각을 연결하면 정적 빌드가 추출하지 못합니다.
@@ -90,9 +91,9 @@
 다음 명령은 저장소 루트에서 실행합니다. `npm ci`는 최초 구성 또는 lockfile 변경 시 사용합니다. Master 클래스·의존성·공유 테마 등 자산 빌드 입력을 바꿨다면 프런트엔드 빌드 후 .NET을 빌드해 실행 폴더에 최신 `wwwroot`가 복사되도록 합니다. 소스 폴더와 실행 중인 오래된 패키지를 혼동하지 않습니다.
 
 ```powershell
-npm ci --prefix doc/Portway.Artifact/assets/frontend
-npm run build --prefix doc/Portway.Artifact/assets/frontend
-npm test --prefix doc/Portway.Artifact/assets/frontend
+npm ci --prefix assets/Portway.Artifact/assets/frontend
+npm run build --prefix assets/Portway.Artifact/assets/frontend
+npm test --prefix assets/Portway.Artifact/assets/frontend
 dotnet build Portway.slnx -c Release
 dotnet test Portway.slnx -c Release
 ```
@@ -139,15 +140,15 @@ docker compose -p portway-tests -f tests/infrastructure/compose.yaml down
 - 관련된 회귀 테스트를 추가·실행합니다. 단순한 문구·가역적인 스타일 수정에 구현을 그대로 따라 쓰는 테스트를 추가하지 않습니다.
 - 브라우저 검증은 Playwright CLI를 우선 사용합니다. 결과는 `output/playwright/`, 임시 입력·프로필은 `artifacts/qa/`에 보관합니다. `scripts/start-browser-qa.ps1 -Executable <실행 파일>`로 격리된 headless 호스트를 시작할 수 있습니다.
 - 외부 드롭 변경은 실제 파일 경로를 넣은 Chromium 드롭/CDP 또는 OS 파일 관리자로 검증합니다. 중첩·빈 폴더, 100개 초과 디렉토리 항목, 청크보다 큰 파일, 유니코드 이름, 취소, 충돌, 전송 후 해시를 확인합니다. 합성 이벤트만으로 Explorer/Finder 네이티브 검증을 완료했다고 쓰지 않습니다.
-- 포맷은 C#의 루트 `.editorconfig`와 `dotnet format whitespace`, JS/CSS/HTML의 `.prettierrc.json`과 고정된 Prettier를 사용합니다. `npm run format --prefix doc/Portway.Artifact/assets/frontend`, `npm run format:check --prefix doc/Portway.Artifact/assets/frontend`로 작성 소스만 처리하고 `.prettierignore`의 생성물 제외를 유지합니다. 여러 실행문을 한 줄로 이어 쓰지 않고 HTML 템플릿은 `/* HTML */` 포맷 주석을 유지합니다. 기능 변경 뒤 필요한 검증이 통과하면 불필요하게 전체 검사를 반복하지 않습니다.
-- `DesktopApi`는 `/api` 그룹 조립을 유지하고 기능 경로는 `Api/DesktopApi.*.cs`에서 등록합니다. 기존 DTO 중첩 타입·URL·HTTP 메서드·JSON 필드·상태 코드를 보존합니다. UI 마크업은 뷰 모듈에서 생성하고 API·이벤트·상태 변경은 app.js와 기능 모듈에서 처리합니다. 경로 변경 시 `doc/Portway.Document/docs/API-REFERENCE.md`를 갱신합니다.
+- 포맷은 C#의 루트 `.editorconfig`와 `dotnet format whitespace`, JS/CSS/HTML의 `.prettierrc.json`과 고정된 Prettier를 사용합니다. `npm run format --prefix assets/Portway.Artifact/assets/frontend`, `npm run format:check --prefix assets/Portway.Artifact/assets/frontend`로 작성 소스만 처리하고 `.prettierignore`의 생성물 제외를 유지합니다. 여러 실행문을 한 줄로 이어 쓰지 않고 HTML 템플릿은 `/* HTML */` 포맷 주석을 유지합니다. 기능 변경 뒤 필요한 검증이 통과하면 불필요하게 전체 검사를 반복하지 않습니다.
+- `DesktopApi`는 `/api` 그룹 조립을 유지하고 기능 경로는 `Api/DesktopApi.*.cs`에서 등록합니다. 기존 DTO 중첩 타입·URL·HTTP 메서드·JSON 필드·상태 코드를 보존합니다. UI 마크업은 뷰 모듈에서 생성하고 API·이벤트·상태 변경은 app.js와 기능 모듈에서 처리합니다. 경로 변경 시 `assets/Portway.Document/docs/API-REFERENCE.md`를 갱신합니다.
 
 ## 문서와 검증 기록
 
-- 새 가이드·API·구조 문서와 이미지는 `doc/Portway.Document/docs/` 아래에서 관리합니다. 이미지 경로는 `doc/Portway.Document/docs/images/`입니다. 문서의 상대 링크는 해당 Markdown 파일의 위치를 기준으로 작성합니다.
-- 특정 버전·변경 사항의 검증 문서와 JSON은 `doc/Portway.Document/jobs/`에 생성합니다. 파일명은 `VALIDATION-<버전 또는 작업명>.md`, `verification-<버전 또는 작업명>.json`을 사용하며 재검증 시 날짜·실행 ID로 이전 기록을 보존합니다. PowerShell JSON 생성에는 `scripts/write-verification.ps1`을 사용합니다. [기록 보관 규칙](doc/Portway.Document/jobs/README.md)을 따릅니다. 기존 버전별 검증 JSON도 모두 `doc/Portway.Document/jobs/`에 보관합니다. JSON 내부의 경로는 저장소 루트 기준으로 기록하고 과거 이동 명세의 source/destination은 당시 이력으로 보존합니다.
-- 사용자 동작이 바뀌면 [사용자 가이드](doc/Portway.Document/docs/USER-GUIDE.md), 구조·환경·API·검증 절차가 바뀌면 [개발자 가이드](doc/Portway.Document/docs/DEVELOPER-GUIDE.md)를 갱신합니다. 이후 개발자가 유지해야 하는 규칙은 이 문서에도 반영합니다.
-- 기능 지원 범위가 바뀌면 [PARITY.md](doc/Portway.Document/docs/PARITY.md), 검증 결과는 [VALIDATION.md](doc/Portway.Document/jobs/VALIDATION.md) 또는 해당 변경의 검증 보고서에 기록합니다. 이전 테스트 수치와 패키지 버전을 새 코드의 결과로 재사용하지 않습니다.
+- 새 가이드·API·구조 문서와 이미지는 `assets/Portway.Document/docs/` 아래에서 관리합니다. 이미지 경로는 `assets/Portway.Document/docs/images/`입니다. 문서의 상대 링크는 해당 Markdown 파일의 위치를 기준으로 작성합니다.
+- 특정 버전·변경 사항의 검증 문서와 JSON은 `assets/Portway.Document/jobs/`에 생성합니다. 파일명은 `VALIDATION-<버전 또는 작업명>.md`, `verification-<버전 또는 작업명>.json`을 사용하며 재검증 시 날짜·실행 ID로 이전 기록을 보존합니다. PowerShell JSON 생성에는 `scripts/write-verification.ps1`을 사용합니다. [기록 보관 규칙](assets/Portway.Document/jobs/README.md)을 따릅니다. 기존 버전별 검증 JSON도 모두 `assets/Portway.Document/jobs/`에 보관합니다. JSON 내부의 경로는 저장소 루트 기준으로 기록하고 과거 이동 명세의 source/destination은 당시 이력으로 보존합니다.
+- 사용자 동작이 바뀌면 [사용자 가이드](assets/Portway.Document/docs/USER-GUIDE.md), 구조·환경·API·검증 절차가 바뀌면 [개발자 가이드](assets/Portway.Document/docs/DEVELOPER-GUIDE.md)를 갱신합니다. 이후 개발자가 유지해야 하는 규칙은 이 문서에도 반영합니다.
+- 기능 지원 범위가 바뀌면 [PARITY.md](assets/Portway.Document/docs/PARITY.md), 검증 결과는 [VALIDATION.md](assets/Portway.Document/jobs/VALIDATION.md) 또는 해당 변경의 검증 보고서에 기록합니다. 이전 테스트 수치와 패키지 버전을 새 코드의 결과로 재사용하지 않습니다.
 - 검증 기록에는 검사한 소스/빌드, 운영체제, 실행 명령, 통과·실패·건너뜀, 모의 응답 사용 여부, 주요 결과물과 미검증 범위를 남깁니다. 스크린샷·JSON 보고서는 내용을 확인한 뒤 공유합니다.
 - `artifacts/browser-qa.json`에는 인증 토큰이 들어 있습니다. 이 파일이나 인증 URL이 포함된 로그·브라우저 기록을 문서·보고서·커밋에 포함하지 않습니다. 공개할 기록은 비밀을 제거한 별도 파일로 만듭니다.
 

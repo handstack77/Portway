@@ -38,7 +38,7 @@
 | 외부 파일 관리자 → 앱 드롭 | 구현, Windows Chromium 실제 파일 경로 드롭 및 실제 SFTP 전송 검증 | 파일·중첩/빈 폴더·한글·100개 초과 항목·다중 청크·취소. 실제 Explorer/Finder/WebKitGTK OS 드래그 제스처는 별도 실기기 검증 필요 |
 | Tabler / Icons 웹 폰트 / Master CSS | 구현, 앱·배포 센터 라이트/다크 화면 검증 | 정적 로컬 자산, 영구 테마·시스템 변경 추적, 980×680 레이아웃 |
 | 기타 Explorer/Finder 통합 | 미구현 | 앱 → 파일 관리자 드래그아웃, 셸 확장, URL 핸들러, 점프 목록, 자동 작업 공간 복원 필요 |
-| VPK 배포/업데이트 서버 | 구현 | 실제 패키지 게시/해시/Range 테스트; 검증 결과는 `doc/Portway.Document/jobs/VALIDATION.md` |
+| VPK 배포/업데이트 서버 | 구현 | 실제 패키지 게시/해시/Range 테스트; 검증 결과는 `assets/Portway.Document/jobs/VALIDATION.md` |
 | 시작 시 자동 확인·다운로드 / 다음 시작 시 무인 적용 | 구현, Windows 격리 설치 검증 | 실행 중 버전 유지, 오프라인 다음 시작 적용, 설정 보존, 수동 업데이트 회귀 통과. macOS/Linux 실제 무인 업데이트는 미검증 |
 | macOS·ARM64 실기기 | 환경 필요 | 원격 Mac/CI 저장소와 서명 자격 증명 미제공. 교차 빌드는 실제 실행 검증이 아님 |
 

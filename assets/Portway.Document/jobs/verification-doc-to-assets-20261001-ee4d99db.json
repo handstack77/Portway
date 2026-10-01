@@ -1,0 +1,1009 @@
+{
+  "date": "2026-10-01T09:12:14.4375375+09:00",
+  "runId": "ee4d99dbcf024ef2809bc98554f4b109",
+  "source": {
+    "baseCommit": "45bb601544b3545403521069684cea177cb57647",
+    "state": "이번 doc → assets 이동과 관련 경로 갱신을 포함한 작업 트리"
+  },
+  "environment": {
+    "dotnetSdk": "10.0.401",
+    "python": "3.11.7",
+    "powerShell": "7.6.6",
+    "os": "Microsoft Windows 10.0.26200",
+    "node": "20.18.0"
+  },
+  "mockResponses": false,
+  "apiHost": "실제 ZIP을 사용하는 인프로세스 ASP.NET Core 테스트 호스트",
+  "migration": {
+    "manifest": [
+      {
+        "sha256": "420F51FE511F3D594E54127F5BEAACE8C25AF2C64ADCB815AAE7C9F74F67FE32",
+        "destination": "assets/Portway.Artifact/Portway.Artifact.esproj",
+        "source": "doc/Portway.Artifact/Portway.Artifact.esproj"
+      },
+      {
+        "sha256": "1BDC7C6CC2C2808E29B2C0897DFB86411B0F677F28D4D4DB9DEA45FCF74C5C74",
+        "destination": "assets/Portway.Artifact/assets/frontend/build.cjs",
+        "source": "doc/Portway.Artifact/assets/frontend/build.cjs"
+      },
+      {
+        "sha256": "EF5D45031ADCE79EEAF17F04A966871137589F9B60D18E4520ADE84B291DCD05",
+        "destination": "assets/Portway.Artifact/assets/frontend/licenses/tabler-LICENSE",
+        "source": "doc/Portway.Artifact/assets/frontend/licenses/tabler-LICENSE"
+      },
+      {
+        "sha256": "C02E8AE88FE772B2277C59344BF6693D7FEA2B23C109511748A495B5C999F516",
+        "destination": "assets/Portway.Artifact/assets/frontend/monaco-entry.mjs",
+        "source": "doc/Portway.Artifact/assets/frontend/monaco-entry.mjs"
+      },
+      {
+        "sha256": "2F33AC5E3D867EF360A4CFF9CB50A0DC49F33C6D12F5978443A61DF54DF7E462",
+        "destination": "assets/Portway.Artifact/assets/frontend/package-lock.json",
+        "source": "doc/Portway.Artifact/assets/frontend/package-lock.json"
+      },
+      {
+        "sha256": "9B7327A2EA4863F6455B95B4894E403DF4AC6558958FD1FEC60261DBAAD065F1",
+        "destination": "assets/Portway.Artifact/assets/frontend/package.json",
+        "source": "doc/Portway.Artifact/assets/frontend/package.json"
+      },
+      {
+        "sha256": "F74B369E1AC406300AE14D4239A345AD53A7402CF7A7016ECB22AB67CD731624",
+        "destination": "assets/Portway.Artifact/assets/frontend/tests/display-time.test.mjs",
+        "source": "doc/Portway.Artifact/assets/frontend/tests/display-time.test.mjs"
+      },
+      {
+        "sha256": "8F9E1DBF3D348204DB95249A44BFEE298D523FB03AAD7AC7F82B436FB941A24B",
+        "destination": "assets/Portway.Artifact/assets/frontend/tests/drop.test.mjs",
+        "source": "doc/Portway.Artifact/assets/frontend/tests/drop.test.mjs"
+      },
+      {
+        "sha256": "AFE785F1CB6ECF77ED78E6CD7D565902264CE5611F434418063896DB1915E793",
+        "destination": "assets/Portway.Artifact/assets/frontend/tests/editor.test.mjs",
+        "source": "doc/Portway.Artifact/assets/frontend/tests/editor.test.mjs"
+      },
+      {
+        "sha256": "A3603C16E4A0AC234F762DA3FB34E1B8D401369FDAF7C7C2C446683EE69DEAFB",
+        "destination": "assets/Portway.Artifact/assets/frontend/tests/explorer.test.mjs",
+        "source": "doc/Portway.Artifact/assets/frontend/tests/explorer.test.mjs"
+      },
+      {
+        "sha256": "7093283A10088EEC04E9F79C9B3454BA08FC596B0A141F39EE6E4CC65A6289E1",
+        "destination": "assets/Portway.Artifact/assets/frontend/tests/selection.test.mjs",
+        "source": "doc/Portway.Artifact/assets/frontend/tests/selection.test.mjs"
+      },
+      {
+        "sha256": "35902E409F8BB7443C1A68990376D33027EAD62069EF59F3048C0F46C18C5248",
+        "destination": "assets/Portway.Artifact/assets/frontend/tests/theme.test.mjs",
+        "source": "doc/Portway.Artifact/assets/frontend/tests/theme.test.mjs"
+      },
+      {
+        "sha256": "B167334A6BE8C9A5E14F9D5DB0989950B7104703ED7B559CAC0CB6B1AD5D5076",
+        "destination": "assets/Portway.Artifact/assets/portway.icns",
+        "source": "doc/Portway.Artifact/assets/portway.icns"
+      },
+      {
+        "sha256": "586022C556E70EAF341AC26630DEC1B08D3898E3BC467C22D254DC2F38C5AA46",
+        "destination": "assets/Portway.Artifact/assets/portway.ico",
+        "source": "doc/Portway.Artifact/assets/portway.ico"
+      },
+      {
+        "sha256": "DDBFA5D2C1F3A253EF652F1F5D6F760A4131EFBDFC95ECE4A794F75EE4C7D531",
+        "destination": "assets/Portway.Artifact/assets/portway.png",
+        "source": "doc/Portway.Artifact/assets/portway.png"
+      },
+      {
+        "sha256": "914503ECC188E4348EA06F82AC38005BA8A8B531607A8670AFE87566E27E242F",
+        "destination": "assets/Portway.Document/.vscode/launch.json",
+        "source": "doc/Portway.Document/.vscode/launch.json"
+      },
+      {
+        "sha256": "E4EC0BBF5894FA3585B0DFC375FB56CFDBE29498FDB9F7D3BF9080A114E40469",
+        "destination": "assets/Portway.Document/Portway.Document.esproj",
+        "source": "doc/Portway.Document/Portway.Document.esproj"
+      },
+      {
+        "sha256": "7992C712EFD0269E75DAB9CBBD7465D2E3F33968F2A4B59D102CE14FC976341D",
+        "destination": "assets/Portway.Document/README.md",
+        "source": "doc/Portway.Document/README.md"
+      },
+      {
+        "sha256": "250EC7CB6DBA0C29061C65C5C2DD19F8A5664C0A7E440BBBE7A2F36BCE35DC64",
+        "destination": "assets/Portway.Document/docs/API-REFERENCE.md",
+        "source": "doc/Portway.Document/docs/API-REFERENCE.md"
+      },
+      {
+        "sha256": "B17569EFDAE5BE0C0FB20475042EC21995758A299C91EB960042F5ACA95C3BCA",
+        "destination": "assets/Portway.Document/docs/ARCHITECTURE.md",
+        "source": "doc/Portway.Document/docs/ARCHITECTURE.md"
+      },
+      {
+        "sha256": "8FA5C5E075583C9733AE49168AB6CD49B10088B86AE7C4F3F75554CF602FB963",
+        "destination": "assets/Portway.Document/docs/AUTOMATION.md",
+        "source": "doc/Portway.Document/docs/AUTOMATION.md"
+      },
+      {
+        "sha256": "DA6242B9B92AA3237CDEF2E5798B8D0772797E41214D018658FEEF8753E4F8B0",
+        "destination": "assets/Portway.Document/docs/DEPLOYMENT.md",
+        "source": "doc/Portway.Document/docs/DEPLOYMENT.md"
+      },
+      {
+        "sha256": "F75A0920D91C9442E925327A321C9361A37B1762AB07B359C2BE1C9D8B357E8F",
+        "destination": "assets/Portway.Document/docs/DESIGN-AND-DROP.md",
+        "source": "doc/Portway.Document/docs/DESIGN-AND-DROP.md"
+      },
+      {
+        "sha256": "0B7C8D064638D3E4DED9FF1585C79AD3C4612ACABEDA0FA79E87DB1905AA9371",
+        "destination": "assets/Portway.Document/docs/DEVELOPER-GUIDE.md",
+        "source": "doc/Portway.Document/docs/DEVELOPER-GUIDE.md"
+      },
+      {
+        "sha256": "CB0986B96A9F032661DE842AC53AFD68DF2CFBBFA0E0B0AB963223D6D6B3D9A6",
+        "destination": "assets/Portway.Document/docs/PARITY.md",
+        "source": "doc/Portway.Document/docs/PARITY.md"
+      },
+      {
+        "sha256": "4035C75A0381E3182243740B0F2CF0770B14CB384DC9D155792685723CCB1A6F",
+        "destination": "assets/Portway.Document/docs/SOURCE-MAP.md",
+        "source": "doc/Portway.Document/docs/SOURCE-MAP.md"
+      },
+      {
+        "sha256": "9CBCF8D89231B77926F19F039366F6B8B3B53D1EA7993E91AF12727BC6E9E8E6",
+        "destination": "assets/Portway.Document/docs/USER-GUIDE.md",
+        "source": "doc/Portway.Document/docs/USER-GUIDE.md"
+      },
+      {
+        "sha256": "8601714782449A5CF8E5808DED5ECD8BB15F871252958D7E4197D754C4183011",
+        "destination": "assets/Portway.Document/docs/images/portway-logo.svg",
+        "source": "doc/Portway.Document/docs/images/portway-logo.svg"
+      },
+      {
+        "sha256": "A223D0BFFE29B0AB5C06AE39622D7DD9B26D12E253D1370564D4AE2AE9206909",
+        "destination": "assets/Portway.Document/docs/images/sidebar-expanded.png",
+        "source": "doc/Portway.Document/docs/images/sidebar-expanded.png"
+      },
+      {
+        "sha256": "3493581A2CFA95BFF8EB2BB61D6DFC0B8FBC860D146BF96991AE6CDF3BE38B73",
+        "destination": "assets/Portway.Document/docs/images/terminal.png",
+        "source": "doc/Portway.Document/docs/images/terminal.png"
+      },
+      {
+        "sha256": "0F5F97E566A95416DAAB6F8F574E3B480B05EC07182ADDA19D49832D4FE72985",
+        "destination": "assets/Portway.Document/docs/images/workspace-dark.png",
+        "source": "doc/Portway.Document/docs/images/workspace-dark.png"
+      },
+      {
+        "sha256": "D94F6A0B90AA52143BB5168784D887B925A09C6188AE8073305302A7BAE1B7F2",
+        "destination": "assets/Portway.Document/docs/images/workspace-light.png",
+        "source": "doc/Portway.Document/docs/images/workspace-light.png"
+      },
+      {
+        "sha256": "BCBED1EDFE9977A8A85C3B6A7F8C030E45D4C26A0520406C0024627AEB579C91",
+        "destination": "assets/Portway.Document/docs/images/workspace.png",
+        "source": "doc/Portway.Document/docs/images/workspace.png"
+      },
+      {
+        "sha256": "D52DE9301494D77AED5A48E94237A482DD3EA48EBE70832982316F485D0FE5CD",
+        "destination": "assets/Portway.Document/docs/reverse-engineering/ANALYSIS.md",
+        "source": "doc/Portway.Document/docs/reverse-engineering/ANALYSIS.md"
+      },
+      {
+        "sha256": "6BFD968824E461F749691C6114927A9764B67142DC5919C16E847C75AC693783",
+        "destination": "assets/Portway.Document/docs/reverse-engineering/ARCHITECTURE.md",
+        "source": "doc/Portway.Document/docs/reverse-engineering/ARCHITECTURE.md"
+      },
+      {
+        "sha256": "669DEC7B2F181E079575DC43164BCA78FE115079B3C4DEE122EC85281A2C6645",
+        "destination": "assets/Portway.Document/docs/reverse-engineering/DESIGN.md",
+        "source": "doc/Portway.Document/docs/reverse-engineering/DESIGN.md"
+      },
+      {
+        "sha256": "5D1F2673E2CCA491225798F1E1754C56DDFA27D906E418B270E2C0965E078A9B",
+        "destination": "assets/Portway.Document/docs/reverse-engineering/PLANNING.md",
+        "source": "doc/Portway.Document/docs/reverse-engineering/PLANNING.md"
+      },
+      {
+        "sha256": "46C0CFA11B71DFDEAEAAEB6ABBFC20B33104D28AE6053B4AE6E9AAB4F9182A62",
+        "destination": "assets/Portway.Document/docs/reverse-engineering/README.md",
+        "source": "doc/Portway.Document/docs/reverse-engineering/README.md"
+      },
+      {
+        "sha256": "43DD5F51EF3BCA0CFE7CDEB5EC8E716D38433C7A548CB424542831B950C6CE39",
+        "destination": "assets/Portway.Document/jobs/README.md",
+        "source": "doc/Portway.Document/jobs/README.md"
+      },
+      {
+        "sha256": "3215C954B78C8CFD24578E360CC6CC40AB2636A70ACAA54232648CBFF8FB4E59",
+        "destination": "assets/Portway.Document/jobs/REFACTORING.md",
+        "source": "doc/Portway.Document/jobs/REFACTORING.md"
+      },
+      {
+        "sha256": "9B63C4B3CE7A72690E10214687638EF09896A8CF4D45D4D2D1638C7B80D8AF42",
+        "destination": "assets/Portway.Document/jobs/VALIDATION-0.1.0.md",
+        "source": "doc/Portway.Document/jobs/VALIDATION-0.1.0.md"
+      },
+      {
+        "sha256": "794F8B244C1E7897B600780958E09E4373C0AAEBC9C18D661FD78B4D777F0629",
+        "destination": "assets/Portway.Document/jobs/VALIDATION-0.2.1.md",
+        "source": "doc/Portway.Document/jobs/VALIDATION-0.2.1.md"
+      },
+      {
+        "sha256": "D9FE8E9EFCDAEAF3F55A49865312260579726FCBC7B7E1EF88F5BDB1D594FC46",
+        "destination": "assets/Portway.Document/jobs/VALIDATION-0.3.0.md",
+        "source": "doc/Portway.Document/jobs/VALIDATION-0.3.0.md"
+      },
+      {
+        "sha256": "E82F3B6B921FD6AA2358B65BE6BD06E39F3B2925FEF62D4B833394029E76A26E",
+        "destination": "assets/Portway.Document/jobs/VALIDATION-0.3.1.md",
+        "source": "doc/Portway.Document/jobs/VALIDATION-0.3.1.md"
+      },
+      {
+        "sha256": "4189BBE46383FA30C41263542563CA6A2751A0475EABE4C901ECB040B6C4C429",
+        "destination": "assets/Portway.Document/jobs/VALIDATION-0.3.3.md",
+        "source": "doc/Portway.Document/jobs/VALIDATION-0.3.3.md"
+      },
+      {
+        "sha256": "05BED7635AE09B3CF4B789681D918853532CE4096C7D79CE29DF1F6AD45CF789",
+        "destination": "assets/Portway.Document/jobs/VALIDATION-0.3.4.md",
+        "source": "doc/Portway.Document/jobs/VALIDATION-0.3.4.md"
+      },
+      {
+        "sha256": "88DDCC275C32D4F1FD3ED1598295AFE3C4E676218BDF11AE26FAC29A9F4F272C",
+        "destination": "assets/Portway.Document/jobs/VALIDATION-0.3.5.md",
+        "source": "doc/Portway.Document/jobs/VALIDATION-0.3.5.md"
+      },
+      {
+        "sha256": "5C24F9A9724EB652110AA21DB48C6EB9900D4B0DBBE1DEB17BE077F5FF423A6F",
+        "destination": "assets/Portway.Document/jobs/VALIDATION-0.3.6.md",
+        "source": "doc/Portway.Document/jobs/VALIDATION-0.3.6.md"
+      },
+      {
+        "sha256": "EBCD5679410476FE0017943E2B923331507113C412052D0DA08BE6D49DFEEA88",
+        "destination": "assets/Portway.Document/jobs/VALIDATION-0.3.7.md",
+        "source": "doc/Portway.Document/jobs/VALIDATION-0.3.7.md"
+      },
+      {
+        "sha256": "EF236C05C41BCEE69A038D5FDABBA637992C75E61E24A5CD902CAC692E99E220",
+        "destination": "assets/Portway.Document/jobs/VALIDATION-0.3.9.md",
+        "source": "doc/Portway.Document/jobs/VALIDATION-0.3.9.md"
+      },
+      {
+        "sha256": "B40706C887318B24EF0B1DE9DCC46B98CE7DE32D548F9EEFDD8BECBCF9F741E2",
+        "destination": "assets/Portway.Document/jobs/VALIDATION-artifact-assets-visible-20261001-75bb4580.md",
+        "source": "doc/Portway.Document/jobs/VALIDATION-artifact-assets-visible-20261001-75bb4580.md"
+      },
+      {
+        "sha256": "316CD6B428BF977D4D7B19FFC420A698195E8515CCF90210AEFC7FD5F36805D4",
+        "destination": "assets/Portway.Document/jobs/VALIDATION-assets-relocation-20261001-5d5ed5c8.md",
+        "source": "doc/Portway.Document/jobs/VALIDATION-assets-relocation-20261001-5d5ed5c8.md"
+      },
+      {
+        "sha256": "57AE3C5C330A7EC83B0E82D6B850D89A16A99ED74C88D4F74FCD696153D39756",
+        "destination": "assets/Portway.Document/jobs/VALIDATION-document-esproj-20261001-c73efc37.md",
+        "source": "doc/Portway.Document/jobs/VALIDATION-document-esproj-20261001-c73efc37.md"
+      },
+      {
+        "sha256": "AA3FC3FE88942BB1B2146BD1C7E54900926E9FE9C8125D9C4A16513C2490441A",
+        "destination": "assets/Portway.Document/jobs/VALIDATION-document-project.md",
+        "source": "doc/Portway.Document/jobs/VALIDATION-document-project.md"
+      },
+      {
+        "sha256": "8A8F3AC8143AFE2B44AE43F22A3F8B06A3EB28448CC21C4DE6A87DD611D30297",
+        "destination": "assets/Portway.Document/jobs/VALIDATION-document-storage.md",
+        "source": "doc/Portway.Document/jobs/VALIDATION-document-storage.md"
+      },
+      {
+        "sha256": "0E5D542439FD04F67863BA271D05E8572E2C7D3380D1283A6B8FE5B907B1F094",
+        "destination": "assets/Portway.Document/jobs/VALIDATION-reverse-engineering-20260929.md",
+        "source": "doc/Portway.Document/jobs/VALIDATION-reverse-engineering-20260929.md"
+      },
+      {
+        "sha256": "63223F424ED53D79F5401E56B2F815FCE88AC278FBF3C59C068BFE67014075FA",
+        "destination": "assets/Portway.Document/jobs/VALIDATION-vault-auto-unlock-20260930.md",
+        "source": "doc/Portway.Document/jobs/VALIDATION-vault-auto-unlock-20260930.md"
+      },
+      {
+        "sha256": "7386C7B72F07F5EA377A7CCB127FC4026A9F4C21CE5ADB025AA8E084E94E164D",
+        "destination": "assets/Portway.Document/jobs/VALIDATION-versioned-packaging.md",
+        "source": "doc/Portway.Document/jobs/VALIDATION-versioned-packaging.md"
+      },
+      {
+        "sha256": "9D0248551076C8A93F3339F8792A1349468D021FC08CDD213AE5221C1CBFC8CA",
+        "destination": "assets/Portway.Document/jobs/VALIDATION.md",
+        "source": "doc/Portway.Document/jobs/VALIDATION.md"
+      },
+      {
+        "sha256": "540380E3027F6C978C87C7D17AAF7D8AF63EF2B923B764625EECA917BF8B63E5",
+        "destination": "assets/Portway.Document/jobs/refactor-browser-results.json",
+        "source": "doc/Portway.Document/jobs/refactor-browser-results.json"
+      },
+      {
+        "sha256": "ABF9B0890CACCC363D64E766407BBA2050A7D22156DAF8120184B3EB99B3932A",
+        "destination": "assets/Portway.Document/jobs/refactor-source-check.json",
+        "source": "doc/Portway.Document/jobs/refactor-source-check.json"
+      },
+      {
+        "sha256": "F7A934D826D901A6C6E40FE8923A8D789B7D9D340D3C6A66EFACBD8EBCAD222B",
+        "destination": "assets/Portway.Document/jobs/typography-size-comparison.json",
+        "source": "doc/Portway.Document/jobs/typography-size-comparison.json"
+      },
+      {
+        "sha256": "4039AA3903726143AFDE1193B6AFCCC29813766DC19914937769C290221E8C3E",
+        "destination": "assets/Portway.Document/jobs/verification-0.2.1.json",
+        "source": "doc/Portway.Document/jobs/verification-0.2.1.json"
+      },
+      {
+        "sha256": "8402CD6BB4F36380B38E1FCCCBEE6B3F0E25F0EC6A612062EC5068362908A0F4",
+        "destination": "assets/Portway.Document/jobs/verification-0.3.0.json",
+        "source": "doc/Portway.Document/jobs/verification-0.3.0.json"
+      },
+      {
+        "sha256": "DBBF22B4814DB18E45A83E1EB4FA0DF64647078A6E699CB55F067B39598E86EC",
+        "destination": "assets/Portway.Document/jobs/verification-0.3.1.json",
+        "source": "doc/Portway.Document/jobs/verification-0.3.1.json"
+      },
+      {
+        "sha256": "9175808C788768EF288EFF333D1C65C5004964F1611321A4DE7296B7C87832D8",
+        "destination": "assets/Portway.Document/jobs/verification-0.3.3.json",
+        "source": "doc/Portway.Document/jobs/verification-0.3.3.json"
+      },
+      {
+        "sha256": "D92F7B99B48C539C60FA68CEDA11F41083334D8F8A4F91C5E43B3671AB9398EA",
+        "destination": "assets/Portway.Document/jobs/verification-0.3.4.json",
+        "source": "doc/Portway.Document/jobs/verification-0.3.4.json"
+      },
+      {
+        "sha256": "9FA3FF24EC2EF2D0C5081F3A2B7769CBAFC89A9B693C4536FBC04BC8C60ECB5A",
+        "destination": "assets/Portway.Document/jobs/verification-0.3.5.json",
+        "source": "doc/Portway.Document/jobs/verification-0.3.5.json"
+      },
+      {
+        "sha256": "4AC6BB575F7A11CE8D6CF87EDA26CCF64E04C74CA37B63773ADD3B050D63BC00",
+        "destination": "assets/Portway.Document/jobs/verification-0.3.6.json",
+        "source": "doc/Portway.Document/jobs/verification-0.3.6.json"
+      },
+      {
+        "sha256": "9AA446CBA9FD0C5C55A44552F01D3991E72FDF40B231FEDEA2EA86BD9A3A4B12",
+        "destination": "assets/Portway.Document/jobs/verification-0.3.7.json",
+        "source": "doc/Portway.Document/jobs/verification-0.3.7.json"
+      },
+      {
+        "sha256": "451BBF83DB8E13B7661D57D76DC5C7B1D2C3958C837D3F1A567F45A4E7B831B5",
+        "destination": "assets/Portway.Document/jobs/verification-0.3.9.json",
+        "source": "doc/Portway.Document/jobs/verification-0.3.9.json"
+      },
+      {
+        "sha256": "4FF6D272B8CB024D6905CEDB002E3EB707A6902BF17A83A4B6C47ED51AF9CDD3",
+        "destination": "assets/Portway.Document/jobs/verification-artifact-assets-visible-20261001-75bb4580.json",
+        "source": "doc/Portway.Document/jobs/verification-artifact-assets-visible-20261001-75bb4580.json"
+      },
+      {
+        "sha256": "24E3EB1DA025A8C22DA9D434DF3815829EE2C61B8C502470A08C1F52B7EE3811",
+        "destination": "assets/Portway.Document/jobs/verification-assets-relocation-20261001-5d5ed5c8.json",
+        "source": "doc/Portway.Document/jobs/verification-assets-relocation-20261001-5d5ed5c8.json"
+      },
+      {
+        "sha256": "117542D78963E0D0D67DBEBDE4E40526F04D4F149F52380AB1B0784C95C235D2",
+        "destination": "assets/Portway.Document/jobs/verification-connection-time.json",
+        "source": "doc/Portway.Document/jobs/verification-connection-time.json"
+      },
+      {
+        "sha256": "5729D9E0F319EBD59E987D40512F2734BE954F7AB84FF1688CA6217FF5D4206B",
+        "destination": "assets/Portway.Document/jobs/verification-debug-startup.json",
+        "source": "doc/Portway.Document/jobs/verification-debug-startup.json"
+      },
+      {
+        "sha256": "C88D1D9DF0B6ED45538ABDB9A67AC6C37DAE7B332F334D881274BF2C3EA4C542",
+        "destination": "assets/Portway.Document/jobs/verification-devtools.json",
+        "source": "doc/Portway.Document/jobs/verification-devtools.json"
+      },
+      {
+        "sha256": "1D9D99CAC5303B854F23611D20B873A5478BF552D4C1D07C2E6AA77206E31F17",
+        "destination": "assets/Portway.Document/jobs/verification-document-esproj-20261001-c73efc37.json",
+        "source": "doc/Portway.Document/jobs/verification-document-esproj-20261001-c73efc37.json"
+      },
+      {
+        "sha256": "7686BAC91D48232F449029006F3929E324C1811739E63DF28445ABA10195FA5B",
+        "destination": "assets/Portway.Document/jobs/verification-document-images-20260929-b1afd451.json",
+        "source": "doc/Portway.Document/jobs/verification-document-images-20260929-b1afd451.json"
+      },
+      {
+        "sha256": "9A71E725C0EE8DB1C891D3D2E565FA87729919805917FC9C7F2F5F1B62AB66A4",
+        "destination": "assets/Portway.Document/jobs/verification-document-project.json",
+        "source": "doc/Portway.Document/jobs/verification-document-project.json"
+      },
+      {
+        "sha256": "0E9FCCC504BDAF48FFFDDA06B3A98306E436C27B512831DCE1C55FDA34404187",
+        "destination": "assets/Portway.Document/jobs/verification-document-storage-20260929-48207493a5e84219ad4b3fc1269c8f78.json",
+        "source": "doc/Portway.Document/jobs/verification-document-storage-20260929-48207493a5e84219ad4b3fc1269c8f78.json"
+      },
+      {
+        "sha256": "D4025C69E76D9FD0083DC1B986F6D0E6A6C6B1560E86789A1EE178044076D1D6",
+        "destination": "assets/Portway.Document/jobs/verification-explorer-focus.json",
+        "source": "doc/Portway.Document/jobs/verification-explorer-focus.json"
+      },
+      {
+        "sha256": "8AEEA9FEBDA900022520C98DBE179DF312B2A46CC0BF3E347D295B43C1B805C9",
+        "destination": "assets/Portway.Document/jobs/verification-header-removed.json",
+        "source": "doc/Portway.Document/jobs/verification-header-removed.json"
+      },
+      {
+        "sha256": "BDD293F57DF0C44654BABE5743279DA659CA7A4CD306FC9DD4DCCB6582D656A1",
+        "destination": "assets/Portway.Document/jobs/verification-korean-messages.json",
+        "source": "doc/Portway.Document/jobs/verification-korean-messages.json"
+      },
+      {
+        "sha256": "FCA53CC6611A1B8F185C68C908BB6686E1A4F9E412ECB4C4254B6FF02F501A9D",
+        "destination": "assets/Portway.Document/jobs/verification-local-workspace.json",
+        "source": "doc/Portway.Document/jobs/verification-local-workspace.json"
+      },
+      {
+        "sha256": "A26C8699CACC0196E7336A27BC318FA1EA2375FDC7B4126D55CE3DDE3E008228",
+        "destination": "assets/Portway.Document/jobs/verification-records-relocation-20260929.json",
+        "source": "doc/Portway.Document/jobs/verification-records-relocation-20260929.json"
+      },
+      {
+        "sha256": "E752FFB80F1C9F418E58CD264D4BC623FBBDC6DE6CDDF2C87D9609295E48B17E",
+        "destination": "assets/Portway.Document/jobs/verification-records-storage-check-bbd4299ab0b44d4a8ae6340ca01b584e.json",
+        "source": "doc/Portway.Document/jobs/verification-records-storage-check-bbd4299ab0b44d4a8ae6340ca01b584e.json"
+      },
+      {
+        "sha256": "C0ECCCD9062CD81D64F5559B7006CA569C478B694B5BC84B7CF5D1437B2D6274",
+        "destination": "assets/Portway.Document/jobs/verification-refactoring.json",
+        "source": "doc/Portway.Document/jobs/verification-refactoring.json"
+      },
+      {
+        "sha256": "6179A51A224C4CE31A77B9D32D701D87F4192AE77F32088BB7D0234821AB6AC3",
+        "destination": "assets/Portway.Document/jobs/verification-remaining-records-relocation-16c5d2957658431381f7f9cc9a30c016.json",
+        "source": "doc/Portway.Document/jobs/verification-remaining-records-relocation-16c5d2957658431381f7f9cc9a30c016.json"
+      },
+      {
+        "sha256": "D3E90F54F7A20C2BDE3D4E13AD233B73E0452A681AFBAA5C0D807B2C3B4C6FF8",
+        "destination": "assets/Portway.Document/jobs/verification-site-archive.json",
+        "source": "doc/Portway.Document/jobs/verification-site-archive.json"
+      },
+      {
+        "sha256": "E861DAD1E8B34A4A74475398AA31D577FCCB20991B1B15FCD3150FB90C07FF96",
+        "destination": "assets/Portway.Document/jobs/verification-site-enter.json",
+        "source": "doc/Portway.Document/jobs/verification-site-enter.json"
+      },
+      {
+        "sha256": "212C2EE7D8B31F529017EFD12D2014ACC6C791DF46BBADA368AAB7DB0E4AE13C",
+        "destination": "assets/Portway.Document/jobs/verification-terminal-cursor-focus.json",
+        "source": "doc/Portway.Document/jobs/verification-terminal-cursor-focus.json"
+      },
+      {
+        "sha256": "511C60C3CA8E7AE5EDE76FE22A638DAD7D48F33F965BB6881EB7B680BA7C2221",
+        "destination": "assets/Portway.Document/jobs/verification-toolbar-group.json",
+        "source": "doc/Portway.Document/jobs/verification-toolbar-group.json"
+      },
+      {
+        "sha256": "1CD74461892F8F84C2EC3FEF76EAC258DACC2AB99DA4BDD397AFC0167A1DE99A",
+        "destination": "assets/Portway.Document/jobs/verification-vault-auto-unlock-20260930-final.json",
+        "source": "doc/Portway.Document/jobs/verification-vault-auto-unlock-20260930-final.json"
+      },
+      {
+        "sha256": "D73824AC078BC9E06D78F778A6044B383BB90A05CCE300CF04482344878AECA5",
+        "destination": "assets/Portway.Document/jobs/verification-vault-auto-unlock-20260930-r2.json",
+        "source": "doc/Portway.Document/jobs/verification-vault-auto-unlock-20260930-r2.json"
+      },
+      {
+        "sha256": "24D223180DFE48717C53643FD93AE6D9CBC37BF965DAE757EA114CE3DC35CDB9",
+        "destination": "assets/Portway.Document/jobs/verification-vault-auto-unlock-20260930.json",
+        "source": "doc/Portway.Document/jobs/verification-vault-auto-unlock-20260930.json"
+      },
+      {
+        "sha256": "38F342F92D0B893E40103703B395402724100E2A6738F8061F863F35516EF211",
+        "destination": "assets/Portway.Document/jobs/verification-versioned-packaging.json",
+        "source": "doc/Portway.Document/jobs/verification-versioned-packaging.json"
+      },
+      {
+        "sha256": "4A2F512A6D6C15150ABB91854CBBF2093A2BD37B5C04C33F2E0F381608B9770A",
+        "destination": "assets/Portway.Document/jobs/verification-workspace-screenshot-20260929-47d5098c.json",
+        "source": "doc/Portway.Document/jobs/verification-workspace-screenshot-20260929-47d5098c.json"
+      },
+      {
+        "sha256": "BD66AE82EF0A2D6F9FDBD02B51F133A8D1B9BFF6D05D66D6C5C2E1640C53E86D",
+        "destination": "assets/Portway.Document/package-lock.json",
+        "source": "doc/Portway.Document/package-lock.json"
+      },
+      {
+        "sha256": "A4AD7500648D36DAE36C2F679533A170E8021AD9B9958BB150AB7D596DA03B86",
+        "destination": "assets/Portway.Document/package.json",
+        "source": "doc/Portway.Document/package.json"
+      },
+      {
+        "sha256": "061483CD0E0E7EC955D2796B4A71E180A28588E475ACD39A3E2F8F9DB838BE02",
+        "destination": "assets/Portway.Document/src/index.js",
+        "source": "doc/Portway.Document/src/index.js"
+      }
+    ],
+    "trackedFilesMoved": 100,
+    "relativePathDepthPreserved": true,
+    "finalContentChecks": [
+      {
+        "unchanged": true,
+        "path": "assets/Portway.Artifact/Portway.Artifact.esproj"
+      },
+      {
+        "unchanged": true,
+        "path": "assets/Portway.Artifact/assets/frontend/build.cjs"
+      },
+      {
+        "unchanged": true,
+        "path": "assets/Portway.Artifact/assets/frontend/licenses/tabler-LICENSE"
+      },
+      {
+        "unchanged": true,
+        "path": "assets/Portway.Artifact/assets/frontend/monaco-entry.mjs"
+      },
+      {
+        "unchanged": true,
+        "path": "assets/Portway.Artifact/assets/frontend/package-lock.json"
+      },
+      {
+        "unchanged": true,
+        "path": "assets/Portway.Artifact/assets/frontend/package.json"
+      },
+      {
+        "unchanged": true,
+        "path": "assets/Portway.Artifact/assets/frontend/tests/display-time.test.mjs"
+      },
+      {
+        "unchanged": true,
+        "path": "assets/Portway.Artifact/assets/frontend/tests/drop.test.mjs"
+      },
+      {
+        "unchanged": true,
+        "path": "assets/Portway.Artifact/assets/frontend/tests/editor.test.mjs"
+      },
+      {
+        "unchanged": true,
+        "path": "assets/Portway.Artifact/assets/frontend/tests/explorer.test.mjs"
+      },
+      {
+        "unchanged": true,
+        "path": "assets/Portway.Artifact/assets/frontend/tests/selection.test.mjs"
+      },
+      {
+        "unchanged": true,
+        "path": "assets/Portway.Artifact/assets/frontend/tests/theme.test.mjs"
+      },
+      {
+        "unchanged": true,
+        "path": "assets/Portway.Artifact/assets/portway.icns"
+      },
+      {
+        "unchanged": true,
+        "path": "assets/Portway.Artifact/assets/portway.ico"
+      },
+      {
+        "unchanged": true,
+        "path": "assets/Portway.Artifact/assets/portway.png"
+      },
+      {
+        "unchanged": true,
+        "path": "assets/Portway.Document/.vscode/launch.json"
+      },
+      {
+        "unchanged": true,
+        "path": "assets/Portway.Document/Portway.Document.esproj"
+      },
+      {
+        "unchanged": false,
+        "path": "assets/Portway.Document/README.md"
+      },
+      {
+        "unchanged": true,
+        "path": "assets/Portway.Document/docs/API-REFERENCE.md"
+      },
+      {
+        "unchanged": false,
+        "path": "assets/Portway.Document/docs/ARCHITECTURE.md"
+      },
+      {
+        "unchanged": true,
+        "path": "assets/Portway.Document/docs/AUTOMATION.md"
+      },
+      {
+        "unchanged": true,
+        "path": "assets/Portway.Document/docs/DEPLOYMENT.md"
+      },
+      {
+        "unchanged": false,
+        "path": "assets/Portway.Document/docs/DESIGN-AND-DROP.md"
+      },
+      {
+        "unchanged": false,
+        "path": "assets/Portway.Document/docs/DEVELOPER-GUIDE.md"
+      },
+      {
+        "unchanged": false,
+        "path": "assets/Portway.Document/docs/PARITY.md"
+      },
+      {
+        "unchanged": false,
+        "path": "assets/Portway.Document/docs/SOURCE-MAP.md"
+      },
+      {
+        "unchanged": true,
+        "path": "assets/Portway.Document/docs/USER-GUIDE.md"
+      },
+      {
+        "unchanged": true,
+        "path": "assets/Portway.Document/docs/images/portway-logo.svg"
+      },
+      {
+        "unchanged": true,
+        "path": "assets/Portway.Document/docs/images/sidebar-expanded.png"
+      },
+      {
+        "unchanged": true,
+        "path": "assets/Portway.Document/docs/images/terminal.png"
+      },
+      {
+        "unchanged": true,
+        "path": "assets/Portway.Document/docs/images/workspace-dark.png"
+      },
+      {
+        "unchanged": true,
+        "path": "assets/Portway.Document/docs/images/workspace-light.png"
+      },
+      {
+        "unchanged": true,
+        "path": "assets/Portway.Document/docs/images/workspace.png"
+      },
+      {
+        "unchanged": false,
+        "path": "assets/Portway.Document/docs/reverse-engineering/ANALYSIS.md"
+      },
+      {
+        "unchanged": false,
+        "path": "assets/Portway.Document/docs/reverse-engineering/ARCHITECTURE.md"
+      },
+      {
+        "unchanged": true,
+        "path": "assets/Portway.Document/docs/reverse-engineering/DESIGN.md"
+      },
+      {
+        "unchanged": true,
+        "path": "assets/Portway.Document/docs/reverse-engineering/PLANNING.md"
+      },
+      {
+        "unchanged": true,
+        "path": "assets/Portway.Document/docs/reverse-engineering/README.md"
+      },
+      {
+        "unchanged": false,
+        "path": "assets/Portway.Document/jobs/README.md"
+      },
+      {
+        "unchanged": true,
+        "path": "assets/Portway.Document/jobs/REFACTORING.md"
+      },
+      {
+        "unchanged": true,
+        "path": "assets/Portway.Document/jobs/VALIDATION-0.1.0.md"
+      },
+      {
+        "unchanged": true,
+        "path": "assets/Portway.Document/jobs/VALIDATION-0.2.1.md"
+      },
+      {
+        "unchanged": true,
+        "path": "assets/Portway.Document/jobs/VALIDATION-0.3.0.md"
+      },
+      {
+        "unchanged": true,
+        "path": "assets/Portway.Document/jobs/VALIDATION-0.3.1.md"
+      },
+      {
+        "unchanged": true,
+        "path": "assets/Portway.Document/jobs/VALIDATION-0.3.3.md"
+      },
+      {
+        "unchanged": true,
+        "path": "assets/Portway.Document/jobs/VALIDATION-0.3.4.md"
+      },
+      {
+        "unchanged": true,
+        "path": "assets/Portway.Document/jobs/VALIDATION-0.3.5.md"
+      },
+      {
+        "unchanged": true,
+        "path": "assets/Portway.Document/jobs/VALIDATION-0.3.6.md"
+      },
+      {
+        "unchanged": true,
+        "path": "assets/Portway.Document/jobs/VALIDATION-0.3.7.md"
+      },
+      {
+        "unchanged": true,
+        "path": "assets/Portway.Document/jobs/VALIDATION-0.3.9.md"
+      },
+      {
+        "unchanged": true,
+        "path": "assets/Portway.Document/jobs/VALIDATION-artifact-assets-visible-20261001-75bb4580.md"
+      },
+      {
+        "unchanged": true,
+        "path": "assets/Portway.Document/jobs/VALIDATION-assets-relocation-20261001-5d5ed5c8.md"
+      },
+      {
+        "unchanged": true,
+        "path": "assets/Portway.Document/jobs/VALIDATION-document-esproj-20261001-c73efc37.md"
+      },
+      {
+        "unchanged": true,
+        "path": "assets/Portway.Document/jobs/VALIDATION-document-project.md"
+      },
+      {
+        "unchanged": true,
+        "path": "assets/Portway.Document/jobs/VALIDATION-document-storage.md"
+      },
+      {
+        "unchanged": true,
+        "path": "assets/Portway.Document/jobs/VALIDATION-reverse-engineering-20260929.md"
+      },
+      {
+        "unchanged": true,
+        "path": "assets/Portway.Document/jobs/VALIDATION-vault-auto-unlock-20260930.md"
+      },
+      {
+        "unchanged": true,
+        "path": "assets/Portway.Document/jobs/VALIDATION-versioned-packaging.md"
+      },
+      {
+        "unchanged": false,
+        "path": "assets/Portway.Document/jobs/VALIDATION.md"
+      },
+      {
+        "unchanged": true,
+        "path": "assets/Portway.Document/jobs/refactor-browser-results.json"
+      },
+      {
+        "unchanged": true,
+        "path": "assets/Portway.Document/jobs/refactor-source-check.json"
+      },
+      {
+        "unchanged": true,
+        "path": "assets/Portway.Document/jobs/typography-size-comparison.json"
+      },
+      {
+        "unchanged": true,
+        "path": "assets/Portway.Document/jobs/verification-0.2.1.json"
+      },
+      {
+        "unchanged": true,
+        "path": "assets/Portway.Document/jobs/verification-0.3.0.json"
+      },
+      {
+        "unchanged": true,
+        "path": "assets/Portway.Document/jobs/verification-0.3.1.json"
+      },
+      {
+        "unchanged": true,
+        "path": "assets/Portway.Document/jobs/verification-0.3.3.json"
+      },
+      {
+        "unchanged": true,
+        "path": "assets/Portway.Document/jobs/verification-0.3.4.json"
+      },
+      {
+        "unchanged": true,
+        "path": "assets/Portway.Document/jobs/verification-0.3.5.json"
+      },
+      {
+        "unchanged": true,
+        "path": "assets/Portway.Document/jobs/verification-0.3.6.json"
+      },
+      {
+        "unchanged": true,
+        "path": "assets/Portway.Document/jobs/verification-0.3.7.json"
+      },
+      {
+        "unchanged": true,
+        "path": "assets/Portway.Document/jobs/verification-0.3.9.json"
+      },
+      {
+        "unchanged": true,
+        "path": "assets/Portway.Document/jobs/verification-artifact-assets-visible-20261001-75bb4580.json"
+      },
+      {
+        "unchanged": true,
+        "path": "assets/Portway.Document/jobs/verification-assets-relocation-20261001-5d5ed5c8.json"
+      },
+      {
+        "unchanged": true,
+        "path": "assets/Portway.Document/jobs/verification-connection-time.json"
+      },
+      {
+        "unchanged": true,
+        "path": "assets/Portway.Document/jobs/verification-debug-startup.json"
+      },
+      {
+        "unchanged": true,
+        "path": "assets/Portway.Document/jobs/verification-devtools.json"
+      },
+      {
+        "unchanged": true,
+        "path": "assets/Portway.Document/jobs/verification-document-esproj-20261001-c73efc37.json"
+      },
+      {
+        "unchanged": true,
+        "path": "assets/Portway.Document/jobs/verification-document-images-20260929-b1afd451.json"
+      },
+      {
+        "unchanged": true,
+        "path": "assets/Portway.Document/jobs/verification-document-project.json"
+      },
+      {
+        "unchanged": true,
+        "path": "assets/Portway.Document/jobs/verification-document-storage-20260929-48207493a5e84219ad4b3fc1269c8f78.json"
+      },
+      {
+        "unchanged": true,
+        "path": "assets/Portway.Document/jobs/verification-explorer-focus.json"
+      },
+      {
+        "unchanged": true,
+        "path": "assets/Portway.Document/jobs/verification-header-removed.json"
+      },
+      {
+        "unchanged": true,
+        "path": "assets/Portway.Document/jobs/verification-korean-messages.json"
+      },
+      {
+        "unchanged": true,
+        "path": "assets/Portway.Document/jobs/verification-local-workspace.json"
+      },
+      {
+        "unchanged": true,
+        "path": "assets/Portway.Document/jobs/verification-records-relocation-20260929.json"
+      },
+      {
+        "unchanged": true,
+        "path": "assets/Portway.Document/jobs/verification-records-storage-check-bbd4299ab0b44d4a8ae6340ca01b584e.json"
+      },
+      {
+        "unchanged": true,
+        "path": "assets/Portway.Document/jobs/verification-refactoring.json"
+      },
+      {
+        "unchanged": true,
+        "path": "assets/Portway.Document/jobs/verification-remaining-records-relocation-16c5d2957658431381f7f9cc9a30c016.json"
+      },
+      {
+        "unchanged": true,
+        "path": "assets/Portway.Document/jobs/verification-site-archive.json"
+      },
+      {
+        "unchanged": true,
+        "path": "assets/Portway.Document/jobs/verification-site-enter.json"
+      },
+      {
+        "unchanged": true,
+        "path": "assets/Portway.Document/jobs/verification-terminal-cursor-focus.json"
+      },
+      {
+        "unchanged": true,
+        "path": "assets/Portway.Document/jobs/verification-toolbar-group.json"
+      },
+      {
+        "unchanged": true,
+        "path": "assets/Portway.Document/jobs/verification-vault-auto-unlock-20260930-final.json"
+      },
+      {
+        "unchanged": true,
+        "path": "assets/Portway.Document/jobs/verification-vault-auto-unlock-20260930-r2.json"
+      },
+      {
+        "unchanged": true,
+        "path": "assets/Portway.Document/jobs/verification-vault-auto-unlock-20260930.json"
+      },
+      {
+        "unchanged": true,
+        "path": "assets/Portway.Document/jobs/verification-versioned-packaging.json"
+      },
+      {
+        "unchanged": true,
+        "path": "assets/Portway.Document/jobs/verification-workspace-screenshot-20260929-47d5098c.json"
+      },
+      {
+        "unchanged": true,
+        "path": "assets/Portway.Document/package-lock.json"
+      },
+      {
+        "unchanged": true,
+        "path": "assets/Portway.Document/package.json"
+      },
+      {
+        "unchanged": true,
+        "path": "assets/Portway.Document/src/index.js"
+      }
+    ],
+    "individualHistoricalRecordsHashPreserved": 57,
+    "cachesAndNodeModulesMoved": true,
+    "jobReadmeUpdated": true,
+    "productVersionChanged": false,
+    "validationIndexUpdated": true,
+    "rootDocAbsent": true
+  },
+  "checks": {
+    "frontendTests": {
+      "skipped": 0,
+      "passed": 31,
+      "failed": 0
+    },
+    "diffCheck": "통과",
+    "recordCreation": "새 assets/Portway.Document/jobs 경로",
+    "package": {
+      "version": "0.3.9-assets-root-20261001-ee4d99db",
+      "zip": "artifacts/qa/doc-to-assets-ee4d99dbcf024ef2809bc98554f4b109/packages/Portway-0.3.9-assets-root-20261001-ee4d99db-win-x64-beta.zip",
+      "sha256": "BAB9309B584FC566E40C4654BCDFE5B04541F9FEB7EA75D31451BD0A21CBAE72",
+      "packageFeedHashMatches": true,
+      "iconBytesMatch": true,
+      "cliIncluded": true,
+      "installerIncluded": true,
+      "webAssetFilesMatched": 287,
+      "signed": false
+    },
+    "frontendFormat": "통과",
+    "dotnetTests": {
+      "solution-tests": {
+        "failed": 0,
+        "passed": 96,
+        "skipped": 25
+      },
+      "package-tests": {
+        "failed": 0,
+        "passed": 1,
+        "skipped": 0
+      }
+    },
+    "frontendBuild": "통과",
+    "solutionBuild": {
+      "warnings": 0,
+      "passed": true,
+      "errors": 0
+    },
+    "overwriteProtection": "같은 Name 거부 및 JSON 내용 보존 검사",
+    "cliHelp": "새 문서 경로 확인",
+    "documentRun": "통과",
+    "structure": {
+      "projectItems": {
+        "Artifact": {
+          "files": 26,
+          "folders": 1
+        },
+        "Document": {
+          "files": 84,
+          "folders": 4
+        }
+      },
+      "localMarkdownLinksChecked": 431,
+      "solutionAssetsProjects": 2,
+      "powerShellSyntax": "통과",
+      "rootDocAbsent": true
+    },
+    "outputIconHashesMatch": true,
+    "iconsRegenerated": "통과, 내용 보존"
+  },
+  "paths": {
+    "buildLog": "artifacts/qa/doc-to-assets-ee4d99dbcf024ef2809bc98554f4b109/solution-build.log",
+    "finalMigrationHashes": "artifacts/qa/doc-to-assets-ee4d99dbcf024ef2809bc98554f4b109/migration-final.json",
+    "originalMigrationHashes": "artifacts/qa/doc-to-assets-ee4d99dbcf024ef2809bc98554f4b109/migration-before.json",
+    "solutionTestsTrx": "artifacts/qa/doc-to-assets-ee4d99dbcf024ef2809bc98554f4b109/test-results/solution-tests.trx",
+    "packageTestsTrx": "artifacts/qa/doc-to-assets-ee4d99dbcf024ef2809bc98554f4b109/test-results/package-tests.trx",
+    "qa": "artifacts/qa/doc-to-assets-ee4d99dbcf024ef2809bc98554f4b109",
+    "packageLog": "artifacts/qa/doc-to-assets-ee4d99dbcf024ef2809bc98554f4b109/package-windows.log"
+  },
+  "limits": [
+    "Visual Studio 실제 재로드·탐색기·F5 및 브라우저·Photino 미검증",
+    "서명·실제 설치·업데이트 적용·Delta 복원·macOS·Linux 실행 및 패키징 미검증",
+    "Linux Dockerfile 빌드·프로토콜 통합 미실행",
+    "build.ps1 전체 실행 대신 각 단계와 package.ps1을 격리 출력에서 검증",
+    "lockfile 불변으로 기존 node_modules 사용, npm ci 반복하지 않음",
+    "기본 .NET 테스트 25개 조건부 건너뜀"
+  ],
+  "report": "assets/Portway.Document/jobs/VALIDATION-doc-to-assets-20261001-ee4d99db.md"
+}

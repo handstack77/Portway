@@ -7,6 +7,6 @@ RUN dotnet test Portway.slnx -c Release --logger 'console;verbosity=minimal'
 RUN dotnet tool restore && dotnet publish src/Portway.Desktop -c Release -r linux-x64 --self-contained true -p:PublishSingleFile=false -p:PublishTrimmed=false -o /publish
 RUN cp /src/THIRD-PARTY-NOTICES.md /publish/
 RUN dotnet publish src/Portway.Cli -c Release -r linux-x64 --self-contained true -o /publish/cli
-RUN chmod +x /publish/Portway && dotnet tool run vpk -- pack --packId Portway --packVersion 0.3.9 --packDir /publish --mainExe Portway --runtime linux-x64 --channel linux-x64-stable --packTitle Portway --icon /src/doc/Portway.Artifact/assets/portway.png --outputDir /releases --skip-updates --yes
+RUN chmod +x /publish/Portway && dotnet tool run vpk -- pack --packId Portway --packVersion 0.3.9 --packDir /publish --mainExe Portway --runtime linux-x64 --channel linux-x64-stable --packTitle Portway --icon /src/assets/Portway.Artifact/assets/portway.png --outputDir /releases --skip-updates --yes
 ENV WEBKIT_DISABLE_SANDBOX_THIS_IS_DANGEROUS=1
 CMD ["bash", "-c", "xvfb-run -a timeout -k 3s 12s /publish/Portway; code=$?; test $code -eq 124"]

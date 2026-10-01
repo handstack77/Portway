@@ -1,5 +1,7 @@
 # Portway 최신 검증 결과
 
+2026-10-01 doc 루트·솔루션 폴더 변경: `doc/` 전체를 `assets/`로 이동하고 솔루션 폴더명·프로젝트·빌드·패키징·문서·기록 저장 경로를 갱신했습니다. Windows 격리 Release 빌드는 경고·오류 0개, .NET 테스트는 96개 통과·25개 조건부 건너뜀, 프런트엔드는 31개 통과입니다. 로컬 링크 431개와 기존 기록의 내용 보존을 확인했고 실제 Windows QA 패키지 생성·ZIP API 검사 1개·웹 자산 287개 내용 검사가 통과했습니다. 서명·실제 설치·업데이트 적용·Visual Studio 화면과 macOS·Linux 패키징은 미검증입니다. 자세한 결과는 [doc → assets 전환 보고서](VALIDATION-doc-to-assets-20261001-ee4d99db.md)에 있습니다. 아래 기록의 doc 경로는 당시 이력으로 유지합니다.
+
 2026-10-01 Document 프로젝트 전환: `.njsproj`를 Artifact와 같은 JavaScript SDK의 `Portway.Document.esproj`로 바꾸고 솔루션 등록·npm 빌드·시작 명령·폴더 표시·Node 디버깅 설정을 갱신했습니다. 격리 Release 빌드는 경고·오류 0개, 솔루션 테스트는 96개 통과·25개 조건부 건너뜀입니다. 새 .esproj의 CLI 콘솔 실행과 문서·검증 기록 항목 등록을 확인했습니다. 실제 Visual Studio F5 실행은 미검증이며 자세한 결과는 [Document .esproj 전환 보고서](VALIDATION-document-esproj-20261001-c73efc37.md)에 있습니다.
 
 2026-10-01 Artifact 자산 표시 수정: 자동 항목 등록을 끈 프로젝트에 빠져 있던 내부 assets 폴더·파일 등록을 명시했습니다. MSBuild에서 폴더 1개와 표시 파일 14개, node_modules 제외·외부 링크 보존을 확인했고 격리 Release 빌드는 경고·오류 없이 통과했습니다. 실제 Visual Studio 화면은 미검증입니다. 자세한 결과는 [assets 표시 설정 보고서](VALIDATION-artifact-assets-visible-20261001-75bb4580.md)에 있습니다.
