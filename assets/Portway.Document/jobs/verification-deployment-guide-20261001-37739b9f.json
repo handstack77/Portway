@@ -1,0 +1,47 @@
+{
+  "date": "2026-10-01T09:32:07.5922342+09:00",
+  "scope": "운영체제별 배포 예시와 Portway.Server 게시 따라 하기 문서",
+  "environment": {
+    "os": "Microsoft Windows 10.0.26200",
+    "powershell": "7.6.6"
+  },
+  "source": {
+    "commit": "a7ebae874e60a673d857f5477ea18b4636e50d72",
+    "files": [
+      "assets/Portway.Document/docs/DEPLOYMENT.md",
+      "assets/Portway.Document/docs/DEVELOPER-GUIDE.md"
+    ],
+    "workingTree": "문서 변경"
+  },
+  "checks": [
+    {
+      "counts": {
+        "powerShellBlocks": 14,
+        "bashBlocks": 4,
+        "scriptInvocations": 5,
+        "localLinks": 107,
+        "localAnchors": 19
+      },
+      "command": "./artifacts/qa/deployment-guide-37739b9f7d074aba8a18b9c713fa2bdc/check-guide.ps1",
+      "status": "passed"
+    },
+    {
+      "command": "npm.cmd run build --prefix assets/Portway.Document",
+      "detail": "node --check src/index.js, Markdown 검사는 별도 수행",
+      "status": "passed"
+    },
+    {
+      "command": "git diff --check",
+      "status": "passed"
+    }
+  ],
+  "artifacts": [
+    "artifacts/qa/deployment-guide-37739b9f7d074aba8a18b9c713fa2bdc/checks.json",
+    "artifacts/qa/deployment-guide-37739b9f7d074aba8a18b9c713fa2bdc/check-guide.ps1"
+  ],
+  "mockResponseUsed": false,
+  "limits": [
+    "문서 명령은 실행하지 않고 구문·소스·로컬 링크를 검사했습니다.",
+    "실제 패키징·PackageTests·서명·공증·서버 시작·운영 게시·OS 설치 및 업데이트는 실행하지 않았습니다."
+  ]
+}
