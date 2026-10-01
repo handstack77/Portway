@@ -3,7 +3,10 @@ import assert from "node:assert/strict";
 import { readFile } from "node:fs/promises";
 // 앱의 패키지 유형을 바꾸지 않고 실제 브라우저 모듈을 불러옵니다.
 const source = await readFile(
-  new URL("../../../src/Portway.Desktop/wwwroot/drop.js", import.meta.url),
+  new URL(
+    "../../../../../src/Portway.Desktop/wwwroot/drop.js",
+    import.meta.url,
+  ),
   "utf8",
 );
 const { collectDrop, captureDrop } = await import(

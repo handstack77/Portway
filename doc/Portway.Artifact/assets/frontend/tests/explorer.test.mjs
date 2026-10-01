@@ -1,7 +1,10 @@
 import { test } from "node:test";
 import assert from "node:assert/strict";
 import { readFile } from "node:fs/promises";
-const web = new URL("../../../src/Portway.Desktop/wwwroot/", import.meta.url);
+const web = new URL(
+  "../../../../../src/Portway.Desktop/wwwroot/",
+  import.meta.url,
+);
 const selection = await readFile(new URL("selection.js", web), "utf8");
 const selectionUrl =
   "data:text/javascript;base64," + Buffer.from(selection).toString("base64");

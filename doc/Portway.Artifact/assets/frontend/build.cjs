@@ -4,9 +4,12 @@ const path = require("node:path");
 const { StyleSheet } = require("@master/css");
 const { render } = require("@master/css/render");
 const esbuild = require("esbuild");
-const web = path.resolve(__dirname, "../../src/Portway.Desktop/wwwroot");
+const web = path.resolve(__dirname, "../../../../src/Portway.Desktop/wwwroot");
 const vendor = path.join(web, "vendor");
-const serverWeb = path.resolve(__dirname, "../../src/Portway.Server/wwwroot");
+const serverWeb = path.resolve(
+  __dirname,
+  "../../../../src/Portway.Server/wwwroot",
+);
 function copy(source, target) {
   const output = path.join(vendor, target);
   fs.mkdirSync(path.dirname(output), { recursive: true });

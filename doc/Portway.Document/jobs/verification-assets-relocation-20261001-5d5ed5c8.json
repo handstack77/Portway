@@ -1,0 +1,225 @@
+{
+  "date": "2026-10-01T08:54:16.8338617+09:00",
+  "runId": "5d5ed5c871704726b0835cfdcd85926f",
+  "source": {
+    "baseCommit": "2e2d598d1a7271aff75a6f001867ca568cc97164",
+    "state": "이번 변경을 포함한 작업 트리"
+  },
+  "scope": "assets → doc/Portway.Artifact/assets 이동과 빌드·테스트·패키징·문서 경로 갱신",
+  "environment": {
+    "python": "3.11.7",
+    "node": "20.18.0",
+    "os": "Microsoft Windows 10.0.26200",
+    "powerShell": "7.6.6",
+    "dotnetSdk": "10.0.401"
+  },
+  "mockResponses": false,
+  "apiTestHost": "실제 ZIP을 사용하는 인프로세스 ASP.NET Core 테스트 호스트",
+  "productVersionChanged": false,
+  "migration": {
+    "manifest": [
+      {
+        "sha256": "39D3556D488460125628352ACE350A75F9AF6B4C2BCA9DCBBB46551C18260610",
+        "source": "assets/frontend/build.cjs",
+        "destination": "doc/Portway.Artifact/assets/frontend/build.cjs"
+      },
+      {
+        "sha256": "EF5D45031ADCE79EEAF17F04A966871137589F9B60D18E4520ADE84B291DCD05",
+        "source": "assets/frontend/licenses/tabler-LICENSE",
+        "destination": "doc/Portway.Artifact/assets/frontend/licenses/tabler-LICENSE"
+      },
+      {
+        "sha256": "C02E8AE88FE772B2277C59344BF6693D7FEA2B23C109511748A495B5C999F516",
+        "source": "assets/frontend/monaco-entry.mjs",
+        "destination": "doc/Portway.Artifact/assets/frontend/monaco-entry.mjs"
+      },
+      {
+        "sha256": "2F33AC5E3D867EF360A4CFF9CB50A0DC49F33C6D12F5978443A61DF54DF7E462",
+        "source": "assets/frontend/package-lock.json",
+        "destination": "doc/Portway.Artifact/assets/frontend/package-lock.json"
+      },
+      {
+        "sha256": "A96F7B3F301CACC631565CD29B387AE908C66A6DD271FA8801110CB63051A06F",
+        "source": "assets/frontend/package.json",
+        "destination": "doc/Portway.Artifact/assets/frontend/package.json"
+      },
+      {
+        "sha256": "12510E285E3E08C7DE50EC9BC7CAF0C5050B23193FC436E16CBB9FFCA876DAA1",
+        "source": "assets/frontend/tests/display-time.test.mjs",
+        "destination": "doc/Portway.Artifact/assets/frontend/tests/display-time.test.mjs"
+      },
+      {
+        "sha256": "80E567748AAFE3A71F50495A11417B9343D0AE808B9319031007B7ECBA136286",
+        "source": "assets/frontend/tests/drop.test.mjs",
+        "destination": "doc/Portway.Artifact/assets/frontend/tests/drop.test.mjs"
+      },
+      {
+        "sha256": "1D327FCFEFBD88C4AAC7655225C47D50D061560ECCA71567A333CBB2A6A987EA",
+        "source": "assets/frontend/tests/editor.test.mjs",
+        "destination": "doc/Portway.Artifact/assets/frontend/tests/editor.test.mjs"
+      },
+      {
+        "sha256": "2EA816628080311207C8EB76BA3374692AB93AF3ED1B41AF1AB60AFD035EEA8C",
+        "source": "assets/frontend/tests/explorer.test.mjs",
+        "destination": "doc/Portway.Artifact/assets/frontend/tests/explorer.test.mjs"
+      },
+      {
+        "sha256": "172E24EC5C7CE479AC4FD0A228C6EE943457EB0111D9CC9B0522AD451E528157",
+        "source": "assets/frontend/tests/selection.test.mjs",
+        "destination": "doc/Portway.Artifact/assets/frontend/tests/selection.test.mjs"
+      },
+      {
+        "sha256": "F603F85F2DF60EFF197583AB125FFA0A8D7429D5284BCBC35D427C7912B7BB96",
+        "source": "assets/frontend/tests/theme.test.mjs",
+        "destination": "doc/Portway.Artifact/assets/frontend/tests/theme.test.mjs"
+      },
+      {
+        "sha256": "B167334A6BE8C9A5E14F9D5DB0989950B7104703ED7B559CAC0CB6B1AD5D5076",
+        "source": "assets/portway.icns",
+        "destination": "doc/Portway.Artifact/assets/portway.icns"
+      },
+      {
+        "sha256": "586022C556E70EAF341AC26630DEC1B08D3898E3BC467C22D254DC2F38C5AA46",
+        "source": "assets/portway.ico",
+        "destination": "doc/Portway.Artifact/assets/portway.ico"
+      },
+      {
+        "sha256": "DDBFA5D2C1F3A253EF652F1F5D6F760A4131EFBDFC95ECE4A794F75EE4C7D531",
+        "source": "assets/portway.png",
+        "destination": "doc/Portway.Artifact/assets/portway.png"
+      }
+    ],
+    "nodeModulesMoved": true,
+    "historicalRecordsPreserved": true,
+    "trackedFiles": 14,
+    "npmCiRepeated": false,
+    "contentResults": [
+      {
+        "contentUnchanged": false,
+        "path": "doc/Portway.Artifact/assets/frontend/build.cjs"
+      },
+      {
+        "contentUnchanged": true,
+        "path": "doc/Portway.Artifact/assets/frontend/licenses/tabler-LICENSE"
+      },
+      {
+        "contentUnchanged": true,
+        "path": "doc/Portway.Artifact/assets/frontend/monaco-entry.mjs"
+      },
+      {
+        "contentUnchanged": true,
+        "path": "doc/Portway.Artifact/assets/frontend/package-lock.json"
+      },
+      {
+        "contentUnchanged": false,
+        "path": "doc/Portway.Artifact/assets/frontend/package.json"
+      },
+      {
+        "contentUnchanged": false,
+        "path": "doc/Portway.Artifact/assets/frontend/tests/display-time.test.mjs"
+      },
+      {
+        "contentUnchanged": false,
+        "path": "doc/Portway.Artifact/assets/frontend/tests/drop.test.mjs"
+      },
+      {
+        "contentUnchanged": false,
+        "path": "doc/Portway.Artifact/assets/frontend/tests/editor.test.mjs"
+      },
+      {
+        "contentUnchanged": false,
+        "path": "doc/Portway.Artifact/assets/frontend/tests/explorer.test.mjs"
+      },
+      {
+        "contentUnchanged": false,
+        "path": "doc/Portway.Artifact/assets/frontend/tests/selection.test.mjs"
+      },
+      {
+        "contentUnchanged": false,
+        "path": "doc/Portway.Artifact/assets/frontend/tests/theme.test.mjs"
+      },
+      {
+        "contentUnchanged": true,
+        "path": "doc/Portway.Artifact/assets/portway.icns"
+      },
+      {
+        "contentUnchanged": true,
+        "path": "doc/Portway.Artifact/assets/portway.ico"
+      },
+      {
+        "contentUnchanged": true,
+        "path": "doc/Portway.Artifact/assets/portway.png"
+      }
+    ]
+  },
+  "checks": {
+    "iconsRegenerated": "통과",
+    "diffCheck": "통과",
+    "structure": {
+      "assetItemCount": 14,
+      "updatedAssetLinkCount": 13,
+      "powerShellSyntax": [
+        "scripts/build.ps1",
+        "scripts/package.ps1"
+      ],
+      "nodeModulesExcluded": true,
+      "outputIconHashesMatch": true,
+      "solutionProjectsExist": true,
+      "artifactItemCount": 26,
+      "rootAssetsAbsent": true
+    },
+    "package": {
+      "version": "0.3.9-assets-path-20261001-5d5ed5c8",
+      "zip": "artifacts/qa/assets-relocation-5d5ed5c871704726b0835cfdcd85926f/packages/Portway-0.3.9-assets-path-20261001-5d5ed5c8-win-x64-beta.zip",
+      "sha256": "59A6D3AEED9759092815261FF073F7496924A6166CF214560A8D896DEDB04244",
+      "packageFeedHashMatches": true,
+      "iconBytesMatch": true,
+      "cliIncluded": true,
+      "installerIncluded": true,
+      "webAssetFilesMatched": 287,
+      "signed": false
+    },
+    "dotnetTests": {
+      "solution-tests": {
+        "failed": 0,
+        "passed": 96,
+        "skipped": 25,
+        "total": 121
+      },
+      "package-tests": {
+        "failed": 0,
+        "passed": 1,
+        "skipped": 0,
+        "total": 1
+      }
+    },
+    "frontendBuild": "통과",
+    "frontendFormat": "통과",
+    "solutionBuild": {
+      "errors": 0,
+      "status": "통과",
+      "warnings": 0
+    },
+    "frontendTests": {
+      "skipped": 0,
+      "failed": 0,
+      "passed": 31
+    }
+  },
+  "paths": {
+    "solutionTestsTrx": "artifacts/qa/assets-relocation-5d5ed5c871704726b0835cfdcd85926f/test-results/solution-tests.trx",
+    "packageTestsTrx": "artifacts/qa/assets-relocation-5d5ed5c871704726b0835cfdcd85926f/test-results/package-tests.trx",
+    "qa": "artifacts/qa/assets-relocation-5d5ed5c871704726b0835cfdcd85926f",
+    "frontendBuildLog": "artifacts/qa/assets-relocation-5d5ed5c871704726b0835cfdcd85926f/build.log",
+    "packageLog": "artifacts/qa/assets-relocation-5d5ed5c871704726b0835cfdcd85926f/package-windows.log",
+    "solutionBuildLog": "artifacts/qa/assets-relocation-5d5ed5c871704726b0835cfdcd85926f/solution-build.log"
+  },
+  "limits": [
+    "서명·실제 설치·시작·업데이트 적용·Delta 복원 미검증",
+    "macOS·Linux 실제 실행·패키징·서명·공증 및 Linux Dockerfile 빌드 미실행",
+    "브라우저·네이티브 UI·Visual Studio 실제 화면·프로토콜 서버 통합 검증 미실행",
+    "기본 .NET 테스트 25개 조건부 건너뜀",
+    "build.ps1 전체 실행 대신 격리 출력으로 개별 단계 검증; 기존 dist 및 공용 배포 서버 변경 없음"
+  ],
+  "report": "doc/Portway.Document/jobs/VALIDATION-assets-relocation-20261001-5d5ed5c8.md"
+}

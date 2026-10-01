@@ -2,7 +2,7 @@
   <PropertyGroup>
     <TargetFramework>net10.0</TargetFramework>
     <AssemblyName>Portway</AssemblyName>
-    <ApplicationIcon Condition="$([MSBuild]::IsOSPlatform('Windows'))">../../assets/portway.ico</ApplicationIcon>
+    <ApplicationIcon Condition="$([MSBuild]::IsOSPlatform('Windows'))">../../doc/Portway.Artifact/assets/portway.ico</ApplicationIcon>
     <OutputType Condition="$([MSBuild]::IsOSPlatform('Windows'))">WinExe</OutputType>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
@@ -17,6 +17,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Update="wwwroot\**" CopyToOutputDirectory="PreserveNewest" />
-    <None Include="..\..\assets\portway.ico;..\..\assets\portway.png" CopyToOutputDirectory="PreserveNewest" Visible="false" />
+    <None Include="..\..\doc\Portway.Artifact\assets\portway.ico;..\..\doc\Portway.Artifact\assets\portway.png" CopyToOutputDirectory="PreserveNewest" Visible="false" />
   </ItemGroup>
 </Project>

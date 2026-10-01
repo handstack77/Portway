@@ -4,7 +4,7 @@ import { readFile } from "node:fs/promises";
 
 const source = await readFile(
   new URL(
-    "../../../src/Portway.Desktop/wwwroot/display-time.js",
+    "../../../../../src/Portway.Desktop/wwwroot/display-time.js",
     import.meta.url,
   ),
   "utf8",

@@ -42,8 +42,8 @@ Photino와 ASP.NET Core로 만든 Windows · macOS · Linux 파일 전송 앱입
 개발 환경에는 [.NET 10 SDK](https://dotnet.microsoft.com/download/dotnet/10.0), 자산 빌드·패키징에는 Node.js 20 이상과 PowerShell 7이 필요합니다. Node.js는 앱 실행에 필요하지 않습니다. 자체 포함 패키지에는 .NET 런타임이 포함됩니다.
 
 ```powershell
-npm ci --prefix assets/frontend
-npm run build --prefix assets/frontend
+npm ci --prefix doc/Portway.Artifact/assets/frontend
+npm run build --prefix doc/Portway.Artifact/assets/frontend
 dotnet restore Portway.slnx
 dotnet run --project src/Portway.Desktop
 ```

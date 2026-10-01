@@ -56,8 +56,8 @@ Ubuntu 24.04 기반 검증 이미지의 패키지와 Xvfb 구성은 [Dockerfile.
 dotnet --version
 node --version
 pwsh --version
-npm ci --prefix assets/frontend
-npm run build --prefix assets/frontend
+npm ci --prefix doc/Portway.Artifact/assets/frontend
+npm run build --prefix doc/Portway.Artifact/assets/frontend
 dotnet restore Portway.slnx
 dotnet build Portway.slnx -c Release
 ```
@@ -73,16 +73,21 @@ Photino 창 안에 두 패널 UI가 열리면 로컬 실행이 된 것입니다.
 
 ### 문서용 Node 프로젝트
 
-`Portway.slnx`의 `doc` 솔루션 폴더에는 [Portway.Document](../README.md)가 있습니다. 실제 프로젝트 경로는 `doc/Portway.Document`이며, Node.js 20 이상을 사용하는 기본 콘솔 프로젝트입니다. Visual Studio의 Node.js 개발 워크로드로 실행·디버깅할 수 있습니다.
+`Portway.slnx`의 `doc` 솔루션 폴더에는 [Portway.Document](../README.md)가 있습니다. 실제 프로젝트 경로는 `doc/Portway.Document`이며, Node.js 20 이상을 사용하는 기본 콘솔 프로젝트입니다. 프로젝트 파일은 [Portway.Document.esproj](../Portway.Document.esproj)이고 Artifact와 같은 JavaScript SDK 버전을 사용합니다. `.esproj`를 지원하는 Visual Studio JavaScript·TypeScript 프로젝트 도구와 `.vscode/launch.json`의 `Portway.Document` Node 프로필로 디버깅하도록 설정합니다. 실제 Visual Studio 실행 여부는 해당 검증 기록과 구분합니다.
 
 ```powershell
 npm start --prefix doc/Portway.Document
 npm run build --prefix doc/Portway.Document
+dotnet run --project doc/Portway.Document/Portway.Document.esproj
 ```
 
-현재 `build`는 진입점의 JavaScript 구문을 검사하며 솔루션 빌드에서도 실행합니다. 프로젝트를 문서 생성 도구로 확장할 때 해당 빌드 명령을 갱신합니다. 프로젝트 구성·명령은 프로젝트 README에 기록하고 개발·사용 가이드는 `doc/Portway.Document/docs/`, 작업별 검증 기록은 `doc/Portway.Document/jobs/`에 유지합니다.
+현재 `build`는 진입점의 JavaScript 구문을 검사하며 `.esproj`의 `BuildCommand`로 프로젝트·솔루션 빌드에서도 실행합니다. 자동 npm 설치·감사는 비활성화하고 `StartupCommand`는 `npm run start`를 사용합니다. `src/`, `docs/`, `jobs/`와 디버깅 설정은 명시적으로 프로젝트에 표시합니다. 이전 `.njsproj`와 Node.js Tools 전용 `Build.targets`는 제거했으며 문서 프로젝트를 .NET 테스트 대상으로 실행하지 않습니다. 프로젝트를 문서 생성 도구로 확장할 때 해당 빌드 명령을 갱신합니다. 프로젝트 구성·명령은 프로젝트 README에 기록하고 개발·사용 가이드는 `doc/Portway.Document/docs/`, 작업별 검증 기록은 `doc/Portway.Document/jobs/`에 유지합니다.
 
-같은 `doc` 솔루션 폴더의 [Portway.Artifact.esproj](../../Portway.Artifact/Portway.Artifact.esproj)는 저장소 루트의 `assets/`, `deploy/`, `scripts/` 파일을 재귀 와일드카드로 연결합니다. 파일은 원래 위치에서 편집하며 `assets/frontend/node_modules/`는 프로젝트 항목에서 제외합니다. 이 프로젝트는 파일 탐색용이므로 솔루션 빌드에서 별도 npm 설치나 빌드 스크립트를 실행하지 않습니다.
+같은 `doc` 솔루션 폴더의 [Portway.Artifact.esproj](../../Portway.Artifact/Portway.Artifact.esproj)는 내부의 `doc/Portway.Artifact/assets/`와 저장소 루트의 `deploy/`, `scripts/` 파일을 재귀 와일드카드로 연결합니다. OS 아이콘과 프런트엔드 프로젝트는 실제로 `doc/Portway.Artifact/assets/`에 보관하고, `doc/Portway.Artifact/assets/frontend/node_modules/`는 프로젝트 항목에서 제외합니다. 이 프로젝트는 파일 탐색용이므로 솔루션 빌드에서 별도 npm 설치나 빌드 스크립트를 실행하지 않습니다.
+
+프런트엔드의 `build.cjs`와 포맷 명령은 `../../../../`로 저장소 루트의 소스와 설정을 참조하고, `tests/`의 테스트는 `../../../../../src/`로 UI 모듈을 읽습니다. 자산 생성 위치는 기존 Desktop·Server의 `wwwroot/vendor/`로 유지합니다. 아이콘 생성·Desktop 프로젝트·패키징 스크립트와 Linux Dockerfile도 새 자산 위치를 사용합니다.
+
+Artifact는 자동 파일 등록을 끈 프로젝트입니다. Visual Studio 솔루션 탐색기에 내부 자산을 표시하도록 `Folder Include="assets\"`와 `None Include="assets/**/*" Visible="true"`를 명시합니다. 내부 자산에는 `Link`를 지정하지 않고 실제 폴더 구조를 사용하며 `node_modules` 제외 설정을 유지합니다. 프로젝트 설정을 편집할 때 이 등록을 제거하면 자산이 탐색기에서 사라집니다.
 
 ### Visual Studio에서 웹 UI 디버깅
 
@@ -120,7 +125,9 @@ src/
     wwwroot/             app.js, advanced.js, workflows.js, drop.js, CSS
   Portway.Cli/            스크립트 실행 CLI; 배포 패키지의 cli/에 포함
   Portway.Server/         릴리스 ZIP 검증·저장·다운로드 API와 대시보드
-assets/frontend/         고정 npm 의존성, build.cjs, 프런트엔드 테스트
+doc/Portway.Artifact/    Visual Studio 자산 탐색 프로젝트
+  assets/               Windows·macOS·Linux 아이콘
+    frontend/           고정 npm 의존성, build.cjs, 프런트엔드 테스트
 scripts/                 빌드, 게시, 통합·설치·브라우저 QA
 tests/Portway.Tests/      xUnit 단위·프로토콜·복구·배포 테스트
 tests/infrastructure/    Docker fixture와 Linux GUI 검증 이미지
@@ -164,9 +171,9 @@ Desktop의 [Program.cs](../../../src/Portway.Desktop/Program.cs)는 Velopack 초
 | [editor.js](../../../src/Portway.Desktop/wwwroot/editor.js), [editor-state.js](../../../src/Portway.Desktop/wwwroot/editor-state.js) | Monaco 지연 로드, 언어·테마, 모델 수명, 저장 스냅샷·변경 감지·ETag |
 | [app.css](../../../src/Portway.Desktop/wwwroot/app.css) | 워크스페이스와 컴포넌트 배치 |
 | [design-tokens.css](../../../src/Portway.Desktop/wwwroot/design-tokens.css), [theme.js](../../../src/Portway.Desktop/wwwroot/theme.js) | 공유 테마 색상과 최초 렌더·기존 시스템 설정 변환 |
-| [build.cjs](../../../assets/frontend/build.cjs) | npm 자산·폰트·라이선스 복사, Master CSS 생성, Server 공유 자산 동기화 |
+| [build.cjs](../../../doc/Portway.Artifact/assets/frontend/build.cjs) | npm 자산·폰트·라이선스 복사, Master CSS 생성, Server 공유 자산 동기화 |
 
-현재 [package.json](../../../assets/frontend/package.json)은 `@tabler/core` 1.4.0, `@tabler/icons-webfont` 3.48.0, `@master/css` 1.37.8, xterm 6.0.0, `monaco-editor` 0.57.0과 빌드 도구 `esbuild` 0.28.2를 고정합니다. 의존성을 변경하면 lockfile과 라이선스 목록을 함께 갱신하고 대상 WebView에서 호환성을 확인합니다.
+현재 [package.json](../../../doc/Portway.Artifact/assets/frontend/package.json)은 `@tabler/core` 1.4.0, `@tabler/icons-webfont` 3.48.0, `@master/css` 1.37.8, xterm 6.0.0, `monaco-editor` 0.57.0과 빌드 도구 `esbuild` 0.28.2를 고정합니다. 의존성을 변경하면 lockfile과 라이선스 목록을 함께 갱신하고 대상 WebView에서 호환성을 확인합니다.
 
 ### Folded Hover 사이드바
 
@@ -190,7 +197,7 @@ Desktop의 [Program.cs](../../../src/Portway.Desktop/Program.cs)는 Velopack 초
 
 관련 회귀 검증은 `LocalTransferTests`와 실제 양방향 복사·F5/F6·내부 드래그·오른쪽 파일 관리·Monaco 저장·탭 전환입니다. `LocalLinkFact`는 Windows의 심볼릭 링크 생성 권한이 없는 기본 실행에서 명시적으로 건너뜁니다. 권한이 있는 Windows 환경에서 `PORTWAY_SYMLINK_TESTS=1`로 활성화하며, Linux/macOS에서는 기본 실행합니다. Windows junction과 실제 심볼릭 링크의 검증 여부를 구분하세요.
 
-`assets/frontend/tests/selection.test.mjs`는 범위 축소, 추가 선택, 포커스 이동, 필터·정렬, 박스 반전을 검증합니다. 브라우저에서는 실제 포인터 드래그·자동 스크롤·Esc 취소·우클릭·단축키·SFTP 다중 전송·부분 실패와 980×680/두 테마를 확인합니다. [0.3.5 검증 기록](../jobs/VALIDATION-0.3.5.md)을 참고하세요.
+`doc/Portway.Artifact/assets/frontend/tests/selection.test.mjs`는 범위 축소, 추가 선택, 포커스 이동, 필터·정렬, 박스 반전을 검증합니다. 브라우저에서는 실제 포인터 드래그·자동 스크롤·Esc 취소·우클릭·단축키·SFTP 다중 전송·부분 실패와 980×680/두 테마를 확인합니다. [0.3.5 검증 기록](../jobs/VALIDATION-0.3.5.md)을 참고하세요.
 
 ### 글꼴과 강조색
 
@@ -206,24 +213,24 @@ Desktop의 [Program.cs](../../../src/Portway.Desktop/Program.cs)는 Velopack 초
 | --- | --- |
 | `src/Portway.Desktop/wwwroot/logo.svg` | 사이드바·배포 센터 헤더와 소개 영역 로고 |
 | `wwwroot/favicon.svg`, `favicon.ico`(16·32·48), `apple-touch-icon.png`(180) | Desktop·배포 센터 파비콘. 빌드가 Server `wwwroot`로 복사 |
-| `assets/portway.ico`(16–256) | Windows 실행 파일(`ApplicationIcon`), Photino 창 아이콘, vpk 설치 패키지 |
-| `assets/portway.png`(512) | Linux 창 아이콘과 vpk 패키지 |
-| `assets/portway.icns` | macOS vpk 패키지. 1024 캔버스에 824 격자 여백 적용 |
+| `doc/Portway.Artifact/assets/portway.ico`(16–256) | Windows 실행 파일(`ApplicationIcon`), Photino 창 아이콘, vpk 설치 패키지 |
+| `doc/Portway.Artifact/assets/portway.png`(512) | Linux 창 아이콘과 vpk 패키지 |
+| `doc/Portway.Artifact/assets/portway.icns` | macOS vpk 패키지. 1024 캔버스에 824 격자 여백 적용 |
 | `doc/Portway.Document/docs/images/portway-logo.svg` | README 워드마크 |
 
 `Program.cs`는 실행 폴더에 복사한 `portway.ico`(Windows) 또는 `portway.png`로 `SetIconFile`을 호출합니다.
 
-0.3.7 다크 팔레트는 [Visual Studio 2026 공식 테마 토큰](https://learn.microsoft.com/en-us/visualstudio/extensibility/ux-guidelines/theme-color-token-reference?view=visualstudio)의 중성 회색을 참고합니다. 캔버스 `#1c1c1c`, 패널 `#202020`, 헤더 `#282828`, 팝업 `#2c2c2c`, 경계 `#454545`를 공유 토큰과 Tabler 변수에 함께 매핑합니다. `--input-bg`, `--editor-bg`, `--floating-bg`, `--header-bg`는 역할별 명암을 구분하며 Monaco·터미널도 같은 토큰을 읽습니다. 라이트와 Tabler 기본 파란색은 유지합니다. `assets/frontend/tests/theme.test.mjs`는 최초 선택·캐시·기존 설정 변환·OS 변경 무시·저장소 실패를 검증합니다.
+0.3.7 다크 팔레트는 [Visual Studio 2026 공식 테마 토큰](https://learn.microsoft.com/en-us/visualstudio/extensibility/ux-guidelines/theme-color-token-reference?view=visualstudio)의 중성 회색을 참고합니다. 캔버스 `#1c1c1c`, 패널 `#202020`, 헤더 `#282828`, 팝업 `#2c2c2c`, 경계 `#454545`를 공유 토큰과 Tabler 변수에 함께 매핑합니다. `--input-bg`, `--editor-bg`, `--floating-bg`, `--header-bg`는 역할별 명암을 구분하며 Monaco·터미널도 같은 토큰을 읽습니다. 라이트와 Tabler 기본 파란색은 유지합니다. `doc/Portway.Artifact/assets/frontend/tests/theme.test.mjs`는 최초 선택·캐시·기존 설정 변환·OS 변경 무시·저장소 실패를 검증합니다.
 
 ### Monaco 빌드와 저장 수명 주기
 
-[monaco-entry.mjs](../../../assets/frontend/monaco-entry.mjs)를 esbuild로 묶어 Desktop의 `vendor/monaco/`에 ESM·CSS·폰트·언어 청크와 editor/json/css/html/ts 작업자를 생성합니다. [공식 ESM 통합 안내](https://github.com/microsoft/monaco-editor/blob/main/docs/integrate-esm.md)의 작업자 분리 구조를 사용하며, 0.57의 npm exports 경로에 맞춰 빌드합니다. Server에는 Monaco를 복사하지 않습니다. `MonacoEnvironment.getWorker`는 동일 출처의 모듈 작업자를 생성하고 CSP는 `worker-src 'self'`를 유지합니다. CDN·blob·unsafe-eval을 추가하지 않으며 JSON의 외부 스키마 요청은 비활성화합니다.
+[monaco-entry.mjs](../../../doc/Portway.Artifact/assets/frontend/monaco-entry.mjs)를 esbuild로 묶어 Desktop의 `vendor/monaco/`에 ESM·CSS·폰트·언어 청크와 editor/json/css/html/ts 작업자를 생성합니다. [공식 ESM 통합 안내](https://github.com/microsoft/monaco-editor/blob/main/docs/integrate-esm.md)의 작업자 분리 구조를 사용하며, 0.57의 npm exports 경로에 맞춰 빌드합니다. Server에는 Monaco를 복사하지 않습니다. `MonacoEnvironment.getWorker`는 동일 출처의 모듈 작업자를 생성하고 CSP는 `worker-src 'self'`를 유지합니다. CDN·blob·unsafe-eval을 추가하지 않으며 JSON의 외부 스키마 요청은 비활성화합니다.
 
 사이트 연결·편집 폼은 초기 포커스를 호스트 입력란에 두고 입력란의 Enter를 `requestSubmit(connectButton)`으로 연결합니다. 버튼·선택 컨트롤의 명시적 동작과 IME 조합 확정·자동 반복을 유지하고, 제출자가 없는 요청도 연결로 처리합니다. `bindForm`의 `onError`·`defaultSubmitter` 옵션은 이 폼의 토스트 오류 및 중복 제출 방지에 사용합니다. 토스트는 열린 모달 내부의 `.toast-stack`에 표시하며 닫힐 때 기본 `#toasts`로 옮겨 남은 표시 시간을 유지합니다.
 
 `editor.js`는 팝업을 열 때만 번들을 가져오고 고유 URI로 모델을 생성합니다. `portway-theme` 이벤트에 따라 Tabler 토큰을 Monaco 색상으로 전달합니다. 공통 CSS는 Monaco 내부 입력 요소를 제외합니다. 닫을 때 모델·편집기·이벤트 구독을 dispose하며 `modal()`은 이전 dialog의 close 이벤트가 새 창에 전달되지 않도록 노드를 교체합니다.
 
-저장 시 모델 내용·인코딩·BOM·ETag를 스냅샷으로 보냅니다. 응답은 **제출한 내용**의 저장 기준만 갱신하므로 요청 중 새로 입력한 내용은 미저장 상태를 유지합니다. 저장 실패 시 ETag와 변경 내용을 유지합니다. 메타데이터만 바꾸면 원본 줄바꿈도 보존합니다. `assets/frontend/tests/editor.test.mjs`가 이 계약을 검증합니다. UI 검증에는 로컬/SFTP 실제 저장, 인코딩/BOM, 동시 변경 거부, 찾기/바꾸기, 작업자 로드, 닫기 취소·모델 해제를 포함합니다.
+저장 시 모델 내용·인코딩·BOM·ETag를 스냅샷으로 보냅니다. 응답은 **제출한 내용**의 저장 기준만 갱신하므로 요청 중 새로 입력한 내용은 미저장 상태를 유지합니다. 저장 실패 시 ETag와 변경 내용을 유지합니다. 메타데이터만 바꾸면 원본 줄바꿈도 보존합니다. `doc/Portway.Artifact/assets/frontend/tests/editor.test.mjs`가 이 계약을 검증합니다. UI 검증에는 로컬/SFTP 실제 저장, 인코딩/BOM, 동시 변경 거부, 찾기/바꾸기, 작업자 로드, 닫기 취소·모델 해제를 포함합니다.
 
 - 컴포넌트와 기본 토큰은 **Tabler CSS**를 사용합니다.
 - 아이콘은 `<i class="ti ti-folder" aria-hidden="true"></i>`처럼 **Tabler Icons 웹 폰트**를 사용합니다. 아이콘만 있는 버튼에는 `aria-label`을 제공합니다.
@@ -235,8 +242,8 @@ Desktop의 [Program.cs](../../../src/Portway.Desktop/Program.cs)는 Velopack 초
 `wwwroot/vendor`와 Server로 복사되는 공유 테마·토큰은 **생성물**입니다. 직접 수정하지 말고 Desktop의 원본 또는 빌드 입력을 변경합니다. 특히 Master 클래스·npm 의존성·공유 테마를 변경했다면 아래 빌드를 다시 실행합니다.
 
 ```powershell
-npm run build --prefix assets/frontend
-npm test --prefix assets/frontend
+npm run build --prefix doc/Portway.Artifact/assets/frontend
+npm test --prefix doc/Portway.Artifact/assets/frontend
 dotnet build Portway.slnx -c Release
 ```
 
@@ -333,7 +340,7 @@ Core의 `SiteArchive`는 `format: "portway-sites"`, `version: 1`, `sites` 배열
 ### 기본 검사
 
 ```powershell
-npm test --prefix assets/frontend
+npm test --prefix doc/Portway.Artifact/assets/frontend
 dotnet test Portway.slnx -c Release --logger 'trx;LogFileName=unit.trx'
 ```
 

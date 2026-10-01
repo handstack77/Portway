@@ -1,6 +1,6 @@
 # Portway.Document
 
-Portway의 가이드·이미지·검증 기록을 관리하는 Node.js 프로젝트입니다. Node.js 20 이상을 사용하며 기본 콘솔 진입점에는 외부 의존성이 없습니다.
+Portway의 가이드·이미지·검증 기록을 관리하는 Node.js 콘솔 프로젝트입니다. Visual Studio 프로젝트 파일은 `Portway.Document.esproj`이며 Artifact와 같은 `Microsoft.VisualStudio.JavaScript.Sdk/1.0.5277448`을 사용합니다. Node.js 20 이상을 사용하며 기본 콘솔 진입점에는 외부 의존성이 없습니다.
 
 ```text
 doc/Portway.Document/
@@ -8,7 +8,8 @@ doc/Portway.Document/
     images/              가이드에서 사용하는 이미지
   jobs/                  버전별·작업별 검증 보고서와 JSON
   src/index.js           Node 콘솔 진입점
-  Portway.Document.njsproj
+  Portway.Document.esproj
+  .vscode/launch.json     Node 디버깅 설정
   package.json
 ```
 
@@ -25,7 +26,9 @@ npm run build --prefix doc/Portway.Document
 
 `start`는 기본 진입점을 실행하고 `dev`는 파일 변경 시 다시 실행합니다. `build`는 현재 JavaScript 진입점의 구문을 검사합니다. 문서 생성 기능을 추가하면 빌드 명령도 해당 도구에 맞게 확장합니다.
 
-Visual Studio에서는 `Portway.slnx`의 `doc` 솔루션 폴더 아래에서 프로젝트를 찾을 수 있습니다. Node.js 개발 워크로드가 설치되어 있으면 시작 프로젝트로 지정해 `src/index.js`를 디버깅할 수 있습니다. CLI의 솔루션 빌드에서도 npm 구문 검사를 실행합니다.
+Visual Studio에서는 `Portway.slnx`의 `doc` 솔루션 폴더 아래에서 프로젝트를 찾을 수 있습니다. `.esproj`를 지원하는 JavaScript·TypeScript 프로젝트 도구를 사용하며, 시작 프로젝트와 `Portway.Document` Node 실행 프로필을 선택해 `src/index.js`를 디버깅하도록 설정했습니다. 실제 Visual Studio 실행은 검증 기록의 확인 범위를 참고하세요. CLI의 프로젝트·솔루션 빌드에서는 `npm run build`로 구문 검사를 실행하고 `dotnet run --project doc/Portway.Document/Portway.Document.esproj`로 콘솔 진입점을 실행할 수 있습니다.
+
+자동 npm 설치·감사는 비활성화하고 기존 lockfile과 npm 명령을 유지합니다. `src/`, `docs/`, `jobs/`, 패키지 파일과 디버깅 설정은 프로젝트에 명시적으로 등록합니다. 문서 프로젝트는 .NET 테스트 대상이 아닙니다. 이전 `.njsproj`와 Node.js Tools 전용 `Build.targets`는 사용하지 않습니다.
 
 가이드는 [개발자 가이드](docs/DEVELOPER-GUIDE.md), [사용자 가이드](docs/USER-GUIDE.md), [배포 운영](docs/DEPLOYMENT.md), [소스 탐색 가이드](docs/SOURCE-MAP.md)에서 시작합니다. 검증 기록 작성 방법은 [jobs 보관 규칙](jobs/README.md)을 참고하세요. 빌드·테스트 원본 로그, TRX와 임시 프로필은 저장소의 기존 산출물 경로에 보관하고 보고서에서 연결합니다.
 

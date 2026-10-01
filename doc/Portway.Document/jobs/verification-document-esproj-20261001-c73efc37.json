@@ -1,0 +1,69 @@
+{
+  "date": "2026-10-01T09:03:07.1766094+09:00",
+  "runId": "c73efc37f0854017bfea76784d612cac",
+  "source": {
+    "baseCommit": "2e2d598d1a7271aff75a6f001867ca568cc97164",
+    "state": "기존 자산 이동·표시 수정과 이번 Document esproj 전환을 포함한 작업 트리",
+    "project": "doc/Portway.Document/Portway.Document.esproj"
+  },
+  "environment": {
+    "os": "Microsoft Windows 10.0.26200",
+    "node": "20.18.0",
+    "dotnetSdk": "10.0.401"
+  },
+  "mockResponses": false,
+  "scope": "Document njsproj → esproj 전환, npm 실행·빌드·문서 표시·Node 디버깅 설정",
+  "checks": {
+    "launchJsonFormat": "통과",
+    "dotnetRun": "통과, 기존 한국어 시작 메시지 출력 후 정상 종료",
+    "npmBuild": "통과",
+    "projectStructure": {
+      "launchProfile": "Node 설정 확인, 실제 Visual Studio 실행 미검증",
+      "docs": 20,
+      "folders": 4,
+      "obsoleteFilesAbsent": true,
+      "projectLinksChecked": 4,
+      "projectIdPreserved": true,
+      "properties": {
+        "BuildCommand": "npm run build",
+        "StartupCommand": "npm run start",
+        "ShouldRunNpmInstall": "false",
+        "ShouldRunNpmAudit": "false",
+        "ShouldRunBuildScript": "true",
+        "IsTestProject": "false"
+      },
+      "items": 82,
+      "jobs": 57
+    },
+    "solutionTests": {
+      "failed": 0,
+      "passed": 96,
+      "skipped": 25
+    },
+    "solutionBuild": {
+      "nodeSyntaxCheckExecuted": true,
+      "passed": true,
+      "errors": 0,
+      "warnings": 0
+    },
+    "diffCheck": "통과"
+  },
+  "preserved": [
+    "솔루션 doc 폴더와 프로젝트 ID",
+    "Node 소스·package.json·lockfile",
+    "기존 문서·이미지·검증 기록",
+    "이전 자산 이동·표시 수정"
+  ],
+  "artifacts": {
+    "build": "artifacts/qa/document-esproj-c73efc37f0854017bfea76784d612cac/solution-build.log",
+    "run": "artifacts/qa/document-esproj-c73efc37f0854017bfea76784d612cac/document-run.log",
+    "itemEvaluation": "artifacts/qa/document-esproj-c73efc37f0854017bfea76784d612cac/document-items.json",
+    "testResults": "artifacts/qa/document-esproj-c73efc37f0854017bfea76784d612cac/test-results/solution-tests.trx",
+    "root": "artifacts/qa/document-esproj-c73efc37f0854017bfea76784d612cac"
+  },
+  "limits": [
+    "Visual Studio 실제 로드·탐색기·F5 디버깅 미검증",
+    "macOS·Linux 실행·브라우저·네이티브 UI·실제 프로토콜·설치·패키징·업데이트 검증 반복하지 않음"
+  ],
+  "report": "doc/Portway.Document/jobs/VALIDATION-document-esproj-20261001-c73efc37.md"
+}

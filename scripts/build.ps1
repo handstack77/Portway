@@ -17,9 +17,9 @@ if (!$Runtime.StartsWith("$platform-")) { throw 'vpk 패키지는 대상 운영�
 if ($Version -notmatch '^\d+\.\d+\.\d+([-.][0-9A-Za-z.-]+)?$') { throw '버전은 0.1.0 또는 0.3.9-beta.1 같은 SemVer 형식이어야 합니다.' }
 function Invoke-Checked { param([string]$Command, [string[]]$Arguments) & $Command @Arguments; if ($LASTEXITCODE -ne 0) { throw "$Command 실행에 실패했습니다. 종료 코드: $LASTEXITCODE" } }
 $npmCommand = if ($IsWindows) { 'npm.cmd' } else { 'npm' }
-Invoke-Checked $npmCommand @('ci','--prefix','assets/frontend')
-Invoke-Checked $npmCommand @('run','build','--prefix','assets/frontend')
-Invoke-Checked $npmCommand @('test','--prefix','assets/frontend')
+Invoke-Checked $npmCommand @('ci','--prefix','doc/Portway.Artifact/assets/frontend')
+Invoke-Checked $npmCommand @('run','build','--prefix','doc/Portway.Artifact/assets/frontend')
+Invoke-Checked $npmCommand @('test','--prefix','doc/Portway.Artifact/assets/frontend')
 Invoke-Checked dotnet @('tool','restore')
 if (!$SkipTests) { Invoke-Checked dotnet @('test','Portway.slnx','-c','Release','--nologo') }
 $publish = Join-Path $repo "dist/publish/$Runtime/$Version"

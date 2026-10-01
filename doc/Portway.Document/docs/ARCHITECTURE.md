@@ -11,8 +11,10 @@
 | Portway.Cli | 명령줄 입력과 종료 코드, ScriptEngine 실행 | Core |
 | Portway.Server | 릴리스 ZIP 검증·게시·다운로드와 배포 대시보드 | 없음 |
 | Portway.Tests | Core·Desktop·Server의 단위·API·조건부 통합 검사 | Core, Desktop, Server |
-| Portway.Document | Node 프로젝트 아래 `docs/`의 가이드·이미지와 `jobs/`의 검증 기록 관리 | 없음 |
-| Portway.Artifact | Visual Studio에서 루트 `assets/`, `deploy/`, `scripts/` 파일을 와일드카드 링크로 표시 | 없음 |
+| Portway.Document | JavaScript SDK의 `.esproj`에서 Node 콘솔·npm 구문 검사, `docs/`의 가이드·이미지와 `jobs/`의 검증 기록 관리 | 없음 |
+| Portway.Artifact | 내부 `assets/` 파일을 실제 폴더 구조로 표시하고 루트 `deploy/`, `scripts/`는 와일드카드 링크로 표시 | 없음 |
+
+OS 아이콘과 프런트엔드 빌드 프로젝트의 실제 위치는 `doc/Portway.Artifact/assets/`입니다. Artifact 프로젝트는 `Folder`로 `assets`를 명시하고 `None Include="assets/**/*" Visible="true"`로 내부 자산을 등록하며 `node_modules`를 제외합니다. 내부 자산은 `Link` 없이 실제 폴더 구조로 표시합니다. 생성한 웹 자산은 기존 Desktop·Server의 `wwwroot/vendor/`에 유지하며, 앱 실행 폴더에는 OS 아이콘의 파일명 그대로 복사합니다.
 
 ```mermaid
 flowchart LR

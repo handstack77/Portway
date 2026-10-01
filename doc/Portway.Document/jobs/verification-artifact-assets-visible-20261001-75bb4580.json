@@ -1,0 +1,43 @@
+{
+  "date": "2026-10-01T08:57:48.4304549+09:00",
+  "runId": "75bb4580002d413a8dbd376b0b479c14",
+  "source": {
+    "state": "이전 자산 이동과 이번 assets 표시 설정을 포함한 작업 트리",
+    "baseCommit": "2e2d598d1a7271aff75a6f001867ca568cc97164",
+    "project": "doc/Portway.Artifact/Portway.Artifact.esproj"
+  },
+  "environment": {
+    "dotnetSdk": "10.0.401",
+    "os": "Microsoft Windows 10.0.26200"
+  },
+  "mockResponses": false,
+  "scope": "Artifact 내부 assets 폴더와 표시 파일 명시 등록, node_modules 제외",
+  "checks": {
+    "diffCheck": "통과",
+    "buildCommand": "dotnet build Portway.slnx -c Release --artifacts-path artifacts/qa/artifact-assets-visible-75bb4580002d413a8dbd376b0b479c14/build",
+    "structure": {
+      "nodeModulesExcluded": true,
+      "assetFolderCount": 1,
+      "assetFileCount": 14,
+      "localAssetLinks": 0,
+      "externalLinksPreserved": true,
+      "visible": true
+    },
+    "itemEvaluationCommand": "dotnet msbuild doc/Portway.Artifact/Portway.Artifact.esproj -getItem:None,Folder -verbosity:quiet",
+    "build": {
+      "errors": 0,
+      "status": "통과",
+      "warnings": 0
+    }
+  },
+  "artifacts": {
+    "buildLog": "artifacts/qa/artifact-assets-visible-75bb4580002d413a8dbd376b0b479c14/solution-build.log",
+    "structure": "artifacts/qa/artifact-assets-visible-75bb4580002d413a8dbd376b0b479c14/structure-checks.json",
+    "items": "artifacts/qa/artifact-assets-visible-75bb4580002d413a8dbd376b0b479c14/project-items.json"
+  },
+  "limits": [
+    "Visual Studio 실제 화면·프로젝트 재로드 미검증",
+    "프런트엔드 테스트·패키징·앱 실행·프로토콜 통합 검증 반복하지 않음"
+  ],
+  "report": "doc/Portway.Document/jobs/VALIDATION-artifact-assets-visible-20261001-75bb4580.md"
+}

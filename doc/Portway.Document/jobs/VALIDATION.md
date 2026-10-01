@@ -1,5 +1,11 @@
 # Portway 최신 검증 결과
 
+2026-10-01 Document 프로젝트 전환: `.njsproj`를 Artifact와 같은 JavaScript SDK의 `Portway.Document.esproj`로 바꾸고 솔루션 등록·npm 빌드·시작 명령·폴더 표시·Node 디버깅 설정을 갱신했습니다. 격리 Release 빌드는 경고·오류 0개, 솔루션 테스트는 96개 통과·25개 조건부 건너뜀입니다. 새 .esproj의 CLI 콘솔 실행과 문서·검증 기록 항목 등록을 확인했습니다. 실제 Visual Studio F5 실행은 미검증이며 자세한 결과는 [Document .esproj 전환 보고서](VALIDATION-document-esproj-20261001-c73efc37.md)에 있습니다.
+
+2026-10-01 Artifact 자산 표시 수정: 자동 항목 등록을 끈 프로젝트에 빠져 있던 내부 assets 폴더·파일 등록을 명시했습니다. MSBuild에서 폴더 1개와 표시 파일 14개, node_modules 제외·외부 링크 보존을 확인했고 격리 Release 빌드는 경고·오류 없이 통과했습니다. 실제 Visual Studio 화면은 미검증입니다. 자세한 결과는 [assets 표시 설정 보고서](VALIDATION-artifact-assets-visible-20261001-75bb4580.md)에 있습니다.
+
+2026-10-01 자산 경로 변경: 루트 `assets/`를 `doc/Portway.Artifact/assets/`로 이동하고 프로젝트·프런트엔드·빌드·패키징·아이콘 생성·문서 경로를 갱신했습니다. Windows 격리 Release 빌드는 경고·오류 0개, .NET 테스트는 96개 통과·25개 조건부 건너뜀, 프런트엔드는 31개 통과입니다. 새 경로에서 실제 Windows QA 패키지를 생성했고 실제 ZIP API 검사 1개 및 웹 자산 287개의 내용 일치 검사가 통과했습니다. 서명·실제 설치·업데이트 적용과 macOS·Linux 실제 패키징은 미검증입니다. 자세한 명령·범위는 [자산 이동 보고서](VALIDATION-assets-relocation-20261001-5d5ed5c8.md)에 있습니다. 아래 이전 기록의 경로는 당시 이력입니다.
+
 2026-09-30 표기 변경: 코드·화면·문서의 해당 한국어 용어를 `Vault`로 교체했습니다. Windows Release 소스에서 `dotnet test Portway.slnx -c Release --no-restore`는 96개 통과·25개 조건부 건너뜀, `npm test --prefix assets/frontend`는 31개 통과, 프런트엔드 포맷 검사와 문서 빌드가 통과했습니다. 격리된 headless 호스트와 Chromium에서 설정 및 사이트 팝업의 새 표기를 라이트/다크 테마와 980×680 화면에서 확인했습니다. 설치 패키지와 macOS·Linux 네이티브 UI는 이 표기 변경에서 재검증하지 않았습니다.
 
 현재 개발 소스의 Vault 자동 잠금 해제와 Windows 격리 프로필 재시작 검사는 [Vault 자동 잠금 해제 보고서](VALIDATION-vault-auto-unlock-20260930.md)에 기록했습니다. macOS·Linux OS 비밀 저장소와 실제 원격 서버 연결은 해당 변경에서 검증하지 않았습니다.

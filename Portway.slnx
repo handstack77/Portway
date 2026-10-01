@@ -4,7 +4,7 @@
       <Build />
       <Deploy />
     </Project>
-    <Project Path="doc/Portway.Document/Portway.Document.njsproj" Id="17f3cde8-a410-4fb1-9dda-642847435758">
+    <Project Path="doc/Portway.Document/Portway.Document.esproj" Id="17f3cde8-a410-4fb1-9dda-642847435758">
       <Build />
     </Project>
   </Folder>

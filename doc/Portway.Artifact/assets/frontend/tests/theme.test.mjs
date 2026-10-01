@@ -4,7 +4,10 @@ import { readFile } from "node:fs/promises";
 import { runInNewContext } from "node:vm";
 
 const source = await readFile(
-  new URL("../../../src/Portway.Desktop/wwwroot/theme.js", import.meta.url),
+  new URL(
+    "../../../../../src/Portway.Desktop/wwwroot/theme.js",
+    import.meta.url,
+  ),
   "utf8",
 );
 function start({ saved, dark = false, blocked = false } = {}) {

@@ -1,0 +1,18 @@
+<Project Sdk="Microsoft.VisualStudio.JavaScript.Sdk/1.0.5277448">
+  <PropertyGroup>
+    <EnableDefaultItems>false</EnableDefaultItems>
+    <ShouldRunNpmInstall>false</ShouldRunNpmInstall>
+    <ShouldRunNpmAudit>false</ShouldRunNpmAudit>
+    <ShouldRunBuildScript>true</ShouldRunBuildScript>
+    <BuildCommand>npm run build</BuildCommand>
+    <StartupCommand>npm run start</StartupCommand>
+    <IsTestProject>false</IsTestProject>
+  </PropertyGroup>
+  <ItemGroup>
+    <Folder Include="src\" />
+    <Folder Include="docs\" />
+    <Folder Include="jobs\" />
+    <Folder Include=".vscode\" />
+    <None Include="src/**/*;docs/**/*;jobs/**/*;package.json;package-lock.json;README.md;.vscode/launch.json" Visible="true" />
+  </ItemGroup>
+</Project>

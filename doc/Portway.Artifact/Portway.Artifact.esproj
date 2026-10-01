@@ -6,9 +6,8 @@
     <ShouldRunBuildScript>false</ShouldRunBuildScript>
   </PropertyGroup>
   <ItemGroup>
-    <None Include="../../assets/**/*" Exclude="../../assets/**/node_modules/**/*">
-      <Link>assets/%(RecursiveDir)%(Filename)%(Extension)</Link>
-    </None>
+    <Folder Include="assets\" />
+    <None Include="assets/**/*" Exclude="assets/**/node_modules/**/*" Visible="true" />
     <None Include="../../deploy/**/*">
       <Link>deploy/%(RecursiveDir)%(Filename)%(Extension)</Link>
     </None>
