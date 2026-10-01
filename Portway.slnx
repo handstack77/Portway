@@ -17,4 +17,21 @@
   <Folder Name="/tests/">
     <Project Path="tests/Portway.Tests/Portway.Tests.csproj" />
   </Folder>
+  <Folder Name="/솔루션 항목/">
+    <File Path=".dockerignore" />
+    <File Path=".editorconfig" />
+    <File Path=".gitattributes" />
+    <File Path=".gitignore" />
+    <File Path=".prettierignore" />
+    <File Path=".prettierrc.json" />
+    <File Path="AGENTS.md" />
+    <File Path="compose.production.yaml" />
+    <File Path="compose.yaml" />
+    <File Path="Directory.Build.props" />
+    <File Path="Dockerfile" />
+    <File Path="dotnet-tools.json" />
+    <File Path="global.json" />
+    <File Path="README.md" />
+    <File Path="THIRD-PARTY-NOTICES.md" />
+  </Folder>
 </Solution>
